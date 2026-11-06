@@ -1,0 +1,38 @@
+--- a/src/RenderEngine.cpp
++++ b/src/RenderEngine.cpp
+@@ -4,8 +4,13 @@
+     : events_(events), ui_(ui), viewport_{1, 1} {}
+ void RenderEngine::resize(Size requested) {
+     // One shared policy keeps viewport, layout, and notification consistent.
+-    viewport_ = Size{Geometry::clampDimension(requested.width),
+-                     Geometry::clampDimension(requested.height)};
++    const Size normalized{Geometry::clampDimension(requested.width),
++                          Geometry::clampDimension(requested.height)};
++    if (normalized.width == viewport_.width &&
++        normalized.height == viewport_.height) {
++        return;
++    }
++    viewport_ = normalized;
+     ui_.relayout(viewport_);
+     events_.publish(ViewportChanged{viewport_});
+ }
+--- a/tests/ResizeTests.cpp
++++ b/tests/ResizeTests.cpp
+@@ -23,13 +23,15 @@
+     EventBus events; UILayer ui; RenderEngine engine(events, ui);
+     engine.resize(Size{0, 0});
+     return engine.viewport().width == 1 && engine.viewport().height == 1 &&
+-           ui.bounds().width == 1 && events.lastSize().width == 1;
++           ui.bounds().width == 1 && events.count() == 0 &&
++           events.lastSize().width == 0 && events.lastSize().height == 0;
+ }
+ bool negativeResize() {
+     EventBus events; UILayer ui; RenderEngine engine(events, ui);
+     engine.resize(Size{-100, -5});
+     return engine.viewport().width == 1 && engine.viewport().height == 1 &&
+-           ui.bounds().height == 1 && events.lastSize().height == 1;
++           ui.bounds().height == 1 && events.count() == 0 &&
++           events.lastSize().width == 0 && events.lastSize().height == 0;
+ }
+ bool oversizeResize() {
+     EventBus events; UILayer ui; RenderEngine engine(events, ui);

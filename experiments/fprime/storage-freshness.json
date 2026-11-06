@@ -1,0 +1,241 @@
+{
+  "bytes_hashed": 3766556,
+  "changed_after_check": [],
+  "changed_after_check_count": 0,
+  "checked_at": "2026-09-26T23:42:59.632989+00:00",
+  "compilation_states": {
+    "parsed": 5,
+    "pending": 9
+  },
+  "context_eligible": false,
+  "counts": {
+    "matched": 171,
+    "not_checked": 302
+  },
+  "examples": [
+    {
+      "artifact": "external:/usr/include/alloca.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/asm-generic/bitsperlong.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/asm-generic/errno-base.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/asm-generic/errno.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/asm-generic/int-ll64.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/asm-generic/posix_types.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/asm-generic/types.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/assert.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/atomic",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/backward/auto_ptr.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/backward/binders.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bit",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/align.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/alloc_traits.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/allocated_ptr.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/allocator.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/atomic_base.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/atomic_lockfree_defines.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/basic_ios.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/basic_ios.tcc",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/basic_string.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/basic_string.tcc",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/char_traits.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/charconv.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/chrono.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/codecvt.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/concept_check.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/cpp_type_traits.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/cxxabi_forced.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/cxxabi_init_exception.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/erase_if.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/exception.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/exception_defines.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/exception_ptr.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/functexcept.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/functional_hash.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/hash_bytes.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/invoke.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/ios_base.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/istream.tcc",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/locale_classes.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/locale_classes.tcc",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/locale_conv.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/locale_facets.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/locale_facets.tcc",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/locale_facets_nonio.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/locale_facets_nonio.tcc",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/localefwd.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/memoryfwd.h",
+      "status": "not_checked"
+    },
+    {
+      "artifact": "external:/usr/include/c++/13/bits/move.h",
+      "status": "not_checked"
+    }
+  ],
+  "examples_truncated": true,
+  "inspection_only": true,
+  "limitations": [
+    "Recorded inputs only; newly added files and directory membership are not checked.",
+    "External paths are not read. Toolchain, generator inputs and binaries are not validated.",
+    "Not an atomic filesystem snapshot; change-and-restore races are not excluded.",
+    "No publication, requirement approval, test execution or graph completeness assertion."
+  ],
+  "more_artifacts": false,
+  "snapshot": {
+    "configuration_key": "linux-debug-ut",
+    "id": "bd6c4ddd353f4437a03812c834743c5c",
+    "revision": "7d8f579f159d2f7c2d4984d92828575e37f87fa6",
+    "state": "staging"
+  },
+  "status": "incomplete",
+  "visited_artifacts": 473,
+  "validation": {
+    "non_native_storage_tests": 34,
+    "schema_checks": 4,
+    "status": "passed",
+    "native_suite": "not rerun; previous .venv missing",
+    "browser": "pending user manual validation"
+  }
+}

@@ -1,0 +1,61 @@
+[
+  {
+    "id": "REQ-UI-002",
+    "name": "Keep resized state consistent",
+    "text": "Every resize request shall normalize each dimension to the inclusive range 1..8192 using the shared geometry policy. The viewport, UI root bounds, and published size shall agree.",
+    "parent": "SYS-002",
+    "criticality": "High",
+    "owner": "Experience team",
+    "verification": "Executable boundary and consistency tests",
+    "design": "ADR-RESIZE-001: reuse Geometry::clampDimension(int)",
+    "symbols": [
+      "aurora::RenderEngine::resize(Size)",
+      "aurora::UILayer::relayout(Size)",
+      "aurora::LayoutEngine::resolve(Size)"
+    ],
+    "constraints": [
+      "No duplicated clamping constants or independent normalization policy.",
+      "Preserve the single-threaded synchronous event order."
+    ]
+  },
+  {
+    "id": "REQ-EVT-001",
+    "name": "Publish after layout",
+    "text": "Each resize request shall publish exactly one ViewportChanged event after updating the UI layout.",
+    "parent": "SYS-002",
+    "criticality": "High",
+    "owner": "Platform team",
+    "verification": "Nominal, repeated, and event consistency tests",
+    "symbols": [
+      "aurora::RenderEngine::resize(Size)",
+      "aurora::EventBus::publish(const ViewportChanged &)"
+    ],
+    "constraints": [
+      "Exactly one event per request, even if dimensions repeat."
+    ]
+  },
+  {
+    "id": "REQ-RES-003",
+    "name": "Bound cache storage",
+    "text": "The asset cache shall hold at most four unique resource IDs and evict the oldest insertion on overflow.",
+    "parent": "SYS-003",
+    "criticality": "Medium",
+    "owner": "Platform team",
+    "verification": "Cache eviction test",
+    "symbols": [
+      "aurora::AssetCache::insert(int)"
+    ],
+    "constraints": []
+  },
+  {
+    "id": "REQ-ISO-008",
+    "name": "Isolate future graphics backend",
+    "text": "Future graphics API calls shall be confined to a platform backend boundary. No backend is implemented in this fixture.",
+    "parent": "SYS-003",
+    "criticality": "Medium",
+    "owner": "Platform team",
+    "verification": "Future dependency rule",
+    "symbols": [],
+    "constraints": []
+  }
+]

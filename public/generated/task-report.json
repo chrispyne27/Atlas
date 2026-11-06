@@ -1,0 +1,137 @@
+{
+  "milestone": "One requirement-aligned C++ change with graph-selected context",
+  "task": "Normalize viewport resize dimensions consistently",
+  "methodology": "One authored fixture and one task. The assistant inspected graph-selected context and made the recorded fix. This is not a blinded or autonomous-agent productivity benchmark. Baseline is case-insensitive resize|viewport text search followed by reading complete matching input files. Oracle was explicitly selected for this task.",
+  "oracle": [
+    {
+      "id": "REQ-UI-002",
+      "name": "Keep resized state consistent"
+    },
+    {
+      "id": "REQ-EVT-001",
+      "name": "Publish after layout"
+    },
+    {
+      "id": "c:@N@aurora@S@RenderEngine@F@resize#$@N@aurora@S@Size#",
+      "name": "aurora::RenderEngine::resize(Size)"
+    },
+    {
+      "id": "c:@N@aurora@S@UILayer@F@relayout#$@N@aurora@S@Size#",
+      "name": "aurora::UILayer::relayout(Size)"
+    },
+    {
+      "id": "c:@N@aurora@S@LayoutEngine@F@resolve#$@N@aurora@S@Size#1",
+      "name": "aurora::LayoutEngine::resolve(Size)"
+    },
+    {
+      "id": "c:@N@aurora@S@Geometry@F@clampDimension#I#S",
+      "name": "aurora::Geometry::clampDimension(int)"
+    },
+    {
+      "id": "c:@N@aurora@S@WindowController@F@onSizeChanged#I#I#",
+      "name": "aurora::WindowController::onSizeChanged(int, int)"
+    },
+    {
+      "id": "c:@N@aurora@S@EventBus@F@publish#&1$@N@aurora@S@ViewportChanged#",
+      "name": "aurora::EventBus::publish(const ViewportChanged &)"
+    },
+    {
+      "id": "c:@N@aurora@N@tests@F@eventMatchesLayout#",
+      "name": "aurora::tests::eventMatchesLayout()"
+    },
+    {
+      "id": "c:@N@aurora@N@tests@F@layoutClamps#",
+      "name": "aurora::tests::layoutClamps()"
+    },
+    {
+      "id": "c:@N@aurora@N@tests@F@negativeResize#",
+      "name": "aurora::tests::negativeResize()"
+    },
+    {
+      "id": "c:@N@aurora@N@tests@F@nominalResize#",
+      "name": "aurora::tests::nominalResize()"
+    },
+    {
+      "id": "c:@N@aurora@N@tests@F@oversizeResize#",
+      "name": "aurora::tests::oversizeResize()"
+    },
+    {
+      "id": "c:@N@aurora@N@tests@F@repeatedResize#",
+      "name": "aurora::tests::repeatedResize()"
+    },
+    {
+      "id": "c:@N@aurora@N@tests@F@zeroResize#",
+      "name": "aurora::tests::zeroResize()"
+    }
+  ],
+  "comparison": {
+    "graph": {
+      "oracle_found": 15,
+      "oracle_total": 15,
+      "selected_items": 19,
+      "source_code_chars": 4265,
+      "serialized_packet_chars": 25355
+    },
+    "text_search": {
+      "oracle_found": 12,
+      "oracle_total": 15,
+      "matched_files": [
+        "compile_commands.json",
+        "include/EventBus.hpp",
+        "include/RenderEngine.hpp",
+        "requirements.json",
+        "src/EventBus.cpp",
+        "src/RenderEngine.cpp",
+        "test_manifest.json",
+        "tests/ResizeTests.cpp"
+      ],
+      "source_chars": 9223,
+      "missing": [
+        "aurora::UILayer::relayout(Size)",
+        "aurora::LayoutEngine::resolve(Size)",
+        "aurora::Geometry::clampDimension(int)"
+      ]
+    }
+  },
+  "before": {
+    "fingerprint": "7d53d70363ab4c5276facad69a840bbc7fc583bb724a5b032a2841b93b02eb13",
+    "passed": 4,
+    "total": 8
+  },
+  "after": {
+    "fingerprint": "1eac0a40fdf69fdfcc51d604e86eb0d7879c49e607640478bd46922feab72ab6",
+    "passed": 8,
+    "total": 8
+  },
+  "refresh": {
+    "parsed": [
+      "src/RenderEngine.cpp"
+    ],
+    "reused": [
+      "src/AssetCache.cpp",
+      "src/EventBus.cpp",
+      "src/Geometry.cpp",
+      "src/UILayer.cpp",
+      "tests/ResizeTests.cpp"
+    ],
+    "translation_units": 6,
+    "elapsed_seconds": 0.0557,
+    "libclang_version": "18.1.1"
+  },
+  "stale_rejection": {
+    "code": "STALE_INDEX",
+    "message": "Repository inputs changed. Reindex before retrieval.",
+    "details": {
+      "changed_files": [
+        "src/RenderEngine.cpp"
+      ]
+    }
+  },
+  "limits": [
+    "No model-token measurement: all sizes are characters.",
+    "The structured graph packet includes provenance and relationships; its overhead can exceed raw file reads on this tiny fixture.",
+    "Source-code character counts exclude context metadata and requirement text.",
+    "Tests show fixture behavior only; no large-codebase scaling claim.",
+    "There are unresolved/implicit references; the index does not silently invent their targets."
+  ]
+}

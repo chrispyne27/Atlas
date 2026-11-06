@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Linux-c++"
+	tests="2"
+	failures="0"
+	disabled="0"
+	skipped="0"
+	hostname="4facbb6e2b8f"
+	time="0"
+	timestamp="2026-09-25T08:39:56"
+	>
+	<testcase name="Svc_CmdDispatcher_ut_exe" classname="Svc_CmdDispatcher_ut_exe" time="0.0434184" status="run">
+		<system-out>[==========] Running 10 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 4 tests from CmdDispTestNominal
+[ RUN      ] CmdDispTestNominal.NominalDispatch
+
+***************************************
+TESTCASE 102.1.1: Nominal Dispatch
+***************************************
+
+***************************************
+Dispatch a series of commands and verify they are dispatched correctly.
+***************************************
+
+***************************************
+(RQ)       CD-003
+***************************************
+
+***************************************
+(RQ)       CD-001
+***************************************
+
+***************************************
+(RQ)       CD-002
+***************************************
+
+***************************************
+(RQ)       CD-004
+***************************************
+[       OK ] CmdDispTestNominal.NominalDispatch (2 ms)
+[ RUN      ] CmdDispTestNominal.NopTest
+
+***************************************
+TESTCASE 102.1.2: NO_OP Command Tes...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="Svc_Health_ut_exe" classname="Svc_Health_ut_exe" time="0.653619" status="run">
+		<system-out>[==========] Running 11 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 11 tests from Test
+[ RUN      ] Test.NominalTlm
+
+***************************************
+TESTCASE 900.1.1: Nominal Telemetry
+***************************************
+
+***************************************
+(RQ)       ISF-HTH-001
+***************************************
+
+***************************************
+The Svc::Health component shall ping each output port specified in the provided table.
+***************************************
+[       OK ] Test.NominalTlm (60 ms)
+[ RUN      ] Test.WarningTlm
+
+***************************************
+TESTCASE 900.1.2: Warning Telemetry
+***************************************
+
+***************************************
+(RQ)       ISF-HTH-002
+***************************************
+
+***************************************
+The Svc::Health component shall track the timeout cycles for each component.
+***************************************
+[       OK ] Test.WarningTlm (55 ms...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+</testsuite>

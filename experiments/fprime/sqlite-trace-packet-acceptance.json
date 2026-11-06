@@ -1,0 +1,361 @@
+{
+  "synthetic": {
+    "status": "passed",
+    "synthetic": true,
+    "commands": [
+      [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "atlas_engine.storage.inspect",
+        "lookup",
+        "--database",
+        "/tmp/atlas-trace-acceptance-u95rhlv5/trace.sqlite",
+        "--snapshot",
+        "s",
+        "--target",
+        "t",
+        "--value",
+        "Trace.Nominal"
+      ],
+      [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "atlas_engine.storage.trace_packet",
+        "--database",
+        "/tmp/atlas-trace-acceptance-u95rhlv5/trace.sqlite",
+        "--snapshot",
+        "s",
+        "--target",
+        "t",
+        "--entity",
+        "test",
+        "--repo-root",
+        "/tmp/atlas-trace-acceptance-u95rhlv5/repo",
+        "--kind",
+        "invokes_annotated_helper",
+        "--kind",
+        "has_requirement_annotation",
+        "--kind",
+        "candidate_alias",
+        "--kind",
+        "calls"
+      ],
+      [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "atlas_engine.storage.trace_packet",
+        "--database",
+        "/tmp/atlas-trace-acceptance-u95rhlv5/trace.sqlite",
+        "--snapshot",
+        "s",
+        "--target",
+        "t",
+        "--entity",
+        "test",
+        "--repo-root",
+        "/tmp/atlas-trace-acceptance-u95rhlv5/repo",
+        "--kind",
+        "invokes_annotated_helper",
+        "--kind",
+        "has_requirement_annotation",
+        "--kind",
+        "candidate_alias",
+        "--kind",
+        "calls"
+      ],
+      [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "atlas_engine.storage.details",
+        "evidence",
+        "--database",
+        "/tmp/atlas-trace-acceptance-u95rhlv5/trace.sqlite",
+        "--snapshot",
+        "s",
+        "--target",
+        "t",
+        "--evidence",
+        "test"
+      ],
+      [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "atlas_engine.storage.details",
+        "source",
+        "--database",
+        "/tmp/atlas-trace-acceptance-u95rhlv5/trace.sqlite",
+        "--snapshot",
+        "s",
+        "--target",
+        "t",
+        "--evidence",
+        "test",
+        "--repo-root",
+        "/tmp/atlas-trace-acceptance-u95rhlv5/repo"
+      ]
+    ],
+    "snapshot": {
+      "configuration_key": "illustrative",
+      "id": "s",
+      "input_manifest_hash": "hash",
+      "revision": "synthetic-not-compiled",
+      "state": "staging"
+    },
+    "target": "t",
+    "seed": "test",
+    "entities": [
+      "Trace.Nominal",
+      "helper",
+      "DEMO-001",
+      "DEMO-ALIAS-001"
+    ],
+    "relationships": [
+      {
+        "kind": "invokes_annotated_helper",
+        "resolution": "resolved",
+        "provenance": "authored",
+        "applicability": "selected target compilation"
+      },
+      {
+        "kind": "calls",
+        "resolution": "unresolved",
+        "provenance": "authored",
+        "applicability": "selected target compilation"
+      },
+      {
+        "kind": "has_requirement_annotation",
+        "resolution": "resolved",
+        "provenance": "authored",
+        "applicability": "selected target compilation"
+      },
+      {
+        "kind": "candidate_alias",
+        "resolution": "candidate",
+        "provenance": "authored",
+        "applicability": "snapshot-shared; target applicability unverified"
+      }
+    ],
+    "usage": {
+      "bytes": 9597,
+      "evidence_bytes": 1302,
+      "evidence_calls": 4,
+      "evidence_items": 4,
+      "occurrence_items": 4,
+      "occurrence_rows": 4,
+      "rows": 4,
+      "source_bytes": 896,
+      "source_calls": 4,
+      "source_files": 4,
+      "source_hash_bytes": 896,
+      "sql_statements": 26
+    },
+    "omissions": [
+      "candidate_links_terminal"
+    ],
+    "source_statuses": [
+      {
+        "artifact": "repo/trace.cpp",
+        "status": "available",
+        "expected_hash": "2c180d44e89453aae9e07a37240e2c68808435a7920fe54a5893148da81ec65b"
+      },
+      {
+        "artifact": "repo/trace.cpp",
+        "status": "available",
+        "expected_hash": "2c180d44e89453aae9e07a37240e2c68808435a7920fe54a5893148da81ec65b"
+      },
+      {
+        "artifact": "repo/trace.cpp",
+        "status": "available",
+        "expected_hash": "2c180d44e89453aae9e07a37240e2c68808435a7920fe54a5893148da81ec65b"
+      },
+      {
+        "artifact": "repo/trace.cpp",
+        "status": "available",
+        "expected_hash": "2c180d44e89453aae9e07a37240e2c68808435a7920fe54a5893148da81ec65b"
+      }
+    ],
+    "detail_kind": "authored",
+    "db_sha256": "1ea630ff90c03e7f7ca55142df45624bada29111c8ae23d6931a6f9bf690088b",
+    "db_bytes_unchanged": true,
+    "selected_source_hashes_unchanged": true,
+    "stable_repeat": true,
+    "inspection_only": true,
+    "context_eligible": false
+  },
+  "limits": "bounded inspection acceptance only; no parsing, execution, review, readiness or scale qualification",
+  "synthetic_paths": "temporary; rerun this script to reproduce",
+  "fprime": {
+    "status": "passed",
+    "synthetic": false,
+    "commands": [
+      [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "atlas_engine.storage.inspect",
+        "lookup",
+        "--database",
+        "/workspace/scratch/220d6edb3c9c/atlas-site/.atlas/fprime-rebuilt.sqlite",
+        "--snapshot",
+        "bd6c4ddd353f4437a03812c834743c5c",
+        "--target",
+        "build/F-Prime/Svc/Health/CMakeFiles/Svc_Health_ut_exe.dir",
+        "--value",
+        "Test.NominalTlm"
+      ],
+      [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "atlas_engine.storage.trace_packet",
+        "--database",
+        "/workspace/scratch/220d6edb3c9c/atlas-site/.atlas/fprime-rebuilt.sqlite",
+        "--snapshot",
+        "bd6c4ddd353f4437a03812c834743c5c",
+        "--target",
+        "build/F-Prime/Svc/Health/CMakeFiles/Svc_Health_ut_exe.dir",
+        "--entity",
+        "271dbcfcb6911907b6997d9a53ed1ebc9b236b3ea4e5d1bab3ff107e42a32c96",
+        "--repo-root",
+        "/workspace/scratch/220d6edb3c9c/fprime",
+        "--kind",
+        "invokes_annotated_helper",
+        "--kind",
+        "has_requirement_annotation",
+        "--kind",
+        "candidate_alias"
+      ],
+      [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "atlas_engine.storage.trace_packet",
+        "--database",
+        "/workspace/scratch/220d6edb3c9c/atlas-site/.atlas/fprime-rebuilt.sqlite",
+        "--snapshot",
+        "bd6c4ddd353f4437a03812c834743c5c",
+        "--target",
+        "build/F-Prime/Svc/Health/CMakeFiles/Svc_Health_ut_exe.dir",
+        "--entity",
+        "271dbcfcb6911907b6997d9a53ed1ebc9b236b3ea4e5d1bab3ff107e42a32c96",
+        "--repo-root",
+        "/workspace/scratch/220d6edb3c9c/fprime",
+        "--kind",
+        "invokes_annotated_helper",
+        "--kind",
+        "has_requirement_annotation",
+        "--kind",
+        "candidate_alias"
+      ],
+      [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "atlas_engine.storage.details",
+        "evidence",
+        "--database",
+        "/workspace/scratch/220d6edb3c9c/atlas-site/.atlas/fprime-rebuilt.sqlite",
+        "--snapshot",
+        "bd6c4ddd353f4437a03812c834743c5c",
+        "--target",
+        "build/F-Prime/Svc/Health/CMakeFiles/Svc_Health_ut_exe.dir",
+        "--evidence",
+        "gtest-cases:e24f5ab3bdd8a175d9cf47a1b32385bb406d85e941dcc35a93b6263a7216309f:7:helper:51d0c76f87ebf67d48d28f6840c40b3e8fb14f6f76afc392a748f5d8f5b90b6f"
+      ],
+      [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "atlas_engine.storage.details",
+        "source",
+        "--database",
+        "/workspace/scratch/220d6edb3c9c/atlas-site/.atlas/fprime-rebuilt.sqlite",
+        "--snapshot",
+        "bd6c4ddd353f4437a03812c834743c5c",
+        "--target",
+        "build/F-Prime/Svc/Health/CMakeFiles/Svc_Health_ut_exe.dir",
+        "--evidence",
+        "gtest-cases:e24f5ab3bdd8a175d9cf47a1b32385bb406d85e941dcc35a93b6263a7216309f:7:helper:51d0c76f87ebf67d48d28f6840c40b3e8fb14f6f76afc392a748f5d8f5b90b6f",
+        "--repo-root",
+        "/workspace/scratch/220d6edb3c9c/fprime"
+      ]
+    ],
+    "snapshot": {
+      "configuration_key": "linux-debug-ut",
+      "id": "bd6c4ddd353f4437a03812c834743c5c",
+      "input_manifest_hash": "e2388ca27860d6e6847d35e40261900b4ef717afbe7f982e2c4ba23dd83e2739",
+      "revision": "7d8f579f159d2f7c2d4984d92828575e37f87fa6",
+      "state": "staging"
+    },
+    "target": "build/F-Prime/Svc/Health/CMakeFiles/Svc_Health_ut_exe.dir",
+    "seed": "271dbcfcb6911907b6997d9a53ed1ebc9b236b3ea4e5d1bab3ff107e42a32c96",
+    "entities": [
+      "Test.NominalTlm",
+      "Svc::HealthTester::nominalTlm",
+      "ISF-HTH-001",
+      "HTH-001"
+    ],
+    "relationships": [
+      {
+        "kind": "invokes_annotated_helper",
+        "resolution": "resolved",
+        "provenance": "inferred",
+        "applicability": "selected target compilation"
+      },
+      {
+        "kind": "has_requirement_annotation",
+        "resolution": "resolved",
+        "provenance": "inferred",
+        "applicability": "selected target compilation"
+      },
+      {
+        "kind": "candidate_alias",
+        "resolution": "candidate",
+        "provenance": "inferred",
+        "applicability": "snapshot-shared; target applicability unverified"
+      }
+    ],
+    "usage": {
+      "bytes": 19018,
+      "evidence_bytes": 5474,
+      "evidence_calls": 7,
+      "evidence_items": 7,
+      "occurrence_items": 4,
+      "occurrence_rows": 5,
+      "rows": 23,
+      "source_bytes": 62731,
+      "source_calls": 4,
+      "source_files": 4,
+      "source_hash_bytes": 62731,
+      "sql_statements": 32
+    },
+    "omissions": [
+      "candidate_links_terminal",
+      "relationship_kind_filtered; observed rows only"
+    ],
+    "source_statuses": [
+      {
+        "artifact": "repo/Svc/Health/test/ut/HealthTestMain.cpp",
+        "status": "available",
+        "expected_hash": "b277014828d0154c1804fa34fc9926ad08ceac9ab4bdfdd818114fc8b829ea46"
+      },
+      {
+        "artifact": "repo/Svc/Health/test/ut/HealthTester.cpp",
+        "status": "available",
+        "expected_hash": "f7e0c93cfe91867ca817c69e27e848ca7c1c313383fc9587145767b28d6ff432"
+      },
+      {
+        "artifact": "repo/Svc/Health/test/ut/HealthTester.cpp",
+        "status": "available",
+        "expected_hash": "f7e0c93cfe91867ca817c69e27e848ca7c1c313383fc9587145767b28d6ff432"
+      },
+      {
+        "artifact": "repo/Svc/Health/docs/sdd.md",
+        "status": "available",
+        "expected_hash": "8ec248236ee14bf01a372396c3a0d3f22ae5096e1bc67012cb5f1ed7db7659bc"
+      }
+    ],
+    "detail_kind": "inferred",
+    "db_sha256": "a1a5c92a5b4693190eb55c7cfef5f6e2344df058a806ce578846c844471b0867",
+    "db_bytes_unchanged": true,
+    "selected_source_hashes_unchanged": true,
+    "stable_repeat": true,
+    "inspection_only": true,
+    "context_eligible": false
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "definitions": 12,
+  "annotations": 11,
+  "test_source_files": 2,
+  "reference_only_requirements": 7,
+  "candidate_aliases": 7,
+  "snapshot_id": "6ee423600da24395b72f9a5ad940ba77",
+  "state": "staging",
+  "components": [
+    "Svc/CmdDispatcher",
+    "Svc/Health"
+  ],
+  "foreign_key_violations": [],
+  "review_decisions": 0,
+  "execution_records": 0,
+  "association_granularity": "test source file; executable case and activation not resolved",
+  "validation": {
+    "storage_tests": 17,
+    "schema_checks": 4,
+    "status": "passed"
+  }
+}

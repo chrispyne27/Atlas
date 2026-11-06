@@ -1,0 +1,77 @@
+[
+  {
+    "id": "TEST-nominalResize",
+    "symbol": "aurora::tests::nominalResize()",
+    "argument": "0",
+    "requirements": [
+      "REQ-UI-002",
+      "REQ-EVT-001"
+    ],
+    "role": "existing"
+  },
+  {
+    "id": "TEST-layoutClamps",
+    "symbol": "aurora::tests::layoutClamps()",
+    "argument": "1",
+    "requirements": [
+      "REQ-UI-002"
+    ],
+    "role": "existing"
+  },
+  {
+    "id": "TEST-cacheEvicts",
+    "symbol": "aurora::tests::cacheEvicts()",
+    "argument": "2",
+    "requirements": [
+      "REQ-RES-003"
+    ],
+    "role": "existing"
+  },
+  {
+    "id": "TEST-zeroResize",
+    "symbol": "aurora::tests::zeroResize()",
+    "argument": "3",
+    "requirements": [
+      "REQ-UI-002"
+    ],
+    "role": "acceptance"
+  },
+  {
+    "id": "TEST-negativeResize",
+    "symbol": "aurora::tests::negativeResize()",
+    "argument": "4",
+    "requirements": [
+      "REQ-UI-002"
+    ],
+    "role": "acceptance"
+  },
+  {
+    "id": "TEST-oversizeResize",
+    "symbol": "aurora::tests::oversizeResize()",
+    "argument": "5",
+    "requirements": [
+      "REQ-UI-002"
+    ],
+    "role": "acceptance"
+  },
+  {
+    "id": "TEST-eventMatchesLayout",
+    "symbol": "aurora::tests::eventMatchesLayout()",
+    "argument": "6",
+    "requirements": [
+      "REQ-UI-002",
+      "REQ-EVT-001"
+    ],
+    "role": "acceptance"
+  },
+  {
+    "id": "TEST-repeatedResize",
+    "symbol": "aurora::tests::repeatedResize()",
+    "argument": "7",
+    "requirements": [
+      "REQ-UI-002",
+      "REQ-EVT-001"
+    ],
+    "role": "existing"
+  }
+]

@@ -1,0 +1,139 @@
+{
+  "assessment_version": 1,
+  "blocking_codes": [
+    "recorded_inputs",
+    "selected_target_parses",
+    "engineering_discovery",
+    "toolchain_identity",
+    "generator_provenance",
+    "scope_completeness",
+    "publication_contract"
+  ],
+  "checked_at": "2026-09-27T00:45:25.832894+00:00",
+  "checks": [
+    {
+      "code": "recorded_inputs",
+      "detail": {
+        "artifact_counts": {
+          "matched": 473
+        },
+        "more_artifacts": false,
+        "scope": "whole snapshot, including other targets",
+        "status": "incomplete"
+      },
+      "next_action": "Resolve stale/missing inputs or unchecked scope; reindex changed inputs in a new snapshot.",
+      "status": "blocked"
+    },
+    {
+      "code": "selected_target_parses",
+      "detail": {
+        "compilation_states": {
+          "parsed": 2,
+          "pending": 3
+        },
+        "target": "build/F-Prime/Svc/Health/CMakeFiles/Svc_Health_ut_exe.dir"
+      },
+      "next_action": "Parse every selected-target compilation; investigate failures. Exclusions require an explicit scope policy.",
+      "status": "blocked"
+    },
+    {
+      "code": "engineering_discovery",
+      "detail": {
+        "components": {
+          "Svc/Health": "not_recorded"
+        },
+        "selection": "explicit operator scope; not inferred application membership"
+      },
+      "next_action": "Import selected engineering components with recorded directory membership in a new snapshot.",
+      "status": "blocked"
+    },
+    {
+      "code": "toolchain_identity",
+      "detail": {
+        "external_artifacts": 302,
+        "external_input_audit": {
+          "counts": {
+            "matched": 302
+          },
+          "policy": "explicit-root-mappings-v1",
+          "roots": [
+            {
+              "local_root": "/usr/include",
+              "recorded_prefix": "/usr/include"
+            },
+            {
+              "local_root": "/usr/lib/gcc/x86_64-linux-gnu/13/include",
+              "recorded_prefix": "/usr/lib/gcc/x86_64-linux-gnu/13/include"
+            }
+          ]
+        },
+        "status": "not_validated"
+      },
+      "next_action": "Bind parser/compiler binaries and configuration to a verified toolchain manifest; matching mapped headers and operator labels are insufficient.",
+      "status": "blocked"
+    },
+    {
+      "code": "generator_provenance",
+      "detail": {
+        "generated_artifacts": 75,
+        "scope": "whole snapshot"
+      },
+      "next_action": "Bind generated outputs to generator version, configuration, and declared input hashes; output hashes alone are insufficient.",
+      "status": "blocked"
+    },
+    {
+      "code": "scope_completeness",
+      "detail": {
+        "scope": "scoped compilation inventory and narrow engineering discovery",
+        "status": "not_established"
+      },
+      "next_action": "Define the target/application boundary, omitted source classes and discovery completeness policy.",
+      "status": "blocked"
+    },
+    {
+      "code": "publication_contract",
+      "detail": {
+        "snapshot_state": "staging",
+        "status": "not_implemented"
+      },
+      "next_action": "Implement immutable publication and retrieval-time freshness enforcement after input and scope policies are satisfied.",
+      "status": "blocked"
+    }
+  ],
+  "context_eligible": false,
+  "engineering_components": [
+    "Svc/Health"
+  ],
+  "inspection_only": true,
+  "limitations": [
+    "Freshness scans all recorded snapshot inputs conservatively; parse coverage is target-specific.",
+    "Resolved relationships identify entities; they do not prove requirements or test satisfaction.",
+    "Candidate and unresolved relationships must remain labeled in inspection results.",
+    "This assessment neither changes snapshot state nor enables an agent retrieval route."
+  ],
+  "relationship_resolution_counts": {
+    "candidate": 7,
+    "resolved": 2141,
+    "unresolved": 995
+  },
+  "snapshot": {
+    "configuration_key": "linux-debug-ut",
+    "id": "bd6c4ddd353f4437a03812c834743c5c",
+    "revision": "7d8f579f159d2f7c2d4984d92828575e37f87fa6",
+    "state": "staging"
+  },
+  "status": "blocked",
+  "target": "build/F-Prime/Svc/Health/CMakeFiles/Svc_Health_ut_exe.dir",
+  "verification": {
+    "requirement_satisfaction": "not_assessed",
+    "review_approval": "not_assessed",
+    "test_execution": "not_assessed"
+  },
+  "validation": {
+    "engine_tests": 71,
+    "storage_tests_included": 65,
+    "schema_checks": 4,
+    "status": "passed",
+    "browser": "pending manual validation"
+  }
+}

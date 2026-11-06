@@ -1,0 +1,2448 @@
+{
+  "schema_version": "1.0",
+  "indexer_version": "0.2.0",
+  "dataset": "indexed-fixture",
+  "repository": {
+    "commit": "a909e29516f8dd5abfd288c239b49769c04961e0",
+    "dirty": true,
+    "fingerprint": "1eac0a40fdf69fdfcc51d604e86eb0d7879c49e607640478bd46922feab72ab6",
+    "name": "aurora-cpp-fixture"
+  },
+  "test_evidence": {
+    "current": false,
+    "results": null
+  },
+  "inputs": {
+    "compile_commands.json": "2d335e4019c31ee6ab64e94aac10ef9e6ad68baae2d8900ae51d348ff65deec4",
+    "include/AssetCache.hpp": "72218d60db1056487313013389f5d3ca654b3eac96554039ef7a448c0d2875ad",
+    "include/EventBus.hpp": "f66a87438e82aced5c897a44940614576aa123ef015c1a558921ff32636a5510",
+    "include/Geometry.hpp": "8d21895b08942f63020ee8a49a15ffe5ee752891ae09b17b077a1b1dc1bb1303",
+    "include/RenderEngine.hpp": "2d29f8fe27071638b849f569a99b25ac2c6567b86489c08bb20ba699025dd3ec",
+    "include/UILayer.hpp": "bc8216b42bf9c4fc7bd45ed349d8b11ccbd9acac0a111921177e3816b47e2d50",
+    "requirements.json": "0ec89d7971b82c0199fc021d8d290593841b751c21461b672bc552e0e1f1a034",
+    "src/AssetCache.cpp": "125a452084652524466ad03c83cee10298664c81462302ee8e0df61429fd361f",
+    "src/EventBus.cpp": "c9ea9da093de8d7976a20eaa018e0cbb3ea2705a6985654221468fb9a47e162d",
+    "src/Geometry.cpp": "d0236438792736762596566651e2837d914220066625a61499fabc4a69bb92c7",
+    "src/RenderEngine.cpp": "7cecda03acc3f5737f92c6b1094c289c3e6039d9fbb5a07b3e8e0016a1b901ff",
+    "src/UILayer.cpp": "5cc9b8dcf96f756cd28acbb82cf0318dbe27ae95f101cffa85b07706e35481fb",
+    "test_manifest.json": "31ec1a97de8c08f018509e5a127f8154ada5085674416e39bde9abfa258e7556",
+    "tests/ResizeTests.cpp": "68e855a157dee04728d9248fc9c7082a349c28bd70b01a2de40bbfa31da900aa"
+  },
+  "nodes": [
+    {
+      "id": "REQ-EVT-001",
+      "kind": "requirement",
+      "name": "Publish after layout",
+      "description": "Each resize request shall publish exactly one ViewportChanged event after updating the UI layout.",
+      "path": "requirements.json",
+      "component": "core",
+      "parent": "SYS-002",
+      "category": "Functional",
+      "methods": [
+        "c:@N@aurora@S@RenderEngine@F@resize#$@N@aurora@S@Size#",
+        "c:@N@aurora@S@EventBus@F@publish#&1$@N@aurora@S@ViewportChanged#"
+      ],
+      "test": "c:@N@aurora@N@tests@F@nominalResize#",
+      "tests": [
+        "c:@N@aurora@N@tests@F@nominalResize#",
+        "c:@N@aurora@N@tests@F@eventMatchesLayout#",
+        "c:@N@aurora@N@tests@F@repeatedResize#"
+      ],
+      "constraints": [
+        "Exactly one event per request, even if dimensions repeat."
+      ],
+      "metadata": {
+        "owner": "Platform team",
+        "criticality": "High",
+        "verification": "Nominal, repeated, and event consistency tests",
+        "parent": "SYS-002",
+        "design": "No recorded design decision",
+        "baseline": "1eac0a40fdf6"
+      },
+      "provenance": "explicit requirements.json mapping",
+      "status": "Covered"
+    },
+    {
+      "id": "REQ-ISO-008",
+      "kind": "requirement",
+      "name": "Isolate future graphics backend",
+      "description": "Future graphics API calls shall be confined to a platform backend boundary. No backend is implemented in this fixture.",
+      "path": "requirements.json",
+      "component": "core",
+      "parent": "SYS-003",
+      "category": "Functional",
+      "methods": [],
+      "test": null,
+      "tests": [],
+      "constraints": [],
+      "metadata": {
+        "owner": "Platform team",
+        "criticality": "Medium",
+        "verification": "Future dependency rule",
+        "parent": "SYS-003",
+        "design": "No recorded design decision",
+        "baseline": "1eac0a40fdf6"
+      },
+      "provenance": "explicit requirements.json mapping",
+      "status": "Unlinked"
+    },
+    {
+      "id": "REQ-RES-003",
+      "kind": "requirement",
+      "name": "Bound cache storage",
+      "description": "The asset cache shall hold at most four unique resource IDs and evict the oldest insertion on overflow.",
+      "path": "requirements.json",
+      "component": "resources",
+      "parent": "SYS-003",
+      "category": "Functional",
+      "methods": [
+        "c:@N@aurora@S@AssetCache@F@insert#I#"
+      ],
+      "test": "c:@N@aurora@N@tests@F@cacheEvicts#",
+      "tests": [
+        "c:@N@aurora@N@tests@F@cacheEvicts#"
+      ],
+      "constraints": [],
+      "metadata": {
+        "owner": "Platform team",
+        "criticality": "Medium",
+        "verification": "Cache eviction test",
+        "parent": "SYS-003",
+        "design": "No recorded design decision",
+        "baseline": "1eac0a40fdf6"
+      },
+      "provenance": "explicit requirements.json mapping",
+      "status": "Covered"
+    },
+    {
+      "id": "REQ-UI-002",
+      "kind": "requirement",
+      "name": "Keep resized state consistent",
+      "description": "Every resize request shall normalize each dimension to the inclusive range 1..8192 using the shared geometry policy. The viewport, UI root bounds, and published size shall agree.",
+      "path": "requirements.json",
+      "component": "ui",
+      "parent": "SYS-002",
+      "category": "Functional",
+      "methods": [
+        "c:@N@aurora@S@RenderEngine@F@resize#$@N@aurora@S@Size#",
+        "c:@N@aurora@S@UILayer@F@relayout#$@N@aurora@S@Size#",
+        "c:@N@aurora@S@LayoutEngine@F@resolve#$@N@aurora@S@Size#1"
+      ],
+      "test": "c:@N@aurora@N@tests@F@nominalResize#",
+      "tests": [
+        "c:@N@aurora@N@tests@F@nominalResize#",
+        "c:@N@aurora@N@tests@F@layoutClamps#",
+        "c:@N@aurora@N@tests@F@zeroResize#",
+        "c:@N@aurora@N@tests@F@negativeResize#",
+        "c:@N@aurora@N@tests@F@oversizeResize#",
+        "c:@N@aurora@N@tests@F@eventMatchesLayout#",
+        "c:@N@aurora@N@tests@F@repeatedResize#"
+      ],
+      "constraints": [
+        "No duplicated clamping constants or independent normalization policy.",
+        "Preserve the single-threaded synchronous event order."
+      ],
+      "metadata": {
+        "owner": "Experience team",
+        "criticality": "High",
+        "verification": "Executable boundary and consistency tests",
+        "parent": "SYS-002",
+        "design": "ADR-RESIZE-001: reuse Geometry::clampDimension(int)",
+        "baseline": "1eac0a40fdf6"
+      },
+      "provenance": "explicit requirements.json mapping",
+      "status": "Covered"
+    },
+    {
+      "id": "c:@F@main#I#**C#",
+      "kind": "method",
+      "name": "main",
+      "signature": "main(int, char **)",
+      "path": "tests/ResizeTests.cpp",
+      "line": 55,
+      "end_line": 69,
+      "code": "int main(int argc, char** argv) {\n    if (argc != 2) return 2;\n    using namespace aurora::tests;\n    switch (argv[1][0]) {\n        case '0': return nominalResize() ? 0 : 1;\n        case '1': return layoutClamps() ? 0 : 1;\n        case '2': return cacheEvicts() ? 0 : 1;\n        case '3': return zeroResize() ? 0 : 1;\n        case '4': return negativeResize() ? 0 : 1;\n        case '5': return oversizeResize() ? 0 : 1;\n        case '6': return eventMatchesLayout() ? 0 : 1;\n        case '7': return repeatedResize() ? 0 : 1;\n        default: return 2;\n    }\n}",
+      "content_hash": "01629f28a889df503eb6a6f34296116ad8894dd19c03445224e63d9cf2b2055e",
+      "component": "core",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": true
+    },
+    {
+      "id": "c:@N@aurora@N@tests@F@cacheEvicts#",
+      "kind": "test",
+      "name": "aurora::tests::cacheEvicts",
+      "signature": "aurora::tests::cacheEvicts()",
+      "path": "tests/ResizeTests.cpp",
+      "line": 17,
+      "end_line": 21,
+      "code": "bool cacheEvicts() {\n    AssetCache cache;\n    for (int i = 1; i <= 5; ++i) cache.insert(i);\n    return !cache.contains(1) && cache.contains(5) && cache.capacity() == 4;\n}",
+      "content_hash": "1d9f0488f4bc0f37d91369b3bd45865f499a46b647f3b084b6cd5624095aaf3e",
+      "component": "core",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "result": "Not executed for this snapshot",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false,
+      "fixture_id": "TEST-cacheEvicts",
+      "test_role": "existing"
+    },
+    {
+      "id": "c:@N@aurora@N@tests@F@eventMatchesLayout#",
+      "kind": "test",
+      "name": "aurora::tests::eventMatchesLayout",
+      "signature": "aurora::tests::eventMatchesLayout()",
+      "path": "tests/ResizeTests.cpp",
+      "line": 40,
+      "end_line": 45,
+      "code": "bool eventMatchesLayout() {\n    EventBus events; UILayer ui; RenderEngine engine(events, ui);\n    engine.resize(Size{0, 300});\n    return events.count() == 1 && events.lastSize().width == ui.bounds().width &&\n           events.lastSize().height == ui.bounds().height;\n}",
+      "content_hash": "0a8e73448d9fc99347d5cb6fb0cf126549724f55b52ad85db79e3fa4aba9e45e",
+      "component": "core",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "result": "Not executed for this snapshot",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false,
+      "fixture_id": "TEST-eventMatchesLayout",
+      "test_role": "acceptance"
+    },
+    {
+      "id": "c:@N@aurora@N@tests@F@layoutClamps#",
+      "kind": "test",
+      "name": "aurora::tests::layoutClamps",
+      "signature": "aurora::tests::layoutClamps()",
+      "path": "tests/ResizeTests.cpp",
+      "line": 12,
+      "end_line": 16,
+      "code": "bool layoutClamps() {\n    LayoutEngine layout;\n    Rect bounds = layout.resolve(Size{-9, 9000});\n    return bounds.width == 1 && bounds.height == 8192;\n}",
+      "content_hash": "e688e4568f0865e1e2afd6f3311fc4d03f8af76b596a727702e28dc77e1086f4",
+      "component": "core",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "result": "Not executed for this snapshot",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false,
+      "fixture_id": "TEST-layoutClamps",
+      "test_role": "existing"
+    },
+    {
+      "id": "c:@N@aurora@N@tests@F@negativeResize#",
+      "kind": "test",
+      "name": "aurora::tests::negativeResize",
+      "signature": "aurora::tests::negativeResize()",
+      "path": "tests/ResizeTests.cpp",
+      "line": 28,
+      "end_line": 33,
+      "code": "bool negativeResize() {\n    EventBus events; UILayer ui; RenderEngine engine(events, ui);\n    engine.resize(Size{-100, -5});\n    return engine.viewport().width == 1 && engine.viewport().height == 1 &&\n           ui.bounds().height == 1 && events.lastSize().height == 1;\n}",
+      "content_hash": "23ee6ad882117accefec0967e02fd34f63e8eb625556666dd313fe69b0cbe040",
+      "component": "core",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "result": "Not executed for this snapshot",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false,
+      "fixture_id": "TEST-negativeResize",
+      "test_role": "acceptance"
+    },
+    {
+      "id": "c:@N@aurora@N@tests@F@nominalResize#",
+      "kind": "test",
+      "name": "aurora::tests::nominalResize",
+      "signature": "aurora::tests::nominalResize()",
+      "path": "tests/ResizeTests.cpp",
+      "line": 5,
+      "end_line": 11,
+      "code": "bool nominalResize() {\n    EventBus events; UILayer ui; RenderEngine engine(events, ui);\n    WindowController window(engine);\n    window.onSizeChanged(1280, 720);\n    return engine.viewport().width == 1280 && ui.bounds().height == 720 &&\n           events.count() == 1 && events.lastSize().height == 720;\n}",
+      "content_hash": "f52bda3b28c6386f9875ccf0acc1706a5d8ea8300f44b246caeb5116aed27f68",
+      "component": "core",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "result": "Not executed for this snapshot",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false,
+      "fixture_id": "TEST-nominalResize",
+      "test_role": "existing"
+    },
+    {
+      "id": "c:@N@aurora@N@tests@F@oversizeResize#",
+      "kind": "test",
+      "name": "aurora::tests::oversizeResize",
+      "signature": "aurora::tests::oversizeResize()",
+      "path": "tests/ResizeTests.cpp",
+      "line": 34,
+      "end_line": 39,
+      "code": "bool oversizeResize() {\n    EventBus events; UILayer ui; RenderEngine engine(events, ui);\n    engine.resize(Size{9000, 12000});\n    return engine.viewport().width == 8192 && engine.viewport().height == 8192 &&\n           ui.bounds().width == 8192 && events.lastSize().height == 8192;\n}",
+      "content_hash": "e51be06e49f79637af04dbf3ee16413b35fd4f9bec1bb2e0f603dc149ee39d28",
+      "component": "core",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "result": "Not executed for this snapshot",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false,
+      "fixture_id": "TEST-oversizeResize",
+      "test_role": "acceptance"
+    },
+    {
+      "id": "c:@N@aurora@N@tests@F@repeatedResize#",
+      "kind": "test",
+      "name": "aurora::tests::repeatedResize",
+      "signature": "aurora::tests::repeatedResize()",
+      "path": "tests/ResizeTests.cpp",
+      "line": 46,
+      "end_line": 52,
+      "code": "bool repeatedResize() {\n    EventBus events; UILayer ui; RenderEngine engine(events, ui);\n    engine.resize(Size{100, 200});\n    engine.resize(Size{300, 400});\n    return events.count() == 2 && engine.viewport().width == 300 &&\n           ui.bounds().height == 400 && events.lastSize().width == 300;\n}",
+      "content_hash": "550d18c9fc3011735e9e28cf2b2ea9057e4ce0cc7e39ed5aa7ad96baff2d6238",
+      "component": "core",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "result": "Not executed for this snapshot",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false,
+      "fixture_id": "TEST-repeatedResize",
+      "test_role": "existing"
+    },
+    {
+      "id": "c:@N@aurora@N@tests@F@zeroResize#",
+      "kind": "test",
+      "name": "aurora::tests::zeroResize",
+      "signature": "aurora::tests::zeroResize()",
+      "path": "tests/ResizeTests.cpp",
+      "line": 22,
+      "end_line": 27,
+      "code": "bool zeroResize() {\n    EventBus events; UILayer ui; RenderEngine engine(events, ui);\n    engine.resize(Size{0, 0});\n    return engine.viewport().width == 1 && engine.viewport().height == 1 &&\n           ui.bounds().width == 1 && events.lastSize().width == 1;\n}",
+      "content_hash": "ace42f7d42ffc767467f8d194b89e99e40850006959ebee15db9254a5fdbf0f3",
+      "component": "core",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "result": "Not executed for this snapshot",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false,
+      "fixture_id": "TEST-zeroResize",
+      "test_role": "acceptance"
+    },
+    {
+      "id": "c:@N@aurora@S@AssetCache@F@AssetCache#",
+      "kind": "method",
+      "name": "aurora::AssetCache::AssetCache",
+      "signature": "aurora::AssetCache::AssetCache()",
+      "path": "src/AssetCache.cpp",
+      "line": 3,
+      "end_line": 3,
+      "code": "AssetCache::AssetCache() : ids_{-1, -1, -1, -1}, next_(0) {}",
+      "content_hash": "c33782ce8dd1871428402274f0888e44a9485ac23dfe200ae421abf0df5e13eb",
+      "component": "resources",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false
+    },
+    {
+      "id": "c:@N@aurora@S@AssetCache@F@capacity#1",
+      "kind": "method",
+      "name": "aurora::AssetCache::capacity",
+      "signature": "aurora::AssetCache::capacity()",
+      "path": "src/AssetCache.cpp",
+      "line": 15,
+      "end_line": 15,
+      "code": "int AssetCache::capacity() const { return 4; }",
+      "content_hash": "39121f804772e1d038591a3f4dec66415130c67fb80c29940cbdbf06b7291492",
+      "component": "resources",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false
+    },
+    {
+      "id": "c:@N@aurora@S@AssetCache@F@contains#I#1",
+      "kind": "method",
+      "name": "aurora::AssetCache::contains",
+      "signature": "aurora::AssetCache::contains(int)",
+      "path": "src/AssetCache.cpp",
+      "line": 9,
+      "end_line": 14,
+      "code": "bool AssetCache::contains(int id) const {\n    for (int i = 0; i < capacity(); ++i) {\n        if (ids_[i] == id) return true;\n    }\n    return false;\n}",
+      "content_hash": "5cda7bd0174d0c66defde537658ef3889d34f181257ad483d011cd7b7e07a140",
+      "component": "resources",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false
+    },
+    {
+      "id": "c:@N@aurora@S@AssetCache@F@insert#I#",
+      "kind": "method",
+      "name": "aurora::AssetCache::insert",
+      "signature": "aurora::AssetCache::insert(int)",
+      "path": "src/AssetCache.cpp",
+      "line": 4,
+      "end_line": 8,
+      "code": "void AssetCache::insert(int id) {\n    if (contains(id)) return;\n    ids_[next_] = id;\n    next_ = (next_ + 1) % capacity();\n}",
+      "content_hash": "e09e86770b03a829255d3036e087af7455326e5e3b9b6cb87b92df8ce7db5858",
+      "component": "resources",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false
+    },
+    {
+      "id": "c:@N@aurora@S@EventBus@F@EventBus#",
+      "kind": "method",
+      "name": "aurora::EventBus::EventBus",
+      "signature": "aurora::EventBus::EventBus()",
+      "path": "src/EventBus.cpp",
+      "line": 3,
+      "end_line": 3,
+      "code": "EventBus::EventBus() : count_(0), last_{0, 0} {}",
+      "content_hash": "bc852b042b1b397954013089305e872e03c367f60da2e2361b5266325fdaf232",
+      "component": "core",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false
+    },
+    {
+      "id": "c:@N@aurora@S@EventBus@F@count#1",
+      "kind": "method",
+      "name": "aurora::EventBus::count",
+      "signature": "aurora::EventBus::count()",
+      "path": "src/EventBus.cpp",
+      "line": 8,
+      "end_line": 8,
+      "code": "int EventBus::count() const { return count_; }",
+      "content_hash": "b0af502c359f3d6042592ef3525ab109e6096228790f3637ec6ff7db252507e6",
+      "component": "core",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false
+    },
+    {
+      "id": "c:@N@aurora@S@EventBus@F@lastSize#1",
+      "kind": "method",
+      "name": "aurora::EventBus::lastSize",
+      "signature": "aurora::EventBus::lastSize()",
+      "path": "src/EventBus.cpp",
+      "line": 9,
+      "end_line": 9,
+      "code": "Size EventBus::lastSize() const { return last_; }",
+      "content_hash": "bd0d806312d6a5b699dd6cb967ce4103c8a5a9059822ecdac81f0b59305c7e9d",
+      "component": "core",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false
+    },
+    {
+      "id": "c:@N@aurora@S@EventBus@F@publish#&1$@N@aurora@S@ViewportChanged#",
+      "kind": "method",
+      "name": "aurora::EventBus::publish",
+      "signature": "aurora::EventBus::publish(const ViewportChanged &)",
+      "path": "src/EventBus.cpp",
+      "line": 4,
+      "end_line": 7,
+      "code": "void EventBus::publish(const ViewportChanged& event) {\n    last_ = event.size;\n    ++count_;\n}",
+      "content_hash": "ce75869fe7f625c60ffc04e948054acd485ac2797b5961b4239845856645df07",
+      "component": "core",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false
+    },
+    {
+      "id": "c:@N@aurora@S@Geometry@F@clampDimension#I#S",
+      "kind": "method",
+      "name": "aurora::Geometry::clampDimension",
+      "signature": "aurora::Geometry::clampDimension(int)",
+      "path": "src/Geometry.cpp",
+      "line": 3,
+      "end_line": 7,
+      "code": "int Geometry::clampDimension(int value) {\n    if (value < 1) return 1;\n    if (value > 8192) return 8192;\n    return value;\n}",
+      "content_hash": "1bbb511226e2d7d984531217f8fa2ce9dcb643a7e0fe150713a9dd268cd8af39",
+      "component": "core",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false
+    },
+    {
+      "id": "c:@N@aurora@S@Geometry@F@clampDimension#f#S",
+      "kind": "method",
+      "name": "aurora::Geometry::clampDimension",
+      "signature": "aurora::Geometry::clampDimension(float)",
+      "path": "src/Geometry.cpp",
+      "line": 8,
+      "end_line": 12,
+      "code": "float Geometry::clampDimension(float value) {\n    if (value < 1.0f) return 1.0f;\n    if (value > 8192.0f) return 8192.0f;\n    return value;\n}",
+      "content_hash": "3a0445e9109514040802bbb339fa41d0b4eb46e70d1ffc1553131f044a73f56a",
+      "component": "core",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false
+    },
+    {
+      "id": "c:@N@aurora@S@Geometry@F@contains#&1$@N@aurora@S@Rect#I#I#S",
+      "kind": "method",
+      "name": "aurora::Geometry::contains",
+      "signature": "aurora::Geometry::contains(const Rect &, int, int)",
+      "path": "src/Geometry.cpp",
+      "line": 13,
+      "end_line": 16,
+      "code": "bool Geometry::contains(const Rect& bounds, int x, int y) {\n    return x >= bounds.x && y >= bounds.y &&\n           x < bounds.x + bounds.width && y < bounds.y + bounds.height;\n}",
+      "content_hash": "aef376c4fe76d0e97860d5bea3d8b49c65629406806047000d4866b6ce5ee40b",
+      "component": "core",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false
+    },
+    {
+      "id": "c:@N@aurora@S@LayoutEngine@F@resolve#$@N@aurora@S@Size#1",
+      "kind": "method",
+      "name": "aurora::LayoutEngine::resolve",
+      "signature": "aurora::LayoutEngine::resolve(Size)",
+      "path": "src/UILayer.cpp",
+      "line": 3,
+      "end_line": 6,
+      "code": "Rect LayoutEngine::resolve(Size available) const {\n    return Rect{0, 0, Geometry::clampDimension(available.width),\n                      Geometry::clampDimension(available.height)};\n}",
+      "content_hash": "41e89c4fa87bf1552dada2ae026018c31892a11df01c0ded43e0a39b66ce872a",
+      "component": "ui",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false
+    },
+    {
+      "id": "c:@N@aurora@S@RenderEngine@F@RenderEngine#&$@N@aurora@S@EventBus#&$@N@aurora@S@UILayer#",
+      "kind": "method",
+      "name": "aurora::RenderEngine::RenderEngine",
+      "signature": "aurora::RenderEngine::RenderEngine(EventBus &, UILayer &)",
+      "path": "src/RenderEngine.cpp",
+      "line": 3,
+      "end_line": 4,
+      "code": "RenderEngine::RenderEngine(EventBus& events, UILayer& ui)\n    : events_(events), ui_(ui), viewport_{1, 1} {}",
+      "content_hash": "f42d16db3489c90f323204f52e2dfd582c6071ceb5a3c7c6bfab0c3d61e570d8",
+      "component": "render",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false
+    },
+    {
+      "id": "c:@N@aurora@S@RenderEngine@F@resize#$@N@aurora@S@Size#",
+      "kind": "method",
+      "name": "aurora::RenderEngine::resize",
+      "signature": "aurora::RenderEngine::resize(Size)",
+      "path": "src/RenderEngine.cpp",
+      "line": 5,
+      "end_line": 11,
+      "code": "void RenderEngine::resize(Size requested) {\n    // One shared policy keeps viewport, layout, and notification consistent.\n    viewport_ = Size{Geometry::clampDimension(requested.width),\n                     Geometry::clampDimension(requested.height)};\n    ui_.relayout(viewport_);\n    events_.publish(ViewportChanged{viewport_});\n}",
+      "content_hash": "94e9e8183343907885ab781bc1b0b681587ab3605bc7dddad2627df6dc3d4e35",
+      "component": "render",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false
+    },
+    {
+      "id": "c:@N@aurora@S@RenderEngine@F@viewport#1",
+      "kind": "method",
+      "name": "aurora::RenderEngine::viewport",
+      "signature": "aurora::RenderEngine::viewport()",
+      "path": "src/RenderEngine.cpp",
+      "line": 12,
+      "end_line": 12,
+      "code": "Size RenderEngine::viewport() const { return viewport_; }",
+      "content_hash": "25ed99478977a9ebb6d58148bd67d0b95990a00f0b33fb9e64ec6b499b77ab4e",
+      "component": "render",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false
+    },
+    {
+      "id": "c:@N@aurora@S@UILayer@F@UILayer#",
+      "kind": "method",
+      "name": "aurora::UILayer::UILayer",
+      "signature": "aurora::UILayer::UILayer()",
+      "path": "src/UILayer.cpp",
+      "line": 7,
+      "end_line": 7,
+      "code": "UILayer::UILayer() : root_{0, 0, 1, 1} {}",
+      "content_hash": "697e46ec2b185b81f4da9e0feb8366a780aa70f5766275f2ea07121d75d77a17",
+      "component": "ui",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false
+    },
+    {
+      "id": "c:@N@aurora@S@UILayer@F@bounds#1",
+      "kind": "method",
+      "name": "aurora::UILayer::bounds",
+      "signature": "aurora::UILayer::bounds()",
+      "path": "src/UILayer.cpp",
+      "line": 11,
+      "end_line": 11,
+      "code": "Rect UILayer::bounds() const { return root_; }",
+      "content_hash": "9892edee2a9cdc9c2926c8b88c9e6e1ea43ecb4e56ea6702b9ea47544d902ed2",
+      "component": "ui",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false
+    },
+    {
+      "id": "c:@N@aurora@S@UILayer@F@relayout#$@N@aurora@S@Size#",
+      "kind": "method",
+      "name": "aurora::UILayer::relayout",
+      "signature": "aurora::UILayer::relayout(Size)",
+      "path": "src/UILayer.cpp",
+      "line": 8,
+      "end_line": 10,
+      "code": "void UILayer::relayout(Size available) {\n    root_ = layout_.resolve(available);\n}",
+      "content_hash": "4787617243cd11da6d367bdfe3eca9513af6bf7e14d190111491d607f1368ffe",
+      "component": "ui",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false
+    },
+    {
+      "id": "c:@N@aurora@S@WindowController@F@WindowController#&$@N@aurora@S@RenderEngine#",
+      "kind": "method",
+      "name": "aurora::WindowController::WindowController",
+      "signature": "aurora::WindowController::WindowController(RenderEngine &)",
+      "path": "src/RenderEngine.cpp",
+      "line": 13,
+      "end_line": 13,
+      "code": "WindowController::WindowController(RenderEngine& engine) : engine_(engine) {}",
+      "content_hash": "2670690625ae397d2445b58d9706f83e3347adbfc4fef571c7753e97dfa1d820",
+      "component": "render",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false
+    },
+    {
+      "id": "c:@N@aurora@S@WindowController@F@onSizeChanged#I#I#",
+      "kind": "method",
+      "name": "aurora::WindowController::onSizeChanged",
+      "signature": "aurora::WindowController::onSizeChanged(int, int)",
+      "path": "src/RenderEngine.cpp",
+      "line": 14,
+      "end_line": 16,
+      "code": "void WindowController::onSizeChanged(int width, int height) {\n    engine_.resize(Size{width, height});\n}",
+      "content_hash": "2986a9d54ec0eca0031f52e90e37f6b0423140fabd5b61216f60069c259369fd",
+      "component": "render",
+      "description": "Definition extracted from the authored C++ fixture.",
+      "metadata": {
+        "language": "C++",
+        "provenance": "libclang definition",
+        "criticality": "Unclassified",
+        "baseline": "1eac0a40fdf6"
+      },
+      "harness": false
+    },
+    {
+      "id": "component-core",
+      "kind": "component",
+      "name": "Core & platform",
+      "component": "core",
+      "description": "Display grouping derived from source paths; not a compiler-defined architectural boundary.",
+      "metadata": {
+        "provenance": "documented source-path grouping",
+        "baseline": "1eac0a40fdf6"
+      }
+    },
+    {
+      "id": "component-render",
+      "kind": "component",
+      "name": "Rendering",
+      "component": "render",
+      "description": "Display grouping derived from source paths; not a compiler-defined architectural boundary.",
+      "metadata": {
+        "provenance": "documented source-path grouping",
+        "baseline": "1eac0a40fdf6"
+      }
+    },
+    {
+      "id": "component-resources",
+      "kind": "component",
+      "name": "Resources",
+      "component": "resources",
+      "description": "Display grouping derived from source paths; not a compiler-defined architectural boundary.",
+      "metadata": {
+        "provenance": "documented source-path grouping",
+        "baseline": "1eac0a40fdf6"
+      }
+    },
+    {
+      "id": "component-ui",
+      "kind": "component",
+      "name": "User interface",
+      "component": "ui",
+      "description": "Display grouping derived from source paths; not a compiler-defined architectural boundary.",
+      "metadata": {
+        "provenance": "documented source-path grouping",
+        "baseline": "1eac0a40fdf6"
+      }
+    },
+    {
+      "id": "file:include/AssetCache.hpp",
+      "kind": "file",
+      "name": "include/AssetCache.hpp",
+      "path": "include/AssetCache.hpp",
+      "line": 1,
+      "end_line": 15,
+      "code": "#ifndef AURORA_ASSET_CACHE_HPP\n#define AURORA_ASSET_CACHE_HPP\nnamespace aurora {\n// Unrelated subsystem for measuring irrelevant context selection.\nclass AssetCache {\n    int ids_[4];\n    int next_;\npublic:\n    AssetCache();\n    void insert(int id);\n    bool contains(int id) const;\n    int capacity() const;\n};\n}\n#endif\n",
+      "content_hash": "72218d60db1056487313013389f5d3ca654b3eac96554039ef7a448c0d2875ad",
+      "component": "resources",
+      "description": "Indexed source file.",
+      "metadata": {
+        "provenance": "repository source",
+        "language": "C++",
+        "baseline": "1eac0a40fdf6"
+      }
+    },
+    {
+      "id": "file:include/EventBus.hpp",
+      "kind": "file",
+      "name": "include/EventBus.hpp",
+      "path": "include/EventBus.hpp",
+      "line": 1,
+      "end_line": 16,
+      "code": "#ifndef AURORA_EVENT_BUS_HPP\n#define AURORA_EVENT_BUS_HPP\n#include \"Geometry.hpp\"\nnamespace aurora {\nstruct ViewportChanged { Size size; };\nclass EventBus {\n    int count_;\n    Size last_;\npublic:\n    EventBus();\n    void publish(const ViewportChanged& event);\n    int count() const;\n    Size lastSize() const;\n};\n}\n#endif\n",
+      "content_hash": "f66a87438e82aced5c897a44940614576aa123ef015c1a558921ff32636a5510",
+      "component": "core",
+      "description": "Indexed source file.",
+      "metadata": {
+        "provenance": "repository source",
+        "language": "C++",
+        "baseline": "1eac0a40fdf6"
+      }
+    },
+    {
+      "id": "file:include/Geometry.hpp",
+      "kind": "file",
+      "name": "include/Geometry.hpp",
+      "path": "include/Geometry.hpp",
+      "line": 1,
+      "end_line": 14,
+      "code": "#ifndef AURORA_GEOMETRY_HPP\n#define AURORA_GEOMETRY_HPP\nnamespace aurora {\nstruct Size { int width; int height; };\nstruct Rect { int x; int y; int width; int height; };\nclass Geometry {\npublic:\n    // Shared policy: valid drawable dimensions are inclusive 1..8192.\n    static int clampDimension(int value);\n    static float clampDimension(float value);\n    static bool contains(const Rect& bounds, int x, int y);\n};\n}\n#endif\n",
+      "content_hash": "8d21895b08942f63020ee8a49a15ffe5ee752891ae09b17b077a1b1dc1bb1303",
+      "component": "core",
+      "description": "Indexed source file.",
+      "metadata": {
+        "provenance": "repository source",
+        "language": "C++",
+        "baseline": "1eac0a40fdf6"
+      }
+    },
+    {
+      "id": "file:include/RenderEngine.hpp",
+      "kind": "file",
+      "name": "include/RenderEngine.hpp",
+      "path": "include/RenderEngine.hpp",
+      "line": 1,
+      "end_line": 23,
+      "code": "#ifndef AURORA_RENDER_ENGINE_HPP\n#define AURORA_RENDER_ENGINE_HPP\n#include \"Geometry.hpp\"\n#include \"EventBus.hpp\"\n#include \"UILayer.hpp\"\nnamespace aurora {\nclass RenderEngine {\n    EventBus& events_;\n    UILayer& ui_;\n    Size viewport_;\npublic:\n    RenderEngine(EventBus& events, UILayer& ui);\n    void resize(Size requested);\n    Size viewport() const;\n};\nclass WindowController {\n    RenderEngine& engine_;\npublic:\n    explicit WindowController(RenderEngine& engine);\n    void onSizeChanged(int width, int height);\n};\n}\n#endif\n",
+      "content_hash": "2d29f8fe27071638b849f569a99b25ac2c6567b86489c08bb20ba699025dd3ec",
+      "component": "render",
+      "description": "Indexed source file.",
+      "metadata": {
+        "provenance": "repository source",
+        "language": "C++",
+        "baseline": "1eac0a40fdf6"
+      }
+    },
+    {
+      "id": "file:include/UILayer.hpp",
+      "kind": "file",
+      "name": "include/UILayer.hpp",
+      "path": "include/UILayer.hpp",
+      "line": 1,
+      "end_line": 18,
+      "code": "#ifndef AURORA_UI_LAYER_HPP\n#define AURORA_UI_LAYER_HPP\n#include \"Geometry.hpp\"\nnamespace aurora {\nclass LayoutEngine {\npublic:\n    Rect resolve(Size available) const;\n};\nclass UILayer {\n    LayoutEngine layout_;\n    Rect root_;\npublic:\n    UILayer();\n    void relayout(Size available);\n    Rect bounds() const;\n};\n}\n#endif\n",
+      "content_hash": "bc8216b42bf9c4fc7bd45ed349d8b11ccbd9acac0a111921177e3816b47e2d50",
+      "component": "ui",
+      "description": "Indexed source file.",
+      "metadata": {
+        "provenance": "repository source",
+        "language": "C++",
+        "baseline": "1eac0a40fdf6"
+      }
+    },
+    {
+      "id": "file:src/AssetCache.cpp",
+      "kind": "file",
+      "name": "src/AssetCache.cpp",
+      "path": "src/AssetCache.cpp",
+      "line": 1,
+      "end_line": 16,
+      "code": "#include \"AssetCache.hpp\"\nnamespace aurora {\nAssetCache::AssetCache() : ids_{-1, -1, -1, -1}, next_(0) {}\nvoid AssetCache::insert(int id) {\n    if (contains(id)) return;\n    ids_[next_] = id;\n    next_ = (next_ + 1) % capacity();\n}\nbool AssetCache::contains(int id) const {\n    for (int i = 0; i < capacity(); ++i) {\n        if (ids_[i] == id) return true;\n    }\n    return false;\n}\nint AssetCache::capacity() const { return 4; }\n}\n",
+      "content_hash": "125a452084652524466ad03c83cee10298664c81462302ee8e0df61429fd361f",
+      "component": "resources",
+      "description": "Indexed source file.",
+      "metadata": {
+        "provenance": "repository source",
+        "language": "C++",
+        "baseline": "1eac0a40fdf6"
+      }
+    },
+    {
+      "id": "file:src/EventBus.cpp",
+      "kind": "file",
+      "name": "src/EventBus.cpp",
+      "path": "src/EventBus.cpp",
+      "line": 1,
+      "end_line": 10,
+      "code": "#include \"EventBus.hpp\"\nnamespace aurora {\nEventBus::EventBus() : count_(0), last_{0, 0} {}\nvoid EventBus::publish(const ViewportChanged& event) {\n    last_ = event.size;\n    ++count_;\n}\nint EventBus::count() const { return count_; }\nSize EventBus::lastSize() const { return last_; }\n}\n",
+      "content_hash": "c9ea9da093de8d7976a20eaa018e0cbb3ea2705a6985654221468fb9a47e162d",
+      "component": "core",
+      "description": "Indexed source file.",
+      "metadata": {
+        "provenance": "repository source",
+        "language": "C++",
+        "baseline": "1eac0a40fdf6"
+      }
+    },
+    {
+      "id": "file:src/Geometry.cpp",
+      "kind": "file",
+      "name": "src/Geometry.cpp",
+      "path": "src/Geometry.cpp",
+      "line": 1,
+      "end_line": 17,
+      "code": "#include \"Geometry.hpp\"\nnamespace aurora {\nint Geometry::clampDimension(int value) {\n    if (value < 1) return 1;\n    if (value > 8192) return 8192;\n    return value;\n}\nfloat Geometry::clampDimension(float value) {\n    if (value < 1.0f) return 1.0f;\n    if (value > 8192.0f) return 8192.0f;\n    return value;\n}\nbool Geometry::contains(const Rect& bounds, int x, int y) {\n    return x >= bounds.x && y >= bounds.y &&\n           x < bounds.x + bounds.width && y < bounds.y + bounds.height;\n}\n}\n",
+      "content_hash": "d0236438792736762596566651e2837d914220066625a61499fabc4a69bb92c7",
+      "component": "core",
+      "description": "Indexed source file.",
+      "metadata": {
+        "provenance": "repository source",
+        "language": "C++",
+        "baseline": "1eac0a40fdf6"
+      }
+    },
+    {
+      "id": "file:src/RenderEngine.cpp",
+      "kind": "file",
+      "name": "src/RenderEngine.cpp",
+      "path": "src/RenderEngine.cpp",
+      "line": 1,
+      "end_line": 17,
+      "code": "#include \"RenderEngine.hpp\"\nnamespace aurora {\nRenderEngine::RenderEngine(EventBus& events, UILayer& ui)\n    : events_(events), ui_(ui), viewport_{1, 1} {}\nvoid RenderEngine::resize(Size requested) {\n    // One shared policy keeps viewport, layout, and notification consistent.\n    viewport_ = Size{Geometry::clampDimension(requested.width),\n                     Geometry::clampDimension(requested.height)};\n    ui_.relayout(viewport_);\n    events_.publish(ViewportChanged{viewport_});\n}\nSize RenderEngine::viewport() const { return viewport_; }\nWindowController::WindowController(RenderEngine& engine) : engine_(engine) {}\nvoid WindowController::onSizeChanged(int width, int height) {\n    engine_.resize(Size{width, height});\n}\n}\n",
+      "content_hash": "7cecda03acc3f5737f92c6b1094c289c3e6039d9fbb5a07b3e8e0016a1b901ff",
+      "component": "render",
+      "description": "Indexed source file.",
+      "metadata": {
+        "provenance": "repository source",
+        "language": "C++",
+        "baseline": "1eac0a40fdf6"
+      }
+    },
+    {
+      "id": "file:src/UILayer.cpp",
+      "kind": "file",
+      "name": "src/UILayer.cpp",
+      "path": "src/UILayer.cpp",
+      "line": 1,
+      "end_line": 12,
+      "code": "#include \"UILayer.hpp\"\nnamespace aurora {\nRect LayoutEngine::resolve(Size available) const {\n    return Rect{0, 0, Geometry::clampDimension(available.width),\n                      Geometry::clampDimension(available.height)};\n}\nUILayer::UILayer() : root_{0, 0, 1, 1} {}\nvoid UILayer::relayout(Size available) {\n    root_ = layout_.resolve(available);\n}\nRect UILayer::bounds() const { return root_; }\n}\n",
+      "content_hash": "5cc9b8dcf96f756cd28acbb82cf0318dbe27ae95f101cffa85b07706e35481fb",
+      "component": "ui",
+      "description": "Indexed source file.",
+      "metadata": {
+        "provenance": "repository source",
+        "language": "C++",
+        "baseline": "1eac0a40fdf6"
+      }
+    },
+    {
+      "id": "file:tests/ResizeTests.cpp",
+      "kind": "file",
+      "name": "tests/ResizeTests.cpp",
+      "path": "tests/ResizeTests.cpp",
+      "line": 1,
+      "end_line": 69,
+      "code": "#include \"RenderEngine.hpp\"\n#include \"AssetCache.hpp\"\nnamespace aurora {\nnamespace tests {\nbool nominalResize() {\n    EventBus events; UILayer ui; RenderEngine engine(events, ui);\n    WindowController window(engine);\n    window.onSizeChanged(1280, 720);\n    return engine.viewport().width == 1280 && ui.bounds().height == 720 &&\n           events.count() == 1 && events.lastSize().height == 720;\n}\nbool layoutClamps() {\n    LayoutEngine layout;\n    Rect bounds = layout.resolve(Size{-9, 9000});\n    return bounds.width == 1 && bounds.height == 8192;\n}\nbool cacheEvicts() {\n    AssetCache cache;\n    for (int i = 1; i <= 5; ++i) cache.insert(i);\n    return !cache.contains(1) && cache.contains(5) && cache.capacity() == 4;\n}\nbool zeroResize() {\n    EventBus events; UILayer ui; RenderEngine engine(events, ui);\n    engine.resize(Size{0, 0});\n    return engine.viewport().width == 1 && engine.viewport().height == 1 &&\n           ui.bounds().width == 1 && events.lastSize().width == 1;\n}\nbool negativeResize() {\n    EventBus events; UILayer ui; RenderEngine engine(events, ui);\n    engine.resize(Size{-100, -5});\n    return engine.viewport().width == 1 && engine.viewport().height == 1 &&\n           ui.bounds().height == 1 && events.lastSize().height == 1;\n}\nbool oversizeResize() {\n    EventBus events; UILayer ui; RenderEngine engine(events, ui);\n    engine.resize(Size{9000, 12000});\n    return engine.viewport().width == 8192 && engine.viewport().height == 8192 &&\n           ui.bounds().width == 8192 && events.lastSize().height == 8192;\n}\nbool eventMatchesLayout() {\n    EventBus events; UILayer ui; RenderEngine engine(events, ui);\n    engine.resize(Size{0, 300});\n    return events.count() == 1 && events.lastSize().width == ui.bounds().width &&\n           events.lastSize().height == ui.bounds().height;\n}\nbool repeatedResize() {\n    EventBus events; UILayer ui; RenderEngine engine(events, ui);\n    engine.resize(Size{100, 200});\n    engine.resize(Size{300, 400});\n    return events.count() == 2 && engine.viewport().width == 300 &&\n           ui.bounds().height == 400 && events.lastSize().width == 300;\n}\n}\n}\nint main(int argc, char** argv) {\n    if (argc != 2) return 2;\n    using namespace aurora::tests;\n    switch (argv[1][0]) {\n        case '0': return nominalResize() ? 0 : 1;\n        case '1': return layoutClamps() ? 0 : 1;\n        case '2': return cacheEvicts() ? 0 : 1;\n        case '3': return zeroResize() ? 0 : 1;\n        case '4': return negativeResize() ? 0 : 1;\n        case '5': return oversizeResize() ? 0 : 1;\n        case '6': return eventMatchesLayout() ? 0 : 1;\n        case '7': return repeatedResize() ? 0 : 1;\n        default: return 2;\n    }\n}\n",
+      "content_hash": "68e855a157dee04728d9248fc9c7082a349c28bd70b01a2de40bbfa31da900aa",
+      "component": "core",
+      "description": "Indexed source file.",
+      "metadata": {
+        "provenance": "repository source",
+        "language": "C++",
+        "baseline": "1eac0a40fdf6"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "c:@F@main#I#**C#",
+      "to": "component-core",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@F@main#I#**C#",
+      "to": "c:@N@aurora@N@tests@F@cacheEvicts#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 61,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@F@main#I#**C#",
+      "to": "c:@N@aurora@N@tests@F@eventMatchesLayout#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 65,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@F@main#I#**C#",
+      "to": "c:@N@aurora@N@tests@F@layoutClamps#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 60,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@F@main#I#**C#",
+      "to": "c:@N@aurora@N@tests@F@negativeResize#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 63,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@F@main#I#**C#",
+      "to": "c:@N@aurora@N@tests@F@nominalResize#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 59,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@F@main#I#**C#",
+      "to": "c:@N@aurora@N@tests@F@oversizeResize#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 64,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@F@main#I#**C#",
+      "to": "c:@N@aurora@N@tests@F@repeatedResize#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 66,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@F@main#I#**C#",
+      "to": "c:@N@aurora@N@tests@F@zeroResize#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 62,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@F@main#I#**C#",
+      "to": "file:tests/ResizeTests.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@cacheEvicts#",
+      "to": "component-core",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@cacheEvicts#",
+      "to": "c:@N@aurora@S@AssetCache@F@AssetCache#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 18,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@cacheEvicts#",
+      "to": "c:@N@aurora@S@AssetCache@F@capacity#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 20,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@cacheEvicts#",
+      "to": "c:@N@aurora@S@AssetCache@F@contains#I#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 20,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@cacheEvicts#",
+      "to": "c:@N@aurora@S@AssetCache@F@insert#I#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 19,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@cacheEvicts#",
+      "to": "file:tests/ResizeTests.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@cacheEvicts#",
+      "to": "REQ-RES-003",
+      "type": "verifies",
+      "provenance": "explicit test_manifest.json mapping"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@eventMatchesLayout#",
+      "to": "component-core",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@eventMatchesLayout#",
+      "to": "c:@N@aurora@S@EventBus@F@EventBus#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 41,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@eventMatchesLayout#",
+      "to": "c:@N@aurora@S@EventBus@F@count#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 43,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@eventMatchesLayout#",
+      "to": "c:@N@aurora@S@EventBus@F@lastSize#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 43,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@eventMatchesLayout#",
+      "to": "c:@N@aurora@S@RenderEngine@F@RenderEngine#&$@N@aurora@S@EventBus#&$@N@aurora@S@UILayer#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 41,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@eventMatchesLayout#",
+      "to": "c:@N@aurora@S@RenderEngine@F@resize#$@N@aurora@S@Size#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 42,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@eventMatchesLayout#",
+      "to": "c:@N@aurora@S@UILayer@F@UILayer#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 41,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@eventMatchesLayout#",
+      "to": "c:@N@aurora@S@UILayer@F@bounds#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 43,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@eventMatchesLayout#",
+      "to": "file:tests/ResizeTests.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@eventMatchesLayout#",
+      "to": "REQ-EVT-001",
+      "type": "verifies",
+      "provenance": "explicit test_manifest.json mapping"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@eventMatchesLayout#",
+      "to": "REQ-UI-002",
+      "type": "verifies",
+      "provenance": "explicit test_manifest.json mapping"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@layoutClamps#",
+      "to": "component-core",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@layoutClamps#",
+      "to": "c:@N@aurora@S@LayoutEngine@F@resolve#$@N@aurora@S@Size#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 14,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@layoutClamps#",
+      "to": "file:tests/ResizeTests.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@layoutClamps#",
+      "to": "REQ-UI-002",
+      "type": "verifies",
+      "provenance": "explicit test_manifest.json mapping"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@negativeResize#",
+      "to": "component-core",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@negativeResize#",
+      "to": "c:@N@aurora@S@EventBus@F@EventBus#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 29,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@negativeResize#",
+      "to": "c:@N@aurora@S@EventBus@F@lastSize#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 32,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@negativeResize#",
+      "to": "c:@N@aurora@S@RenderEngine@F@RenderEngine#&$@N@aurora@S@EventBus#&$@N@aurora@S@UILayer#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 29,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@negativeResize#",
+      "to": "c:@N@aurora@S@RenderEngine@F@resize#$@N@aurora@S@Size#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 30,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@negativeResize#",
+      "to": "c:@N@aurora@S@RenderEngine@F@viewport#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 31,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@negativeResize#",
+      "to": "c:@N@aurora@S@UILayer@F@UILayer#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 29,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@negativeResize#",
+      "to": "c:@N@aurora@S@UILayer@F@bounds#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 32,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@negativeResize#",
+      "to": "file:tests/ResizeTests.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@negativeResize#",
+      "to": "REQ-UI-002",
+      "type": "verifies",
+      "provenance": "explicit test_manifest.json mapping"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@nominalResize#",
+      "to": "component-core",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@nominalResize#",
+      "to": "c:@N@aurora@S@EventBus@F@EventBus#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 6,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@nominalResize#",
+      "to": "c:@N@aurora@S@EventBus@F@count#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 10,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@nominalResize#",
+      "to": "c:@N@aurora@S@EventBus@F@lastSize#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 10,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@nominalResize#",
+      "to": "c:@N@aurora@S@RenderEngine@F@RenderEngine#&$@N@aurora@S@EventBus#&$@N@aurora@S@UILayer#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 6,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@nominalResize#",
+      "to": "c:@N@aurora@S@RenderEngine@F@viewport#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 9,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@nominalResize#",
+      "to": "c:@N@aurora@S@UILayer@F@UILayer#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 6,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@nominalResize#",
+      "to": "c:@N@aurora@S@UILayer@F@bounds#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 9,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@nominalResize#",
+      "to": "c:@N@aurora@S@WindowController@F@WindowController#&$@N@aurora@S@RenderEngine#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 7,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@nominalResize#",
+      "to": "c:@N@aurora@S@WindowController@F@onSizeChanged#I#I#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 8,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@nominalResize#",
+      "to": "file:tests/ResizeTests.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@nominalResize#",
+      "to": "REQ-EVT-001",
+      "type": "verifies",
+      "provenance": "explicit test_manifest.json mapping"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@nominalResize#",
+      "to": "REQ-UI-002",
+      "type": "verifies",
+      "provenance": "explicit test_manifest.json mapping"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@oversizeResize#",
+      "to": "component-core",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@oversizeResize#",
+      "to": "c:@N@aurora@S@EventBus@F@EventBus#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 35,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@oversizeResize#",
+      "to": "c:@N@aurora@S@EventBus@F@lastSize#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 38,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@oversizeResize#",
+      "to": "c:@N@aurora@S@RenderEngine@F@RenderEngine#&$@N@aurora@S@EventBus#&$@N@aurora@S@UILayer#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 35,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@oversizeResize#",
+      "to": "c:@N@aurora@S@RenderEngine@F@resize#$@N@aurora@S@Size#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 36,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@oversizeResize#",
+      "to": "c:@N@aurora@S@RenderEngine@F@viewport#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 37,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@oversizeResize#",
+      "to": "c:@N@aurora@S@UILayer@F@UILayer#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 35,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@oversizeResize#",
+      "to": "c:@N@aurora@S@UILayer@F@bounds#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 38,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@oversizeResize#",
+      "to": "file:tests/ResizeTests.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@oversizeResize#",
+      "to": "REQ-UI-002",
+      "type": "verifies",
+      "provenance": "explicit test_manifest.json mapping"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@repeatedResize#",
+      "to": "component-core",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@repeatedResize#",
+      "to": "c:@N@aurora@S@EventBus@F@EventBus#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 47,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@repeatedResize#",
+      "to": "c:@N@aurora@S@EventBus@F@count#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 50,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@repeatedResize#",
+      "to": "c:@N@aurora@S@EventBus@F@lastSize#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 51,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@repeatedResize#",
+      "to": "c:@N@aurora@S@RenderEngine@F@RenderEngine#&$@N@aurora@S@EventBus#&$@N@aurora@S@UILayer#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 47,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@repeatedResize#",
+      "to": "c:@N@aurora@S@RenderEngine@F@resize#$@N@aurora@S@Size#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 48,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@repeatedResize#",
+      "to": "c:@N@aurora@S@RenderEngine@F@viewport#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 50,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@repeatedResize#",
+      "to": "c:@N@aurora@S@UILayer@F@UILayer#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 47,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@repeatedResize#",
+      "to": "c:@N@aurora@S@UILayer@F@bounds#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 51,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@repeatedResize#",
+      "to": "file:tests/ResizeTests.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@repeatedResize#",
+      "to": "REQ-EVT-001",
+      "type": "verifies",
+      "provenance": "explicit test_manifest.json mapping"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@repeatedResize#",
+      "to": "REQ-UI-002",
+      "type": "verifies",
+      "provenance": "explicit test_manifest.json mapping"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@zeroResize#",
+      "to": "component-core",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@zeroResize#",
+      "to": "c:@N@aurora@S@EventBus@F@EventBus#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 23,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@zeroResize#",
+      "to": "c:@N@aurora@S@EventBus@F@lastSize#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 26,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@zeroResize#",
+      "to": "c:@N@aurora@S@RenderEngine@F@RenderEngine#&$@N@aurora@S@EventBus#&$@N@aurora@S@UILayer#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 23,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@zeroResize#",
+      "to": "c:@N@aurora@S@RenderEngine@F@resize#$@N@aurora@S@Size#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 24,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@zeroResize#",
+      "to": "c:@N@aurora@S@RenderEngine@F@viewport#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 25,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@zeroResize#",
+      "to": "c:@N@aurora@S@UILayer@F@UILayer#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 23,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@zeroResize#",
+      "to": "c:@N@aurora@S@UILayer@F@bounds#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "tests/ResizeTests.cpp",
+      "line": 26,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@zeroResize#",
+      "to": "file:tests/ResizeTests.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@N@tests@F@zeroResize#",
+      "to": "REQ-UI-002",
+      "type": "verifies",
+      "provenance": "explicit test_manifest.json mapping"
+    },
+    {
+      "from": "c:@N@aurora@S@AssetCache@F@AssetCache#",
+      "to": "component-resources",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@S@AssetCache@F@AssetCache#",
+      "to": "file:include/AssetCache.hpp",
+      "type": "declared in",
+      "provenance": "libclang declaration"
+    },
+    {
+      "from": "c:@N@aurora@S@AssetCache@F@AssetCache#",
+      "to": "file:src/AssetCache.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@S@AssetCache@F@capacity#1",
+      "to": "component-resources",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@S@AssetCache@F@capacity#1",
+      "to": "file:include/AssetCache.hpp",
+      "type": "declared in",
+      "provenance": "libclang declaration"
+    },
+    {
+      "from": "c:@N@aurora@S@AssetCache@F@capacity#1",
+      "to": "file:src/AssetCache.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@S@AssetCache@F@contains#I#1",
+      "to": "component-resources",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@S@AssetCache@F@contains#I#1",
+      "to": "c:@N@aurora@S@AssetCache@F@capacity#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "src/AssetCache.cpp",
+      "line": 10,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@S@AssetCache@F@contains#I#1",
+      "to": "file:include/AssetCache.hpp",
+      "type": "declared in",
+      "provenance": "libclang declaration"
+    },
+    {
+      "from": "c:@N@aurora@S@AssetCache@F@contains#I#1",
+      "to": "file:src/AssetCache.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@S@AssetCache@F@insert#I#",
+      "to": "component-resources",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@S@AssetCache@F@insert#I#",
+      "to": "c:@N@aurora@S@AssetCache@F@capacity#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "src/AssetCache.cpp",
+      "line": 7,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@S@AssetCache@F@insert#I#",
+      "to": "c:@N@aurora@S@AssetCache@F@contains#I#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "src/AssetCache.cpp",
+      "line": 5,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@S@AssetCache@F@insert#I#",
+      "to": "file:include/AssetCache.hpp",
+      "type": "declared in",
+      "provenance": "libclang declaration"
+    },
+    {
+      "from": "c:@N@aurora@S@AssetCache@F@insert#I#",
+      "to": "file:src/AssetCache.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@S@AssetCache@F@insert#I#",
+      "to": "REQ-RES-003",
+      "type": "implements",
+      "provenance": "explicit requirements.json mapping"
+    },
+    {
+      "from": "c:@N@aurora@S@EventBus@F@EventBus#",
+      "to": "component-core",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@S@EventBus@F@EventBus#",
+      "to": "file:include/EventBus.hpp",
+      "type": "declared in",
+      "provenance": "libclang declaration"
+    },
+    {
+      "from": "c:@N@aurora@S@EventBus@F@EventBus#",
+      "to": "file:src/EventBus.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@S@EventBus@F@count#1",
+      "to": "component-core",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@S@EventBus@F@count#1",
+      "to": "file:include/EventBus.hpp",
+      "type": "declared in",
+      "provenance": "libclang declaration"
+    },
+    {
+      "from": "c:@N@aurora@S@EventBus@F@count#1",
+      "to": "file:src/EventBus.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@S@EventBus@F@lastSize#1",
+      "to": "component-core",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@S@EventBus@F@lastSize#1",
+      "to": "file:include/EventBus.hpp",
+      "type": "declared in",
+      "provenance": "libclang declaration"
+    },
+    {
+      "from": "c:@N@aurora@S@EventBus@F@lastSize#1",
+      "to": "file:src/EventBus.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@S@EventBus@F@publish#&1$@N@aurora@S@ViewportChanged#",
+      "to": "component-core",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@S@EventBus@F@publish#&1$@N@aurora@S@ViewportChanged#",
+      "to": "file:include/EventBus.hpp",
+      "type": "declared in",
+      "provenance": "libclang declaration"
+    },
+    {
+      "from": "c:@N@aurora@S@EventBus@F@publish#&1$@N@aurora@S@ViewportChanged#",
+      "to": "file:src/EventBus.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@S@EventBus@F@publish#&1$@N@aurora@S@ViewportChanged#",
+      "to": "REQ-EVT-001",
+      "type": "implements",
+      "provenance": "explicit requirements.json mapping"
+    },
+    {
+      "from": "c:@N@aurora@S@Geometry@F@clampDimension#I#S",
+      "to": "component-core",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@S@Geometry@F@clampDimension#I#S",
+      "to": "file:include/Geometry.hpp",
+      "type": "declared in",
+      "provenance": "libclang declaration"
+    },
+    {
+      "from": "c:@N@aurora@S@Geometry@F@clampDimension#I#S",
+      "to": "file:src/Geometry.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@S@Geometry@F@clampDimension#f#S",
+      "to": "component-core",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@S@Geometry@F@clampDimension#f#S",
+      "to": "file:include/Geometry.hpp",
+      "type": "declared in",
+      "provenance": "libclang declaration"
+    },
+    {
+      "from": "c:@N@aurora@S@Geometry@F@clampDimension#f#S",
+      "to": "file:src/Geometry.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@S@Geometry@F@contains#&1$@N@aurora@S@Rect#I#I#S",
+      "to": "component-core",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@S@Geometry@F@contains#&1$@N@aurora@S@Rect#I#I#S",
+      "to": "file:include/Geometry.hpp",
+      "type": "declared in",
+      "provenance": "libclang declaration"
+    },
+    {
+      "from": "c:@N@aurora@S@Geometry@F@contains#&1$@N@aurora@S@Rect#I#I#S",
+      "to": "file:src/Geometry.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@S@LayoutEngine@F@resolve#$@N@aurora@S@Size#1",
+      "to": "component-ui",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@S@LayoutEngine@F@resolve#$@N@aurora@S@Size#1",
+      "to": "c:@N@aurora@S@Geometry@F@clampDimension#I#S",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "src/UILayer.cpp",
+      "line": 4,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@S@LayoutEngine@F@resolve#$@N@aurora@S@Size#1",
+      "to": "file:include/UILayer.hpp",
+      "type": "declared in",
+      "provenance": "libclang declaration"
+    },
+    {
+      "from": "c:@N@aurora@S@LayoutEngine@F@resolve#$@N@aurora@S@Size#1",
+      "to": "file:src/UILayer.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@S@LayoutEngine@F@resolve#$@N@aurora@S@Size#1",
+      "to": "REQ-UI-002",
+      "type": "implements",
+      "provenance": "explicit requirements.json mapping"
+    },
+    {
+      "from": "c:@N@aurora@S@RenderEngine@F@RenderEngine#&$@N@aurora@S@EventBus#&$@N@aurora@S@UILayer#",
+      "to": "component-render",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@S@RenderEngine@F@RenderEngine#&$@N@aurora@S@EventBus#&$@N@aurora@S@UILayer#",
+      "to": "file:include/RenderEngine.hpp",
+      "type": "declared in",
+      "provenance": "libclang declaration"
+    },
+    {
+      "from": "c:@N@aurora@S@RenderEngine@F@RenderEngine#&$@N@aurora@S@EventBus#&$@N@aurora@S@UILayer#",
+      "to": "file:src/RenderEngine.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@S@RenderEngine@F@resize#$@N@aurora@S@Size#",
+      "to": "component-render",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@S@RenderEngine@F@resize#$@N@aurora@S@Size#",
+      "to": "c:@N@aurora@S@EventBus@F@publish#&1$@N@aurora@S@ViewportChanged#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "src/RenderEngine.cpp",
+      "line": 10,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@S@RenderEngine@F@resize#$@N@aurora@S@Size#",
+      "to": "c:@N@aurora@S@Geometry@F@clampDimension#I#S",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "src/RenderEngine.cpp",
+      "line": 7,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@S@RenderEngine@F@resize#$@N@aurora@S@Size#",
+      "to": "c:@N@aurora@S@UILayer@F@relayout#$@N@aurora@S@Size#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "src/RenderEngine.cpp",
+      "line": 9,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@S@RenderEngine@F@resize#$@N@aurora@S@Size#",
+      "to": "file:include/RenderEngine.hpp",
+      "type": "declared in",
+      "provenance": "libclang declaration"
+    },
+    {
+      "from": "c:@N@aurora@S@RenderEngine@F@resize#$@N@aurora@S@Size#",
+      "to": "file:src/RenderEngine.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@S@RenderEngine@F@resize#$@N@aurora@S@Size#",
+      "to": "REQ-EVT-001",
+      "type": "implements",
+      "provenance": "explicit requirements.json mapping"
+    },
+    {
+      "from": "c:@N@aurora@S@RenderEngine@F@resize#$@N@aurora@S@Size#",
+      "to": "REQ-UI-002",
+      "type": "implements",
+      "provenance": "explicit requirements.json mapping"
+    },
+    {
+      "from": "c:@N@aurora@S@RenderEngine@F@viewport#1",
+      "to": "component-render",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@S@RenderEngine@F@viewport#1",
+      "to": "file:include/RenderEngine.hpp",
+      "type": "declared in",
+      "provenance": "libclang declaration"
+    },
+    {
+      "from": "c:@N@aurora@S@RenderEngine@F@viewport#1",
+      "to": "file:src/RenderEngine.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@S@UILayer@F@UILayer#",
+      "to": "component-ui",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@S@UILayer@F@UILayer#",
+      "to": "file:include/UILayer.hpp",
+      "type": "declared in",
+      "provenance": "libclang declaration"
+    },
+    {
+      "from": "c:@N@aurora@S@UILayer@F@UILayer#",
+      "to": "file:src/UILayer.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@S@UILayer@F@bounds#1",
+      "to": "component-ui",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@S@UILayer@F@bounds#1",
+      "to": "file:include/UILayer.hpp",
+      "type": "declared in",
+      "provenance": "libclang declaration"
+    },
+    {
+      "from": "c:@N@aurora@S@UILayer@F@bounds#1",
+      "to": "file:src/UILayer.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@S@UILayer@F@relayout#$@N@aurora@S@Size#",
+      "to": "component-ui",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@S@UILayer@F@relayout#$@N@aurora@S@Size#",
+      "to": "c:@N@aurora@S@LayoutEngine@F@resolve#$@N@aurora@S@Size#1",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "src/UILayer.cpp",
+      "line": 9,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@S@UILayer@F@relayout#$@N@aurora@S@Size#",
+      "to": "file:include/UILayer.hpp",
+      "type": "declared in",
+      "provenance": "libclang declaration"
+    },
+    {
+      "from": "c:@N@aurora@S@UILayer@F@relayout#$@N@aurora@S@Size#",
+      "to": "file:src/UILayer.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@S@UILayer@F@relayout#$@N@aurora@S@Size#",
+      "to": "REQ-UI-002",
+      "type": "implements",
+      "provenance": "explicit requirements.json mapping"
+    },
+    {
+      "from": "c:@N@aurora@S@WindowController@F@WindowController#&$@N@aurora@S@RenderEngine#",
+      "to": "component-render",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@S@WindowController@F@WindowController#&$@N@aurora@S@RenderEngine#",
+      "to": "file:include/RenderEngine.hpp",
+      "type": "declared in",
+      "provenance": "libclang declaration"
+    },
+    {
+      "from": "c:@N@aurora@S@WindowController@F@WindowController#&$@N@aurora@S@RenderEngine#",
+      "to": "file:src/RenderEngine.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "c:@N@aurora@S@WindowController@F@onSizeChanged#I#I#",
+      "to": "component-render",
+      "type": "belongs to",
+      "provenance": "source-path display grouping"
+    },
+    {
+      "from": "c:@N@aurora@S@WindowController@F@onSizeChanged#I#I#",
+      "to": "c:@N@aurora@S@RenderEngine@F@resize#$@N@aurora@S@Size#",
+      "type": "calls",
+      "provenance": "libclang direct call",
+      "path": "src/RenderEngine.cpp",
+      "line": 15,
+      "confidence": "resolved"
+    },
+    {
+      "from": "c:@N@aurora@S@WindowController@F@onSizeChanged#I#I#",
+      "to": "file:include/RenderEngine.hpp",
+      "type": "declared in",
+      "provenance": "libclang declaration"
+    },
+    {
+      "from": "c:@N@aurora@S@WindowController@F@onSizeChanged#I#I#",
+      "to": "file:src/RenderEngine.cpp",
+      "type": "defined in",
+      "provenance": "libclang definition"
+    },
+    {
+      "from": "component-core",
+      "to": "component-render",
+      "type": "depends on",
+      "provenance": "aggregation of resolved cross-component calls"
+    },
+    {
+      "from": "component-core",
+      "to": "component-resources",
+      "type": "depends on",
+      "provenance": "aggregation of resolved cross-component calls"
+    },
+    {
+      "from": "component-core",
+      "to": "component-ui",
+      "type": "depends on",
+      "provenance": "aggregation of resolved cross-component calls"
+    },
+    {
+      "from": "component-render",
+      "to": "component-core",
+      "type": "depends on",
+      "provenance": "aggregation of resolved cross-component calls"
+    },
+    {
+      "from": "component-render",
+      "to": "component-ui",
+      "type": "depends on",
+      "provenance": "aggregation of resolved cross-component calls"
+    },
+    {
+      "from": "component-ui",
+      "to": "component-core",
+      "type": "depends on",
+      "provenance": "aggregation of resolved cross-component calls"
+    },
+    {
+      "from": "file:include/EventBus.hpp",
+      "to": "file:include/Geometry.hpp",
+      "type": "includes",
+      "provenance": "libclang include directive",
+      "path": "include/EventBus.hpp",
+      "line": 3
+    },
+    {
+      "from": "file:include/RenderEngine.hpp",
+      "to": "file:include/EventBus.hpp",
+      "type": "includes",
+      "provenance": "libclang include directive",
+      "path": "include/RenderEngine.hpp",
+      "line": 4
+    },
+    {
+      "from": "file:include/RenderEngine.hpp",
+      "to": "file:include/Geometry.hpp",
+      "type": "includes",
+      "provenance": "libclang include directive",
+      "path": "include/RenderEngine.hpp",
+      "line": 3
+    },
+    {
+      "from": "file:include/RenderEngine.hpp",
+      "to": "file:include/UILayer.hpp",
+      "type": "includes",
+      "provenance": "libclang include directive",
+      "path": "include/RenderEngine.hpp",
+      "line": 5
+    },
+    {
+      "from": "file:include/UILayer.hpp",
+      "to": "file:include/Geometry.hpp",
+      "type": "includes",
+      "provenance": "libclang include directive",
+      "path": "include/UILayer.hpp",
+      "line": 3
+    },
+    {
+      "from": "file:src/AssetCache.cpp",
+      "to": "file:include/AssetCache.hpp",
+      "type": "includes",
+      "provenance": "libclang include directive",
+      "path": "src/AssetCache.cpp",
+      "line": 1
+    },
+    {
+      "from": "file:src/EventBus.cpp",
+      "to": "file:include/EventBus.hpp",
+      "type": "includes",
+      "provenance": "libclang include directive",
+      "path": "src/EventBus.cpp",
+      "line": 1
+    },
+    {
+      "from": "file:src/Geometry.cpp",
+      "to": "file:include/Geometry.hpp",
+      "type": "includes",
+      "provenance": "libclang include directive",
+      "path": "src/Geometry.cpp",
+      "line": 1
+    },
+    {
+      "from": "file:src/RenderEngine.cpp",
+      "to": "file:include/RenderEngine.hpp",
+      "type": "includes",
+      "provenance": "libclang include directive",
+      "path": "src/RenderEngine.cpp",
+      "line": 1
+    },
+    {
+      "from": "file:src/UILayer.cpp",
+      "to": "file:include/UILayer.hpp",
+      "type": "includes",
+      "provenance": "libclang include directive",
+      "path": "src/UILayer.cpp",
+      "line": 1
+    },
+    {
+      "from": "file:tests/ResizeTests.cpp",
+      "to": "file:include/AssetCache.hpp",
+      "type": "includes",
+      "provenance": "libclang include directive",
+      "path": "tests/ResizeTests.cpp",
+      "line": 2
+    },
+    {
+      "from": "file:tests/ResizeTests.cpp",
+      "to": "file:include/RenderEngine.hpp",
+      "type": "includes",
+      "provenance": "libclang include directive",
+      "path": "tests/ResizeTests.cpp",
+      "line": 1
+    }
+  ],
+  "unresolved": [
+    {
+      "owner": "c:@N@aurora@S@WindowController@F@onSizeChanged#I#I#",
+      "path": "src/RenderEngine.cpp",
+      "line": 15,
+      "spelling": "",
+      "reason": "Unresolved or indirect call"
+    },
+    {
+      "owner": "c:@N@aurora@S@LayoutEngine@F@resolve#$@N@aurora@S@Size#1",
+      "path": "src/UILayer.cpp",
+      "line": 4,
+      "spelling": "",
+      "reason": "Unresolved or indirect call"
+    },
+    {
+      "owner": "c:@N@aurora@N@tests@F@layoutClamps#",
+      "path": "tests/ResizeTests.cpp",
+      "line": 14,
+      "spelling": "",
+      "reason": "Unresolved or indirect call"
+    },
+    {
+      "owner": "c:@N@aurora@N@tests@F@zeroResize#",
+      "path": "tests/ResizeTests.cpp",
+      "line": 24,
+      "spelling": "",
+      "reason": "Unresolved or indirect call"
+    },
+    {
+      "owner": "c:@N@aurora@N@tests@F@negativeResize#",
+      "path": "tests/ResizeTests.cpp",
+      "line": 30,
+      "spelling": "",
+      "reason": "Unresolved or indirect call"
+    },
+    {
+      "owner": "c:@N@aurora@N@tests@F@oversizeResize#",
+      "path": "tests/ResizeTests.cpp",
+      "line": 36,
+      "spelling": "",
+      "reason": "Unresolved or indirect call"
+    },
+    {
+      "owner": "c:@N@aurora@N@tests@F@eventMatchesLayout#",
+      "path": "tests/ResizeTests.cpp",
+      "line": 42,
+      "spelling": "",
+      "reason": "Unresolved or indirect call"
+    },
+    {
+      "owner": "c:@N@aurora@N@tests@F@repeatedResize#",
+      "path": "tests/ResizeTests.cpp",
+      "line": 48,
+      "spelling": "",
+      "reason": "Unresolved or indirect call"
+    },
+    {
+      "owner": "c:@N@aurora@N@tests@F@repeatedResize#",
+      "path": "tests/ResizeTests.cpp",
+      "line": 49,
+      "spelling": "",
+      "reason": "Unresolved or indirect call"
+    },
+    {
+      "owner": "c:@N@aurora@S@EventBus@F@publish#&1$@N@aurora@S@ViewportChanged#",
+      "target": "c:@N@aurora@S@Size@F@operator=#&1$@N@aurora@S@Size#",
+      "path": "src/EventBus.cpp",
+      "line": 5,
+      "reason": "Referenced declaration has no indexed authored definition (may be external or implicit)"
+    },
+    {
+      "owner": "c:@N@aurora@S@EventBus@F@lastSize#1",
+      "target": "c:@N@aurora@S@Size@F@Size#&1$@N@aurora@S@Size#",
+      "path": "src/EventBus.cpp",
+      "line": 9,
+      "reason": "Referenced declaration has no indexed authored definition (may be external or implicit)"
+    },
+    {
+      "owner": "c:@N@aurora@S@RenderEngine@F@resize#$@N@aurora@S@Size#",
+      "target": "c:@N@aurora@S@Size@F@operator=#&&$@N@aurora@S@Size#",
+      "path": "src/RenderEngine.cpp",
+      "line": 7,
+      "reason": "Referenced declaration has no indexed authored definition (may be external or implicit)"
+    },
+    {
+      "owner": "c:@N@aurora@S@RenderEngine@F@resize#$@N@aurora@S@Size#",
+      "target": "c:@N@aurora@S@Size@F@Size#&1$@N@aurora@S@Size#",
+      "path": "src/RenderEngine.cpp",
+      "line": 9,
+      "reason": "Referenced declaration has no indexed authored definition (may be external or implicit)"
+    },
+    {
+      "owner": "c:@N@aurora@S@RenderEngine@F@viewport#1",
+      "target": "c:@N@aurora@S@Size@F@Size#&1$@N@aurora@S@Size#",
+      "path": "src/RenderEngine.cpp",
+      "line": 12,
+      "reason": "Referenced declaration has no indexed authored definition (may be external or implicit)"
+    },
+    {
+      "owner": "c:@N@aurora@S@UILayer@F@relayout#$@N@aurora@S@Size#",
+      "target": "c:@N@aurora@S@Rect@F@operator=#&&$@N@aurora@S@Rect#",
+      "path": "src/UILayer.cpp",
+      "line": 9,
+      "reason": "Referenced declaration has no indexed authored definition (may be external or implicit)"
+    },
+    {
+      "owner": "c:@N@aurora@S@UILayer@F@relayout#$@N@aurora@S@Size#",
+      "target": "c:@N@aurora@S@Size@F@Size#&1$@N@aurora@S@Size#",
+      "path": "src/UILayer.cpp",
+      "line": 9,
+      "reason": "Referenced declaration has no indexed authored definition (may be external or implicit)"
+    },
+    {
+      "owner": "c:@N@aurora@S@UILayer@F@bounds#1",
+      "target": "c:@N@aurora@S@Rect@F@Rect#&1$@N@aurora@S@Rect#",
+      "path": "src/UILayer.cpp",
+      "line": 11,
+      "reason": "Referenced declaration has no indexed authored definition (may be external or implicit)"
+    },
+    {
+      "owner": "c:@N@aurora@N@tests@F@layoutClamps#",
+      "target": "c:@N@aurora@S@LayoutEngine@F@LayoutEngine#",
+      "path": "tests/ResizeTests.cpp",
+      "line": 13,
+      "reason": "Referenced declaration has no indexed authored definition (may be external or implicit)"
+    }
+  ],
+  "parse_stats": {
+    "parsed": [
+      "src/RenderEngine.cpp"
+    ],
+    "reused": [
+      "src/AssetCache.cpp",
+      "src/EventBus.cpp",
+      "src/Geometry.cpp",
+      "src/UILayer.cpp",
+      "tests/ResizeTests.cpp"
+    ],
+    "translation_units": 6,
+    "elapsed_seconds": 0.0557,
+    "libclang_version": "18.1.1"
+  },
+  "limitations": [
+    "Direct calls only; virtual/indirect targets are not expanded.",
+    "One build configuration; source-level graph, not runtime behavior.",
+    "Requirements/test links are explicit assertions, not proof of compliance.",
+    "Display components are source-path groupings."
+  ]
+}

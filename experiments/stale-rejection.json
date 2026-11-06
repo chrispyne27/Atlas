@@ -1,0 +1,9 @@
+{
+  "code": "STALE_INDEX",
+  "message": "Repository inputs changed. Reindex before retrieval.",
+  "details": {
+    "changed_files": [
+      "src/RenderEngine.cpp"
+    ]
+  }
+}

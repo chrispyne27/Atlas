@@ -1,0 +1,45 @@
+{
+  "baseline": "aec7706",
+  "date": "2026-09-30 America/Denver",
+  "environment": {
+    "system": "Linux",
+    "python": "3.12.14",
+    "distribution": "Ubuntu workspace; not RHEL qualification"
+  },
+  "network_isolation": {
+    "status": "blocked",
+    "command": "unshare --user --map-root-user --net true",
+    "exit_code": 1,
+    "reason": "unshare: write failed /proc/self/uid_map: Operation not permitted",
+    "installation_attempted_in_namespace": false,
+    "scope": "No network-disabled claim and no alternate privilege path attempted"
+  },
+  "launcher": {
+    "status": "passed",
+    "fixture": "Synthetic existing storage/detail fixture, snapshot s, target A; not compiler-derived F Prime evidence",
+    "inputs": "Copied allowlisted runtime files from checkout into path containing spaces; same runtime as a7cfba9 archive, no archive extraction this session",
+    "checks": [
+      "shell launch outside package working directory",
+      "loopback ephemeral port",
+      "three static assets",
+      "authenticated scope and exact lookup",
+      "two relationship pages",
+      "evidence and hash-verified excerpt",
+      "stale source suppresses text",
+      "missing authentication rejected",
+      "Host and Origin rejected",
+      "writes rejected",
+      "database SHA-256 unchanged",
+      "restart rotates token and rejects prior token",
+      "child processes stopped"
+    ],
+    "tokens_saved": false
+  },
+  "validation": {
+    "offline_workflow_tests": 16,
+    "schema_checks": 4,
+    "native_suite": "not rerun; temporary parser environments absent",
+    "RHEL_Firefox": "not run"
+  },
+  "archive": "atlas-offline-a7cfba9.zip unchanged"
+}

@@ -1,0 +1,445 @@
+Preset CMake variables:
+
+  BUILD_TESTING="ON"
+  CMAKE_BUILD_TYPE="Debug"
+  CMAKE_EXPORT_COMPILE_COMMANDS="ON"
+
+Preset environment variables:
+
+  PATH="/workspace/scratch/220d6edb3c9c/fprime/fprime-venv/bin:/workspace/scratch/220d6edb3c9c/fprime/fprime-venv/bin:/root/.codex/tmp/arg0/codex-arg0bLBJLE:/opt/codex/codex-path:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override:/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/fallback"
+  VIRTUAL_ENV="/workspace/scratch/220d6edb3c9c/fprime/fprime-venv"
+
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- [F Prime] F Prime CMake package found at: /workspace/scratch/220d6edb3c9c/fprime/cmake/FPrimeConfig.cmake
+-- Enabled the following sanitizers: address,undefined,leak
+-- [python3] python3 found at: /workspace/scratch/220d6edb3c9c/fprime/fprime-venv/bin/python3
+-- [fpp-tools] fpp-depend found at: /workspace/scratch/220d6edb3c9c/fprime/fprime-venv/bin/fpp-depend
+-- [fpp-tools] fpp-to-cpp found at: /workspace/scratch/220d6edb3c9c/fprime/fprime-venv/bin/fpp-to-cpp
+-- [fpp-tools] fpp-to-dict found at: /workspace/scratch/220d6edb3c9c/fprime/fprime-venv/bin/fpp-to-dict
+-- [fpp-tools] fpp-locate-defs found at: /workspace/scratch/220d6edb3c9c/fprime/fprime-venv/bin/fpp-locate-defs
+-- [FPRIME] Default installation directory: /workspace/scratch/220d6edb3c9c/fprime/build-artifacts
+-- [sub-build] Performing sub-build: info-cache
+-- [sub-build] Generating: info-cache with target/sub-build/fpp_locstarget/sub-build/fpp_dependtarget/sub-build/module_info
+-- [sub-build] Executing: info-cache with fpp_locs
+-- [sub-build] Executing: info-cache with fpp_depend
+-- [sub-build] Executing: info-cache with module_info
+-- [sub-build] Performing sub-build: info-cache - DONE
+-- [FPRIME] Module locations: /workspace/scratch/220d6edb3c9c/fprime/workspace/scratch/220d6edb3c9c/fprime/build-fprime-automatic-native-ut/sub-build-info-cache/workspace/scratch/220d6edb3c9c/fprime/build-fprime-automatic-native-ut/sub-build-info-cache/F-Prime
+-- [FPRIME] Installation directory: /usr/local
+-- [INFO] Failed to find 'syft' on PATH, please install to generate software bill-of-materials
+-- Found Python: /workspace/scratch/220d6edb3c9c/fprime/fprime-venv/bin/python3.12 (found version "3.12.14") found components: Interpreter 
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- [LIBRARY] Adding modules from F´ framework
+-- Adding Library: UnixPlatformTypes
+-- Adding Library: PlatformLinux
+-- Adding Library: FppToCppSettings
+-- Adding Library: default_config
+-- Adding Library: Fw_Buffer
+-- Adding Unit Test: Fw_Buffer_ut_exe
+-- Adding Library: Fw_Cmd
+-- Adding Unit Test: Fw_Cmd_ut_exe
+-- Adding Library: Fw_Com
+-- Adding Library: Fw_DataStructures
+-- Adding Unit Test: Fw_DataStructures_ut_exe
+-- Adding Library: Fw_Dp
+-- Adding Unit Test: Fw_Dp_ut_exe
+-- Adding Library: Fw_Fpy
+-- Adding Library: Fw_Interfaces
+-- Adding Library: Fw_Log
+-- Adding Unit Test: Fw_Log_ut_exe
+-- Adding Library: Fw_Logger
+-- Adding Unit Test: Fw_Logger_ut_exe
+-- Adding Library: Fw_Prm
+-- Adding Unit Test: Fw_Prm_ut_exe
+-- Adding Library: Fw_Time
+-- Adding Unit Test: Fw_Time_ut_exe
+-- Adding Library: Fw_Tlm
+-- Adding Unit Test: Fw_Tlm_ut_exe
+-- Adding Library: Fw_Comp
+-- Adding Library: Fw_CompQueued
+-- Adding Library: Fw_Sm
+-- Adding Library: Fw_FilePacket
+-- Adding Library: Fw_FilePacket_GTest
+-- Adding Unit Test: Fw_FilePacket_ut_exe
+-- Adding Library: Fw_Obj
+-- Adding Library: Fw_Port
+-- Adding Library: Fw_Ports_CompletionStatus
+-- Adding Library: Fw_Ports_Ready
+-- Adding Library: Fw_Ports_Signal
+-- Adding Library: Fw_Ports_SuccessCondition
+-- Adding Library: Fw_SerializableFile_test_TestSerializable
+-- Adding Library: Fw_SerializableFile
+-- Adding Unit Test: Fw_SerializableFile_ut_exe
+-- Adding Library: Fw_Test
+-- Adding Library: Fw_Types
+-- Adding required implementations of Fw_StringFormatFw_StringScan
+-- Adding Library: Fw_StringFormat_snprintf
+-- Adding Library: Fw_StringScan_sscanf
+-- Adding Unit Test: Fw_Types_ut_exe
+-- Adding Unit Test: Fw_StringFormat_snprintf_ut_exe
+-- Adding Unit Test: Fw_Types_Mmap_ut_exe
+-- Adding Unit Test: Fw_StringScan_sscanf_ut_exe
+-- Adding Unit Test: Fw_Types_Optional_ut_exe
+-- Adding Library: Fw_Types_GTest
+-- Adding Library: Svc_Types_TlmPacketizerTypes
+-- Adding Library: Svc_Types_EventSeverityFilter
+-- Adding Unit Test: Svc_Types_EventSeverityFilter_ut_exe
+-- Adding Library: Svc_Cycle
+-- Adding Library: Svc_Fatal
+-- Adding Library: Svc_Interfaces
+-- Adding Library: Svc_Ping
+-- Adding Library: Svc_PolyIf
+-- Adding Library: Svc_Sched
+-- Adding Library: Svc_Seq
+-- Adding Library: Svc_WatchDog
+-- Adding Library: Svc_Ports_CommsPorts
+-- Adding Library: Svc_Ports_OsTimeEpoch
+-- Adding Library: Svc_Ports_VersionPorts
+-- Adding Library: Svc_Ports_FilePorts
+-- Adding Library: Svc_Ports_TlmPacketizerPorts
+-- Adding Library: Svc_ActivePhaser
+-- Adding Unit Test: Svc_ActivePhaser_ut_exe
+-- Adding Library: Svc_ActiveRateGroup
+-- Adding Unit Test: Svc_ActiveRateGroup_ut_exe
+-- Adding Library: Svc_AssertFatalAdapter
+-- Adding Unit Test: Svc_AssertFatalAdapter_ut_exe
+-- Adding Library: Svc_BufferAccumulator
+-- Adding Unit Test: Svc_BufferAccumulator_ut_exe
+-- Adding Library: Svc_BufferManager
+-- Adding Unit Test: Svc_BufferManager_ut_exe
+-- Adding Library: Svc_BufferLogger
+-- Adding Unit Test: Svc_BufferLogger_ut_exe
+-- Adding Library: Svc_BufferRepeater
+-- Adding Unit Test: Svc_BufferRepeater_ut_exe
+-- Adding Library: Svc_ChronoTime
+-- Adding Unit Test: Svc_ChronoTime_ut_exe
+-- Adding Library: Svc_ComLogger
+-- Adding Unit Test: Svc_ComLogger_ut_exe
+-- Adding Library: Svc_ComQueue
+-- Adding Unit Test: Svc_ComQueue_ut_exe
+-- Adding Library: Svc_ComSplitter
+-- Adding Unit Test: Svc_ComSplitter_ut_exe
+-- Adding Library: Svc_ComStub
+-- Adding Unit Test: Svc_ComStub_ut_exe
+-- Adding Library: Svc_CmdDispatcher
+-- Adding Unit Test: Svc_CmdDispatcher_ut_exe
+-- Adding Library: Svc_CmdSequencer
+-- Adding Unit Test: Svc_CmdSequencer_ut_exe
+-- Adding Library: Svc_CmdSplitter
+-- Adding Unit Test: Svc_CmdSplitter_ut_exe
+-- Adding Library: Svc_DpCatalog
+-- Adding Unit Test: Svc_DpCatalog_ut_exe
+-- Adding Library: Svc_DpManager
+-- Adding Unit Test: Svc_DpManager_ut_exe
+-- Adding Library: Svc_DpPorts
+-- Adding Library: Svc_DpWriter
+-- Adding Unit Test: Svc_DpWriter_ut_exe
+-- Adding Library: Svc_EventManager
+-- Adding Unit Test: Svc_EventManager_ut_exe
+-- Adding Library: Svc_FatalHandler
+-- Adding Library: Svc_FileDispatcher
+-- Adding Unit Test: Svc_FileDispatcher_ut_exe
+-- Adding Library: Svc_FileDownlinkPorts
+-- Adding Library: Svc_FileDownlink
+-- Adding Unit Test: Svc_FileDownlink_ut_exe
+-- Adding Library: Svc_FileManager
+-- Adding Unit Test: Svc_FileManager_ut_exe
+-- Adding Library: Svc_FileUplink
+-- Adding Unit Test: Svc_FileUplink_ut_exe
+-- Adding Library: Svc_FileWorker
+-- Adding Unit Test: FileWorkerTestNominal
+CMake Warning at cmake/implementation.cmake:74 (message):
+  [implementation] FileWorkerTestNominal has chosen unknown implementation:
+  Os_File
+Call Stack (most recent call first):
+  cmake/implementation.cmake:102 (fprime__internal_implementation_detect_implementations)
+  cmake/implementation.cmake:34 (fprime__internal_choose_implementations)
+  cmake/module.cmake:230 (fprime_target_implementations)
+  cmake/module.cmake:43 (fprime__internal_add_build_target_helper)
+  cmake/API.cmake:570 (fprime__internal_add_build_target)
+  cmake/API.cmake:548 (fprime_add_unit_test_build_target)
+  Svc/FileWorker/CMakeLists.txt:23 (register_fprime_ut)
+
+
+-- Adding Library: Svc_FileWorker_test_FileTester
+-- Adding Unit Test: FileWorkerTestError
+-- Adding Library: Svc_FprimeDeframer
+-- Adding Unit Test: Svc_FprimeDeframer_ut_exe
+-- Adding Library: Svc_FprimeFramer
+-- Adding Unit Test: Svc_FprimeFramer_ut_exe
+-- Adding Library: Svc_FprimeProtocol
+-- Adding Library: Svc_FprimeRouter
+-- Adding Unit Test: Svc_FprimeRouter_ut_exe
+-- Adding Library: Svc_FrameAccumulator
+-- Adding Unit Test: Svc_FrameAccumulator_ut_exe
+-- Adding Unit Test: Svc_FrameAccumulator_FprimeFrameDetector_test
+-- Adding Unit Test: Svc_FrameAccumulator_CcsdsTcFrameDetector_test
+-- Adding Library: Svc_GenericHub
+-- Adding Unit Test: Svc_GenericHub_ut_exe
+-- Adding Library: Svc_Health
+-- Adding Unit Test: Svc_Health_ut_exe
+-- Adding Library: Svc_OsTime_test_RawTimeTester
+-- Adding Library: Svc_OsTime
+-- Adding Unit Test: Svc_OsTime_ut_exe
+-- Adding Library: Svc_PassiveRateGroup
+-- Adding Unit Test: Svc_PassiveRateGroup_ut_exe
+-- Adding Library: Svc_PolyDb
+-- Adding Unit Test: Svc_PolyDb_ut_exe
+-- Adding Library: Svc_PrmDb
+-- Adding Unit Test: Svc_PrmDb_ut_exe
+-- Adding Library: Svc_RateGroupDriver
+-- Adding Unit Test: Svc_RateGroupDriver_ut_exe
+-- Adding Library: Svc_SeqDispatcher
+-- Adding Unit Test: Svc_SeqDispatcher_ut_exe
+-- Adding Library: Svc_StaticMemory
+-- Adding Unit Test: Svc_StaticMemory_ut_exe
+-- Adding Library: Svc_TlmChan
+-- Adding Unit Test: Svc_TlmChan_ut_exe
+-- Adding Library: Svc_TlmPacketizer_config_TlmPacketizerConfig
+-- Adding Library: Svc_TlmPacketizer
+-- Adding Unit Test: Svc_TlmPacketizer_ut_exe
+-- Adding Library: Svc_SystemResources
+-- Adding Unit Test: Svc_SystemResources_ut_exe
+-- Adding Library: Svc_DpCompressProc_Types
+-- Adding Library: Svc_DpCompressProc_Ports
+-- Adding Library: Svc_DpCompressProc
+-- Adding Unit Test: Svc_DpCompressProc_ut_exe
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3.#define ZLIB_VERSION "1.3"")  
+-- Adding Library: Svc_DpZLibCompressor
+-- Adding Unit Test: Svc_DpZLibCompressor_ut_exe
+-- Adding Library: Svc_Subtopologies_CdhCore_CdhCoreConfig
+-- Adding Library: Svc_Subtopologies_CdhCore
+-- Adding Library: Svc_Subtopologies_ComCcsds_ComCcsdsConfig
+-- Adding Library: Svc_Subtopologies_ComCcsds
+-- Adding Library: Svc_Subtopologies_ComCcsdsSdls_ComCcsdsSdlsConfig
+-- Adding Library: Svc_Subtopologies_ComCcsdsSdls
+-- Adding Library: Svc_Subtopologies_ComFprime_ComFprimeConfig
+-- Adding Library: Svc_Subtopologies_ComFprime
+-- Adding Library: Svc_Subtopologies_FileHandling_FileHandlingConfig
+-- Adding Library: Svc_Subtopologies_FileHandling
+-- Adding Library: Svc_Subtopologies_FileHandlingCfdp_FileHandlingCfdpConfig
+-- Adding Library: Svc_Subtopologies_FileHandlingCfdp
+-- Adding Library: Svc_Subtopologies_DataProducts_DataProductsConfig
+-- Adding Library: Svc_Subtopologies_DataProducts
+-- Adding Library: Svc_Subtopologies_DpCompression_DpCompressionConfig
+-- Adding Library: Svc_Subtopologies_DpCompression
+-- Adding Library: Svc_Subtopologies_ComLoggerTee_ComLoggerTeeConfig
+-- Adding Library: Svc_Subtopologies_ComLoggerTee
+-- Adding Library: Svc_PassiveConsoleTextLogger
+-- Adding Unit Test: Svc_PassiveConsoleTextLogger_ut_exe
+-- Adding Library: Svc_ActiveTextLogger
+-- Adding Unit Test: Svc_ActiveTextLogger_ut_exe
+-- Adding Library: Svc_PosixTime
+-- Adding Unit Test: Svc_PosixTime_ut_exe
+-- Adding Library: Svc_LinuxTimer
+-- Adding Unit Test: Svc_LinuxTimer_ut_exe
+-- Adding Library: Svc_Version
+-- Adding Unit Test: Svc_Version_ut_exe
+-- Adding Library: Svc_FpySequencer
+-- Adding Unit Test: Svc_FpySequencer_ut_exe
+-- Adding Library: Svc_Ccsds_Types_config_SdlsKeyConfig
+-- Adding Library: Svc_Ccsds_Types
+-- Adding Library: Svc_Ccsds_Ports
+-- Adding Library: Svc_Ccsds_Interfaces
+-- Adding Library: Svc_Ccsds_SpacePacketDeframer
+-- Adding Unit Test: Svc_Ccsds_SpacePacketDeframer_ut_exe
+-- Adding Library: Svc_Ccsds_SpacePacketFramer
+-- Adding Unit Test: Svc_Ccsds_SpacePacketFramer_ut_exe
+-- Adding Library: Svc_Ccsds_TcDeframer
+-- Adding Unit Test: Svc_Ccsds_TcDeframer_ut_exe
+-- Adding Library: Svc_Ccsds_TmFramer
+-- Adding Unit Test: Svc_Ccsds_TmFramer_ut_exe
+-- Adding Library: Svc_Ccsds_AosFramer
+-- Adding Unit Test: Svc_Ccsds_AosFramer_ut_exe
+-- Adding Library: Svc_Ccsds_AosDeframer
+-- Adding Unit Test: Svc_Ccsds_AosDeframer_ut_exe
+-- Adding Library: Svc_Ccsds_ApidManager
+-- Adding Unit Test: Svc_Ccsds_ApidManager_ut_exe
+-- Adding Library: Svc_Ccsds_ClearTextDecryptor
+-- Adding Unit Test: Svc_Ccsds_ClearTextDecryptor_ut_exe
+-- Adding Library: Svc_Ccsds_ClearTextEncryptor
+-- Adding Unit Test: Svc_Ccsds_ClearTextEncryptor_ut_exe
+-- Adding Library: Svc_Ccsds_SdlsSaRouter_config_SdlsSaRouterConfig
+-- Adding Library: Svc_Ccsds_SdlsSaRouter
+-- Adding Unit Test: Svc_Ccsds_SdlsSaRouter_ut_exe
+-- Adding Library: Svc_Ccsds_SdlsFileKeyManager
+-- Adding Unit Test: Svc_Ccsds_SdlsFileKeyManager_ut_exe
+-- Adding Library: Svc_Ccsds_TestUtils
+-- Adding Unit Test: Svc_Ccsds_TestUtils_ut_exe
+-- Adding Library: Svc_Ccsds_CcsdsSdlsDeframer
+-- Adding Unit Test: Svc_Ccsds_CcsdsSdlsDeframer_ut_exe
+-- Adding Library: Svc_Ccsds_CcsdsSdlsFramer
+-- Adding Unit Test: Svc_Ccsds_CcsdsSdlsFramer_ut_exe
+-- Adding Library: Svc_Ccsds_CfdpManager
+-- Adding Library: Svc_Ccsds_CfdpManager_Types
+-- Adding Unit Test: Svc_Ccsds_CfdpManager_Types_ut_exe
+-- Adding Unit Test: Svc_Ccsds_CfdpManager_ut_exe
+-- Adding Library: Svc_ComAggregator
+-- Adding Unit Test: Svc_ComAggregator_ut_exe
+-- Adding Library: Svc_ComRetry
+-- Adding Unit Test: Svc_ComRetry_ut_exe
+-- Adding Library: Svc_PassThroughRouter
+-- Adding Unit Test: Svc_PassThroughRouter_ut_exe
+-- Adding Library: Os_Models
+-- Adding Library: Os_File_Stub_Implementation
+-- Adding Library: Os_File_Stub
+-- Adding Library: Os_Console_Stub_Implementation
+-- Adding Library: Os_Console_Stub
+-- Adding Library: Os_Task_Stub_Implementation
+-- Adding Library: Os_Task_Stub
+-- Adding Library: Os_Mutex_Stub_Implementation
+-- Adding Library: Os_Mutex_Stub
+-- Adding Library: Os_Cpu_Stub_Implementation
+-- Adding Library: Os_Cpu_Stub
+-- Adding Library: Os_Memory_Stub_Implementation
+-- Adding Library: Os_Memory_Stub
+-- Adding Library: Os_Queue_Stub_Implementation
+-- Adding Library: Os_Queue_Stub
+-- Adding Library: Os_RawTime_Stub_Implementation
+-- Adding Library: Os_RawTime_Stub
+-- Adding Library: Os_CountingSemaphore_Stub_Implementation
+-- Adding Library: Os_CountingSemaphore_Stub
+-- Adding Library: Os_File_None
+-- Adding Library: Os_File_Test_Stub_Implementation
+-- Adding Library: Os_File_Test_Stub
+-- Adding Library: Os_Console_Test_Stub_Implementation
+-- Adding Library: Os_Console_Test_Stub
+-- Adding Library: Os_Task_Test_Stub_Implementation
+-- Adding Library: Os_Task_Test_Stub
+-- Adding Library: Os_Mutex_Test_Stub_Implementation
+-- Adding Library: Os_Mutex_Test_Stub
+-- Adding Library: Os_Cpu_Test_Stub_Implementation
+-- Adding Library: Os_Cpu_Test_Stub
+-- Adding Library: Os_Memory_Test_Stub_Implementation
+-- Adding Library: Os_Memory_Test_Stub
+-- Adding Library: Os_Queue_Test_Stub_Implementation
+-- Adding Library: Os_Queue_Test_Stub
+-- Adding Library: Os_RawTime_Test_Stub_Implementation
+-- Adding Library: Os_RawTime_Test_Stub
+-- Adding Library: Os_CountingSemaphore_Test_Stub_Implementation
+-- Adding Library: Os_CountingSemaphore_Test_Stub
+-- Adding Unit Test: StubFileTest
+-- Adding Unit Test: StubConsoleTest
+-- Adding Unit Test: StubCpuTest
+-- Adding Unit Test: StubMemoryTest
+-- Adding Unit Test: StubQueueTest
+-- Adding Unit Test: StubTaskTest
+-- Adding Unit Test: StubMutexTest
+-- Adding Unit Test: StubFileSystemTest
+-- Adding Unit Test: StubDirectoryTest
+-- Adding Unit Test: StubConditionVariableTest
+-- Adding Unit Test: StubRawTimeTest
+-- Adding Unit Test: StubTest
+-- Adding Library: Os_Posix_Shared
+-- Adding Library: Os_File_Posix_Implementation
+-- Adding Library: Os_File_Posix
+-- Adding Library: Os_Console_Posix_Implementation
+-- Adding Library: Os_Console_Posix
+-- Adding Library: Os_Task_Posix_Implementation
+-- Adding Library: Os_Task_Posix
+-- Adding Library: Os_Mutex_Posix_Implementation
+-- Adding Library: Os_Mutex_Posix
+-- Adding Library: Os_CountingSemaphore_Posix_Implementation
+-- Adding Library: Os_CountingSemaphore_Posix
+-- Adding Library: Os_RawTime_Posix_Implementation
+-- Adding Library: Os_RawTime_Posix
+-- Adding Unit Test: PosixFileTest
+-- Adding Unit Test: PosixConsoleTest
+-- Adding Unit Test: PosixTaskTest
+-- Adding Unit Test: PosixMutexTest
+-- Adding Unit Test: PosixFileSystemTest
+-- Adding Unit Test: PosixDirectoryTest
+-- Adding Unit Test: PosixConditionTests
+-- Adding Unit Test: PosixCountingSemaphoreTest
+-- Adding Unit Test: PosixRawTimeTest
+-- Adding Library: Os_Generic_Types
+-- Adding Unit Test: Types_Max_Heap_test
+-- Adding Unit Test: Types_Atomic_Queue_test
+-- Adding Library: Os_Generic_PriorityMemQueue_Implementation
+-- Adding Library: Os_Generic_PriorityMemQueue
+-- Adding Unit Test: PriorityMemQueue_UnitTest
+-- Adding Library: Os_Generic_PriorityQueue_Implementation
+-- Adding Library: Os_Generic_PriorityQueue
+-- Adding Unit Test: PriorityQueueTest
+-- Adding Library: Os_Generic_LocklessPriorityQueue_Implementation
+-- Adding Library: Os_Generic_LocklessPriorityQueue
+-- Adding Unit Test: LocklessPriorityQueueTest
+-- Adding Unit Test: LocklessPriorityQueueTsanTest
+-- Adding Library: Os_Cpu_Linux_Implementation
+-- Adding Library: Os_Cpu_Linux
+-- Adding Library: Os_Memory_Linux_Implementation
+-- Adding Library: Os_Memory_Linux
+-- Adding Unit Test: LinuxCpuTest
+-- Adding Unit Test: LinuxMemoryTest
+-- Neither toolchain native nor platform Linux supported for module Os_Darwin
+-- Adding Library: Os
+-- Adding Library: Os_Console
+-- Adding required implementations of Os_Console
+-- Adding Library: Os_File
+-- Adding required implementations of Os_File
+-- Adding Library: Os_Task
+-- Adding required implementations of Os_Task
+-- Adding Library: Os_Mutex
+-- Adding required implementations of Os_Mutex
+-- Adding Library: Os_CountingSemaphore
+-- Adding required implementations of Os_CountingSemaphore
+-- Adding Library: Os_Queue
+-- Adding required implementations of Os_Queue
+-- Adding Library: Os_Cpu
+-- Adding required implementations of Os_Cpu
+-- Adding Library: Os_Memory
+-- Adding required implementations of Os_Memory
+-- Adding Library: Os_RawTime
+-- Adding required implementations of Os_RawTime
+-- Adding Unit Test: Os_ut_exe
+-- Adding Unit Test: Os_FilePathUtils_Test
+-- Adding Unit Test: Os_SandboxedFile_Test
+-- Adding Library: Os_Test_File_SyntheticFileSystem
+-- Adding Library: Drv_Interfaces
+-- Adding Library: Drv_Ports_DataTypes
+-- Adding Library: Drv_Ports
+-- Adding Library: Drv_AsyncByteStreamBufferAdapter
+-- Adding Unit Test: Drv_AsyncByteStreamBufferAdapter_ut_exe
+-- Adding Library: Drv_ByteStreamBufferAdapter
+-- Adding Unit Test: Drv_ByteStreamBufferAdapter_ut_exe
+-- Adding Library: Drv_ByteStreamDriverModel
+-- Adding Library: Drv_LinuxGpioDriver
+-- Adding Library: Drv_LinuxI2cDriver
+-- Adding Library: Drv_LinuxSpiDriver
+-- Adding Library: Drv_LinuxUartDriver
+-- Adding Library: Drv_Ip
+-- Adding Unit Test: Drv_Ip_Tcp_test
+-- Adding Unit Test: Drv_Ip_Udp_test
+-- Adding Library: Drv_TcpClient
+-- Adding Unit Test: Drv_TcpClient_ut_exe
+-- Adding Library: Drv_TcpServer
+-- Adding Unit Test: Drv_TcpServer_ut_exe
+-- Adding Library: Drv_Udp
+-- Adding Unit Test: Drv_Udp_ut_exe
+-- Adding Library: CFDP_Checksum
+-- Adding Unit Test: CFDP_Checksum_ut_exe
+-- Adding Library: CFDP_Checksum_GTest
+-- Adding Library: Utils_Hash
+-- Adding Unit Test: Utils_Hash_ut_exe
+-- Adding Library: Utils_Types
+-- Adding Unit Test: Types_Circular_Buffer_ut_exe
+-- Adding Unit Test: Utils_Types_Queue_ut_exe
+-- Adding Library: Utils
+-- Adding Unit Test: Utils_ut_exe
+-- [LIBRARY] Adding modules from F´ framework - DONE
+-- Configuring done (14.0s)
+-- Generating done (1.0s)
+-- Build files have been written to: /workspace/scratch/220d6edb3c9c/fprime/build-fprime-automatic-native-ut

@@ -1,0 +1,1267 @@
+{
+  "format_version": 1,
+  "export_date": "2026-11-06",
+  "project": "Atlas",
+  "source_commit": "70861deabe1ba009000250d3d7d117479ee3c5fd",
+  "source_branch": "main",
+  "source_worktree_clean": true,
+  "live_remote_main_matches_source_commit": true,
+  "source_tracked_file_count": 175,
+  "included_source_file_count": 174,
+  "git_history_included": false,
+  "scope": "Complete tracked source snapshot, except hosting identity, with documented export-only privacy and navigation edits.",
+  "excluded_tracked_files": [
+    {
+      "path": ".openai/hosting.json",
+      "reason": "Existing managed Site identity; not required for local development or a new repository."
+    }
+  ],
+  "excluded_non_source_categories": [
+    "Git history/configuration",
+    "Dependencies and virtual environments",
+    "Build outputs and caches",
+    "Disposable SQLite databases and F Prime checkout",
+    "Personal chat history",
+    "Older duplicate export archives"
+  ],
+  "supplemental_document": {
+    "path": "docs/reference/ORIGINAL_GRAPH_ARCHITECTURE_BRIEF.md",
+    "original_filename": "Pasted markdown.md",
+    "original_sha256": "0813739a85de3b9599c20b46acfd5b93d527538e39c7d3363507632a48958ff0",
+    "status": "Historical architecture input; accepted repository records take precedence."
+  },
+  "source_files": [
+    {
+      "path": ".gitignore",
+      "source_sha256": "64db9018cc36480e5d23031b38521892a1b330b4664071a2981fe11063ea1e69",
+      "export_sha256": "4102b403be0fe777c2f9db747cafc8b5f9dad1221b0e0047d8c518ec8f54e6bb",
+      "changes": [
+        "Hosting identity and local environment files excluded from future Git imports."
+      ]
+    },
+    {
+      "path": "README.md",
+      "source_sha256": "d216b0e3ce127eba9b460915cc97b1c39d5abbaf515765e613192aa0cb1997c4",
+      "export_sha256": "406a66bf098a14efd79fc837d6a53a3eb28371763426d8b8de0c384b49649d6f",
+      "changes": [
+        "Current export and SQLite handoff navigation added above historical overview."
+      ]
+    },
+    {
+      "path": "atlas_engine/__init__.py",
+      "source_sha256": "50339f59b962a99282341e3e891a689384107573ec97b333a259913d9166d6fc",
+      "export_sha256": "50339f59b962a99282341e3e891a689384107573ec97b333a259913d9166d6fc",
+      "changes": []
+    },
+    {
+      "path": "atlas_engine/__main__.py",
+      "source_sha256": "4aeaa37500dec7c0998abdfb309b0316240cffaa75e19042b40d86ead2200c46",
+      "export_sha256": "4aeaa37500dec7c0998abdfb309b0316240cffaa75e19042b40d86ead2200c46",
+      "changes": []
+    },
+    {
+      "path": "atlas_engine/indexer.py",
+      "source_sha256": "38fa472e9a7599687aba94d788b025ac11134cec98b392f63b065b15e5093542",
+      "export_sha256": "38fa472e9a7599687aba94d788b025ac11134cec98b392f63b065b15e5093542",
+      "changes": []
+    },
+    {
+      "path": "atlas_engine/storage/__init__.py",
+      "source_sha256": "f779f21576b7b9d0094a4c555cf5196b7b49aba8931daa66a4404bc60fed0e10",
+      "export_sha256": "f779f21576b7b9d0094a4c555cf5196b7b49aba8931daa66a4404bc60fed0e10",
+      "changes": []
+    },
+    {
+      "path": "atlas_engine/storage/__main__.py",
+      "source_sha256": "f64af75c9d9ee3a4880b8116bcb2794e4649494e142ac703404e77695a5c31f9",
+      "export_sha256": "f64af75c9d9ee3a4880b8116bcb2794e4649494e142ac703404e77695a5c31f9",
+      "changes": []
+    },
+    {
+      "path": "atlas_engine/storage/annotation_links.py",
+      "source_sha256": "ec9450a8af1d7c35b94b6e0282672473d07fe09ec6e72eb4b3a697133da8dd07",
+      "export_sha256": "ec9450a8af1d7c35b94b6e0282672473d07fe09ec6e72eb4b3a697133da8dd07",
+      "changes": []
+    },
+    {
+      "path": "atlas_engine/storage/compiler.py",
+      "source_sha256": "f3f66ff3e66c0fb6d6d4800459975a3aaff99fdb06cc684328964470c019a6eb",
+      "export_sha256": "f3f66ff3e66c0fb6d6d4800459975a3aaff99fdb06cc684328964470c019a6eb",
+      "changes": []
+    },
+    {
+      "path": "atlas_engine/storage/demo.py",
+      "source_sha256": "54f58a0875b9e32a57ef58b6f118a556bf09bdbf2ee32e009b51891fd4a383f6",
+      "export_sha256": "54f58a0875b9e32a57ef58b6f118a556bf09bdbf2ee32e009b51891fd4a383f6",
+      "changes": []
+    },
+    {
+      "path": "atlas_engine/storage/details.py",
+      "source_sha256": "abfe9dcdf6cbe2ac7d52ba651ac2a51eff574ed095c9fc5e9c2e5803bfe8d733",
+      "export_sha256": "abfe9dcdf6cbe2ac7d52ba651ac2a51eff574ed095c9fc5e9c2e5803bfe8d733",
+      "changes": []
+    },
+    {
+      "path": "atlas_engine/storage/engineering.py",
+      "source_sha256": "4bccc74c53a07795a796d2c842841047506af38dc6780518e64132840012aef8",
+      "export_sha256": "4bccc74c53a07795a796d2c842841047506af38dc6780518e64132840012aef8",
+      "changes": []
+    },
+    {
+      "path": "atlas_engine/storage/external_roots.py",
+      "source_sha256": "1050ae65c66a006242d9e3a347a46ac433f138b80789055b460eab8345defb80",
+      "export_sha256": "1050ae65c66a006242d9e3a347a46ac433f138b80789055b460eab8345defb80",
+      "changes": []
+    },
+    {
+      "path": "atlas_engine/storage/freshness.py",
+      "source_sha256": "f6d1342156c018772a0f95c9583ef5cd65af486070eaf933a5a8e7465c4a9041",
+      "export_sha256": "f6d1342156c018772a0f95c9583ef5cd65af486070eaf933a5a8e7465c4a9041",
+      "changes": []
+    },
+    {
+      "path": "atlas_engine/storage/http.py",
+      "source_sha256": "b13d46a732e78cdbd10e7468727cc9a08ef4c5f93802dfa0a1a9656a4a502d40",
+      "export_sha256": "b13d46a732e78cdbd10e7468727cc9a08ef4c5f93802dfa0a1a9656a4a502d40",
+      "changes": []
+    },
+    {
+      "path": "atlas_engine/storage/inspect.py",
+      "source_sha256": "d04196b3e5d9cec3afbb85c0e616b4596955e101e68b7e87f1298d6044b4d537",
+      "export_sha256": "d04196b3e5d9cec3afbb85c0e616b4596955e101e68b7e87f1298d6044b4d537",
+      "changes": []
+    },
+    {
+      "path": "atlas_engine/storage/membership.py",
+      "source_sha256": "de18c61314f708152d6b226f9effac6088ef22b5abaa5bf262813903dd4053a6",
+      "export_sha256": "de18c61314f708152d6b226f9effac6088ef22b5abaa5bf262813903dd4053a6",
+      "changes": []
+    },
+    {
+      "path": "atlas_engine/storage/readiness.py",
+      "source_sha256": "ebd48966cfccce251506d12300ae78c5cebc54f7f8ebb481f72408be54d1cabd",
+      "export_sha256": "ebd48966cfccce251506d12300ae78c5cebc54f7f8ebb481f72408be54d1cabd",
+      "changes": []
+    },
+    {
+      "path": "atlas_engine/storage/schema-v1.sql",
+      "source_sha256": "1de631c8ad08bbaca1456dc6e786ecc5de108f5bc14430a42c02dc506fe7156c",
+      "export_sha256": "1de631c8ad08bbaca1456dc6e786ecc5de108f5bc14430a42c02dc506fe7156c",
+      "changes": []
+    },
+    {
+      "path": "atlas_engine/storage/store.py",
+      "source_sha256": "d0a030d490a5bed163028f4f82d9e8e6c8519d67b88414b481a9e08ca291db98",
+      "export_sha256": "d0a030d490a5bed163028f4f82d9e8e6c8519d67b88414b481a9e08ca291db98",
+      "changes": []
+    },
+    {
+      "path": "atlas_engine/storage/test_cases.py",
+      "source_sha256": "70d96eaf33b9c9951f74e5d189760d58af718eb682df32a5a1ef26d7b0dd5ea1",
+      "export_sha256": "70d96eaf33b9c9951f74e5d189760d58af718eb682df32a5a1ef26d7b0dd5ea1",
+      "changes": []
+    },
+    {
+      "path": "atlas_engine/storage/trace_details.py",
+      "source_sha256": "f88c01cd90039f336c9274908dcbc8418311459342783492254a698f87fb2acd",
+      "export_sha256": "f88c01cd90039f336c9274908dcbc8418311459342783492254a698f87fb2acd",
+      "changes": []
+    },
+    {
+      "path": "atlas_engine/storage/trace_packet.py",
+      "source_sha256": "c7593dabbcc0ce3fec887e7c068c16ab51cab42359f9ce6102321f5e3ea8909a",
+      "export_sha256": "c7593dabbcc0ce3fec887e7c068c16ab51cab42359f9ce6102321f5e3ea8909a",
+      "changes": []
+    },
+    {
+      "path": "atlas_engine/test_runner.py",
+      "source_sha256": "2d9203dd5f6257288f8fd98d4a11a6255183068dc485a527dd79747b336789af",
+      "export_sha256": "2d9203dd5f6257288f8fd98d4a11a6255183068dc485a527dd79747b336789af",
+      "changes": []
+    },
+    {
+      "path": "docs/AGENT_INTERFACE.md",
+      "source_sha256": "4be63b5b2745b7638d5b12d18f10db50c22e6334ec6fddebaba8e4ea588120e6",
+      "export_sha256": "4be63b5b2745b7638d5b12d18f10db50c22e6334ec6fddebaba8e4ea588120e6",
+      "changes": []
+    },
+    {
+      "path": "docs/ARCHITECTURE_SNAPSHOT.md",
+      "source_sha256": "321d521eb8d2f0afe46d10debd3d3dc17f90e97a658877a2da60cd4a46103261",
+      "export_sha256": "541cf5008ea5b7cccaf581788abfab1f0c20bac414117b2a852eb390a83e458a",
+      "changes": [
+        "Personal account-usage discussion removed; project checkpoint rationale retained."
+      ]
+    },
+    {
+      "path": "docs/EXTERNAL_INPUTS.md",
+      "source_sha256": "06e2390d171fba3b02573b93e0703fc5b70095a3de9a2b10b5008e83a7cc47e1",
+      "export_sha256": "06e2390d171fba3b02573b93e0703fc5b70095a3de9a2b10b5008e83a7cc47e1",
+      "changes": []
+    },
+    {
+      "path": "docs/FPRIME-ACCEPTANCE.md",
+      "source_sha256": "1e6af6f29fe95395492599a59953702678a197b94f25dc02ad417570bb54b703",
+      "export_sha256": "1e6af6f29fe95395492599a59953702678a197b94f25dc02ad417570bb54b703",
+      "changes": []
+    },
+    {
+      "path": "docs/GRAPH_ARCHITECTURE.md",
+      "source_sha256": "8631df63bf5b4e16d4302ebd471cba4c90f3cb4d07a5f354578c95494223908a",
+      "export_sha256": "8631df63bf5b4e16d4302ebd471cba4c90f3cb4d07a5f354578c95494223908a",
+      "changes": []
+    },
+    {
+      "path": "docs/INDEXER_ENVIRONMENT.md",
+      "source_sha256": "afad2670d3454864aa35ece0b0f3e068574dcdc89fa197d595dafdfaa073ec20",
+      "export_sha256": "afad2670d3454864aa35ece0b0f3e068574dcdc89fa197d595dafdfaa073ec20",
+      "changes": []
+    },
+    {
+      "path": "docs/LOCAL_API.md",
+      "source_sha256": "e6b8795831945b87dc65abf685e722c2a2819aa4287577342de4ad0c6f438cc6",
+      "export_sha256": "7dd2849b7801fe0c192cc1f0fb5f37bb6c0f16265e3451f87d73624bc6f548c9",
+      "changes": [
+        "Personal attribution replaced with project role."
+      ]
+    },
+    {
+      "path": "docs/OFFLINE_PILOT.md",
+      "source_sha256": "f17290ed2d2100a2ddd4e916e552b12793880528db2e96af99a81e1d5e3d65f4",
+      "export_sha256": "f17290ed2d2100a2ddd4e916e552b12793880528db2e96af99a81e1d5e3d65f4",
+      "changes": []
+    },
+    {
+      "path": "docs/OFFLINE_README.txt",
+      "source_sha256": "30311f950ba06956db3e9cfbf59557e9b3cc7476d4b9ed602f4d531acf8b4b1f",
+      "export_sha256": "30311f950ba06956db3e9cfbf59557e9b3cc7476d4b9ed602f4d531acf8b4b1f",
+      "changes": []
+    },
+    {
+      "path": "docs/PILOT.md",
+      "source_sha256": "0dcf1cd58db72ec8cc2d2babb72b7f156f948130d5b6ba129f2f18738d4ac216",
+      "export_sha256": "0dcf1cd58db72ec8cc2d2babb72b7f156f948130d5b6ba129f2f18738d4ac216",
+      "changes": []
+    },
+    {
+      "path": "docs/PROJECT.md",
+      "source_sha256": "66fdbb0bb2e555d3539d2380a32a5dd9190aeee746b948a24cbf9c378a85db17",
+      "export_sha256": "66fdbb0bb2e555d3539d2380a32a5dd9190aeee746b948a24cbf9c378a85db17",
+      "changes": []
+    },
+    {
+      "path": "docs/READINESS.md",
+      "source_sha256": "4590c1a92a8b2c7eaabcccb19d49e7e76ad57745075337bac745f4c6dd76802e",
+      "export_sha256": "4590c1a92a8b2c7eaabcccb19d49e7e76ad57745075337bac745f4c6dd76802e",
+      "changes": []
+    },
+    {
+      "path": "docs/RESUME.md",
+      "source_sha256": "6656503ddce1231132394507ec006e062379e114fc792ab2b025dc6d2eb45c12",
+      "export_sha256": "1220889a81ce20497711d09ab8d5a1fe1a4467c2f26e18ef635c4f23ecafb4b3",
+      "changes": [
+        "Personal attribution replaced with project role.",
+        "Historical checkout location replaced with a portable placeholder.",
+        "Personal account-usage discussion removed and export recovery note added."
+      ]
+    },
+    {
+      "path": "docs/SQLITE_TRACE_PACKET.md",
+      "source_sha256": "11848512152349ad84f001df52ae905237053971becf45179be581562adc66dc",
+      "export_sha256": "829c6e0379752acef80765959402e1ae7b31f0388375a9647f32f1c156a3ab6e",
+      "changes": [
+        "Historical checkout location replaced with a portable placeholder."
+      ]
+    },
+    {
+      "path": "docs/STORAGE.md",
+      "source_sha256": "6d838786d11e777655ddd81deb64a54d974c02b32f6632be730fc19e521ac3b4",
+      "export_sha256": "6d838786d11e777655ddd81deb64a54d974c02b32f6632be730fc19e521ac3b4",
+      "changes": []
+    },
+    {
+      "path": "docs/VALIDATION-0.3.md",
+      "source_sha256": "5c1128bc1a19b36ec1a6cb230ed072e492299bc3da6d9314e9a915d33c164bdf",
+      "export_sha256": "5c1128bc1a19b36ec1a6cb230ed072e492299bc3da6d9314e9a915d33c164bdf",
+      "changes": []
+    },
+    {
+      "path": "docs/decisions/0001-graph-first-context.md",
+      "source_sha256": "cc739c2f4c13103ebc9c51892210252778ffa994dc8dc5b3720aba06e0693d0e",
+      "export_sha256": "cc739c2f4c13103ebc9c51892210252778ffa994dc8dc5b3720aba06e0693d0e",
+      "changes": []
+    },
+    {
+      "path": "docs/decisions/0002-controlled-agent-pilot.md",
+      "source_sha256": "ab96b393df60af4d24f362487fa1ece1b07e49a2b3ee63b35dadc067154c228f",
+      "export_sha256": "ab96b393df60af4d24f362487fa1ece1b07e49a2b3ee63b35dadc067154c228f",
+      "changes": []
+    },
+    {
+      "path": "docs/decisions/0003-configuration-aware-disk-store.md",
+      "source_sha256": "e9052d86d810a528289b6aab8b3ef61d70f95586498164be24be8bd198922146",
+      "export_sha256": "e9052d86d810a528289b6aab8b3ef61d70f95586498164be24be8bd198922146",
+      "changes": []
+    },
+    {
+      "path": "docs/decisions/0004-evidence-aware-retrieval-migration.md",
+      "source_sha256": "978ab19a985ad2c0e3c82f0553d6c935c7eb917050a39bdf28ba695f0e2f5848",
+      "export_sha256": "e0d3625ab38ee7dd8b2b2ebfaaf1c974452d2cfad8978eff99a84a8d1eaccbd6",
+      "changes": [
+        "Personal attribution replaced with project role."
+      ]
+    },
+    {
+      "path": "experiments/RenderEngine.before.cpp",
+      "source_sha256": "b64647d26f38d463f5b8627404158231c013f45cae8a7b59799bdfba6b013913",
+      "export_sha256": "b64647d26f38d463f5b8627404158231c013f45cae8a7b59799bdfba6b013913",
+      "changes": []
+    },
+    {
+      "path": "experiments/after-context.json",
+      "source_sha256": "3d3af9b9fe79fa82f33fa5f324845e217d7f9d1dae638b20a419042a2f426974",
+      "export_sha256": "3d3af9b9fe79fa82f33fa5f324845e217d7f9d1dae638b20a419042a2f426974",
+      "changes": []
+    },
+    {
+      "path": "experiments/after-refresh-index.json",
+      "source_sha256": "04f3743f8a72762f8542ee9fccb97d6a0516369094802d0e26295f76af09cc7a",
+      "export_sha256": "04f3743f8a72762f8542ee9fccb97d6a0516369094802d0e26295f76af09cc7a",
+      "changes": []
+    },
+    {
+      "path": "experiments/after-tests.json",
+      "source_sha256": "6960194b7de16f5348257cd4507a3ce67949499879084c600fd9b8919969279d",
+      "export_sha256": "6960194b7de16f5348257cd4507a3ce67949499879084c600fd9b8919969279d",
+      "changes": []
+    },
+    {
+      "path": "experiments/before-context.json",
+      "source_sha256": "24228abaa8e14387bf02337b8f62f0556f1c86beb9f8e23306dbe446886f2901",
+      "export_sha256": "24228abaa8e14387bf02337b8f62f0556f1c86beb9f8e23306dbe446886f2901",
+      "changes": []
+    },
+    {
+      "path": "experiments/before-index.json",
+      "source_sha256": "31f3517b3070195c1ce1020e030bdd03121506a03debb8cd610bba754ca4ad57",
+      "export_sha256": "31f3517b3070195c1ce1020e030bdd03121506a03debb8cd610bba754ca4ad57",
+      "changes": []
+    },
+    {
+      "path": "experiments/before-tests.json",
+      "source_sha256": "9713f9d9a337c237759bff93f5be9899d8ea772d08505285357c7da61c25e2e0",
+      "export_sha256": "9713f9d9a337c237759bff93f5be9899d8ea772d08505285357c7da61c25e2e0",
+      "changes": []
+    },
+    {
+      "path": "experiments/evaluation.json",
+      "source_sha256": "54196074df433c5b14347c33ccf1a045f52ee6bc513b082692613919a9c2e993",
+      "export_sha256": "54196074df433c5b14347c33ccf1a045f52ee6bc513b082692613919a9c2e993",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/README.md",
+      "source_sha256": "d88343ed9dc46c3130e0448939bd756426b2ac24ca90986b0eff7e54e9429956",
+      "export_sha256": "d88343ed9dc46c3130e0448939bd756426b2ac24ca90986b0eff7e54e9429956",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/build-probe.json",
+      "source_sha256": "ea7f654b657900eef15b0a290a4691326d9e03d7a5c2a481454cfc70e0c84132",
+      "export_sha256": "ea7f654b657900eef15b0a290a4691326d9e03d7a5c2a481454cfc70e0c84132",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/ctest-default.xml",
+      "source_sha256": "6795c4ab1da650444bcb5ca47e8f134fd1efa5bb90812acac48776c0e9a39165",
+      "export_sha256": "6795c4ab1da650444bcb5ca47e8f134fd1efa5bb90812acac48776c0e9a39165",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/ctest-no-leak.xml",
+      "source_sha256": "31e67d08cf40b42bc2bc81615375193dcbec41be3a74e6f29eba3c8eb27ade68",
+      "export_sha256": "31e67d08cf40b42bc2bc81615375193dcbec41be3a74e6f29eba3c8eb27ade68",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/indexer-environment.json",
+      "source_sha256": "2b812c54dda3f285668979abf2e27f9076cd4996218b1358c1072be02ba0ece4",
+      "export_sha256": "2b812c54dda3f285668979abf2e27f9076cd4996218b1358c1072be02ba0ece4",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/local-view-manual-validation.json",
+      "source_sha256": "8051aaf6ef62fa6beea5e27a7011f82457474afef29171dbb3e2337da23b25eb",
+      "export_sha256": "a294d931d0d27b42409e57ffebeb01dbfc800bab63fbe10a71879502faf84540",
+      "changes": [
+        "Personal attribution replaced with project role."
+      ]
+    },
+    {
+      "path": "experiments/fprime/logs/fprime-build.log",
+      "source_sha256": "d75d0c543ca8bc905016650bf773590775e94764b019c31ccfe75ede75383f31",
+      "export_sha256": "d75d0c543ca8bc905016650bf773590775e94764b019c31ccfe75ede75383f31",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/logs/fprime-configure.log",
+      "source_sha256": "3928ccdb5ef94545fb9bd1c58fd2533c92aff919bf5dab1f70ac1fc42e46c543",
+      "export_sha256": "3928ccdb5ef94545fb9bd1c58fd2533c92aff919bf5dab1f70ac1fc42e46c543",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/logs/fprime-ref-build.log",
+      "source_sha256": "1b7a8ff4cf63807df422f2a802028f2c22c58cfdf0f48f09447362bdd5073846",
+      "export_sha256": "1b7a8ff4cf63807df422f2a802028f2c22c58cfdf0f48f09447362bdd5073846",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/logs/fprime-ref-configure.log",
+      "source_sha256": "7eaca8399c798b12db7c8a482718012f3bee936103a8ed4714ab19447604378d",
+      "export_sha256": "7eaca8399c798b12db7c8a482718012f3bee936103a8ed4714ab19447604378d",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/logs/fprime-tests-no-leak.log",
+      "source_sha256": "452a45f4a9a8075e37d993222cba381049de2febcaa44ceb7427f50ec463d4e2",
+      "export_sha256": "452a45f4a9a8075e37d993222cba381049de2febcaa44ceb7427f50ec463d4e2",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/logs/fprime-tests.log",
+      "source_sha256": "2a8811bb7ec9e7d5be944dd6028f79c08485d86e3b973616724b03dfe909c93a",
+      "export_sha256": "2a8811bb7ec9e7d5be944dd6028f79c08485d86e3b973616724b03dfe909c93a",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/source-audit.json",
+      "source_sha256": "370952f6474a522c6421441d526dde9e44fc14cff9b12890dd1d7d69a4bca06d",
+      "export_sha256": "370952f6474a522c6421441d526dde9e44fc14cff9b12890dd1d7d69a4bca06d",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/sqlite-trace-packet-acceptance.json",
+      "source_sha256": "7f1ddd56a37e01effa8035cdc2b130a8c393dd492a54b9ae334efe7bcd9cb187",
+      "export_sha256": "7f1ddd56a37e01effa8035cdc2b130a8c393dd492a54b9ae334efe7bcd9cb187",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/storage-details.json",
+      "source_sha256": "45ebf1d28b512e71288590835cc1e7f9d83cba29d55e9e8a6431f12902c4fff7",
+      "export_sha256": "45ebf1d28b512e71288590835cc1e7f9d83cba29d55e9e8a6431f12902c4fff7",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/storage-engineering.json",
+      "source_sha256": "7333b4a3bc4a195b877764922048b63effe9bd9d5e9d86e1c8e75ee77468b563",
+      "export_sha256": "7333b4a3bc4a195b877764922048b63effe9bd9d5e9d86e1c8e75ee77468b563",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/storage-external-inputs.json",
+      "source_sha256": "dd4478bac62f8c28d75f02140db420ad78f0231345a603c8ad42be01b65094b9",
+      "export_sha256": "dd4478bac62f8c28d75f02140db420ad78f0231345a603c8ad42be01b65094b9",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/storage-freshness.json",
+      "source_sha256": "9b04193565bdcbb8a2b5e7133bd27243cd5fc95683f0c83646e1476022475b64",
+      "export_sha256": "9b04193565bdcbb8a2b5e7133bd27243cd5fc95683f0c83646e1476022475b64",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/storage-http.json",
+      "source_sha256": "d044b6b4dc3e94ae9565513bd9b93bcb5aa72a3d7e863106650720d0b2df8a9f",
+      "export_sha256": "d044b6b4dc3e94ae9565513bd9b93bcb5aa72a3d7e863106650720d0b2df8a9f",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/storage-inspection.json",
+      "source_sha256": "49fe30943e802489282f18af3db68d10340f4aa2cc5ac5fb8dfed7d2d7f6e3a0",
+      "export_sha256": "49fe30943e802489282f18af3db68d10340f4aa2cc5ac5fb8dfed7d2d7f6e3a0",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/storage-inventory.json",
+      "source_sha256": "34089155a489ed58ccfcd63bda4b14b33e6273897ab010c8a7ed113110eb76a5",
+      "export_sha256": "34089155a489ed58ccfcd63bda4b14b33e6273897ab010c8a7ed113110eb76a5",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/storage-membership.json",
+      "source_sha256": "7355feb69891de4e1f10861df9ae8e6af2de7c282914ab3933436d8ae82b5ac0",
+      "export_sha256": "7355feb69891de4e1f10861df9ae8e6af2de7c282914ab3933436d8ae82b5ac0",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/storage-parsing.json",
+      "source_sha256": "c3b645728cd8c8509f9a4ddb036341f31e0a92b087d980087762c28191054fd3",
+      "export_sha256": "c3b645728cd8c8509f9a4ddb036341f31e0a92b087d980087762c28191054fd3",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/storage-readiness.json",
+      "source_sha256": "a2135c20eefcab8ba8720c46d07b55383efb30e750b7c5573b9a6b4ba0dd1aa5",
+      "export_sha256": "a2135c20eefcab8ba8720c46d07b55383efb30e750b7c5573b9a6b4ba0dd1aa5",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/storage-test-cases.json",
+      "source_sha256": "0b863ad9ca635f7ced2f459c98e7e5f001f8a8f595b05fcf0d3423c1f523f77a",
+      "export_sha256": "0b863ad9ca635f7ced2f459c98e7e5f001f8a8f595b05fcf0d3423c1f523f77a",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/storage-test-helpers.json",
+      "source_sha256": "2ddaa594d8588aeefce452b9e5c4d510afd9ba242f52d1dc132e096634409c74",
+      "export_sha256": "2ddaa594d8588aeefce452b9e5c4d510afd9ba242f52d1dc132e096634409c74",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/upstream-license/LICENSE.txt",
+      "source_sha256": "84a2c29a962a800b9dc839e5e5f39a319a1270e4781c8d135da79fbe76f807fc",
+      "export_sha256": "84a2c29a962a800b9dc839e5e5f39a319a1270e4781c8d135da79fbe76f807fc",
+      "changes": []
+    },
+    {
+      "path": "experiments/fprime/upstream-license/NOTICE.txt",
+      "source_sha256": "328b90a3d2c57f4913b11de5c19f1702543d6bd49263f515dc7132ada7322d6c",
+      "export_sha256": "328b90a3d2c57f4913b11de5c19f1702543d6bd49263f515dc7132ada7322d6c",
+      "changes": []
+    },
+    {
+      "path": "experiments/offline/demo-transfer-workspace.json",
+      "source_sha256": "be1284c6d3d9657e6fb10d42f45df9cc7e54c0e7514a54b302e96911cf054195",
+      "export_sha256": "be1284c6d3d9657e6fb10d42f45df9cc7e54c0e7514a54b302e96911cf054195",
+      "changes": []
+    },
+    {
+      "path": "experiments/offline/install-workspace.json",
+      "source_sha256": "b8f448d24320871b33440a42a070f03ed699611c83d0e2ae752b91b4d00a5f6f",
+      "export_sha256": "b8f448d24320871b33440a42a070f03ed699611c83d0e2ae752b91b4d00a5f6f",
+      "changes": []
+    },
+    {
+      "path": "experiments/offline/launcher-workspace.json",
+      "source_sha256": "ded35b89b42736b8529e604bef34d43ad864b2139d5b0e30fdaf6a30be0e2c53",
+      "export_sha256": "ded35b89b42736b8529e604bef34d43ad864b2139d5b0e30fdaf6a30be0e2c53",
+      "changes": []
+    },
+    {
+      "path": "experiments/offline/preflight-workspace.json",
+      "source_sha256": "26e04132c1517cc093d7dcbc05051508e67b900af399244472097217b183ffc2",
+      "export_sha256": "26e04132c1517cc093d7dcbc05051508e67b900af399244472097217b183ffc2",
+      "changes": []
+    },
+    {
+      "path": "experiments/offline/transfer-workspace.json",
+      "source_sha256": "8859775065bbd318c711b74243ffaabaf3727d0f20e8976e146122e6fa68910a",
+      "export_sha256": "8859775065bbd318c711b74243ffaabaf3727d0f20e8976e146122e6fa68910a",
+      "changes": []
+    },
+    {
+      "path": "experiments/pilot/cache-atlas.jsonl",
+      "source_sha256": "b4d040d26f2fd559f1fd3da70c4ecc8bae6888474a2b52be9409d5605874b38e",
+      "export_sha256": "b4d040d26f2fd559f1fd3da70c4ecc8bae6888474a2b52be9409d5605874b38e",
+      "changes": []
+    },
+    {
+      "path": "experiments/pilot/cache-atlas.patch",
+      "source_sha256": "6124a15c1b5040e71b02ad70095d3d5c82365a18e623c0e8638236df4949e135",
+      "export_sha256": "6124a15c1b5040e71b02ad70095d3d5c82365a18e623c0e8638236df4949e135",
+      "changes": []
+    },
+    {
+      "path": "experiments/pilot/cache-search.jsonl",
+      "source_sha256": "90e6c4ca94a92474e73d7d87e6c359c556e3f9afd640716236be182d003906d0",
+      "export_sha256": "90e6c4ca94a92474e73d7d87e6c359c556e3f9afd640716236be182d003906d0",
+      "changes": []
+    },
+    {
+      "path": "experiments/pilot/cache-search.patch",
+      "source_sha256": "6124a15c1b5040e71b02ad70095d3d5c82365a18e623c0e8638236df4949e135",
+      "export_sha256": "6124a15c1b5040e71b02ad70095d3d5c82365a18e623c0e8638236df4949e135",
+      "changes": []
+    },
+    {
+      "path": "experiments/pilot/events-atlas.jsonl",
+      "source_sha256": "0508e87e1dd1d8a2f4aafc0d851444d232b8345306704302c927de2802bf2790",
+      "export_sha256": "0508e87e1dd1d8a2f4aafc0d851444d232b8345306704302c927de2802bf2790",
+      "changes": []
+    },
+    {
+      "path": "experiments/pilot/events-atlas.patch",
+      "source_sha256": "7a37f755fc6e8e531e08abdc0aa2d2eb72d5d2797c13dc5c9b1ca6208c6c9f5b",
+      "export_sha256": "7a37f755fc6e8e531e08abdc0aa2d2eb72d5d2797c13dc5c9b1ca6208c6c9f5b",
+      "changes": []
+    },
+    {
+      "path": "experiments/pilot/events-search.jsonl",
+      "source_sha256": "1b5c19576a0324ab57ded9ea46818ed2ef307434ea4dcd67daa4d2d3c83d4b96",
+      "export_sha256": "1b5c19576a0324ab57ded9ea46818ed2ef307434ea4dcd67daa4d2d3c83d4b96",
+      "changes": []
+    },
+    {
+      "path": "experiments/pilot/events-search.patch",
+      "source_sha256": "bd37f41886cfd2ba4ca3dcd93ba6606e18c525aa4d526e724560a9b1686ec735",
+      "export_sha256": "bd37f41886cfd2ba4ca3dcd93ba6606e18c525aa4d526e724560a9b1686ec735",
+      "changes": []
+    },
+    {
+      "path": "experiments/pilot/limit-atlas.jsonl",
+      "source_sha256": "e980f1ac985e191008a9139e873d1247ba3c60c2aacc03605960573bc5b6467c",
+      "export_sha256": "e980f1ac985e191008a9139e873d1247ba3c60c2aacc03605960573bc5b6467c",
+      "changes": []
+    },
+    {
+      "path": "experiments/pilot/limit-atlas.patch",
+      "source_sha256": "366bfbb366f0490bc8f532467214a37b663ca2dd355179e0943bbfe1467027f2",
+      "export_sha256": "366bfbb366f0490bc8f532467214a37b663ca2dd355179e0943bbfe1467027f2",
+      "changes": []
+    },
+    {
+      "path": "experiments/pilot/limit-search.jsonl",
+      "source_sha256": "c11e3d6161e9c8991d4ab49ba86d8d35411597b7665ac4750e20b0c8b15587a3",
+      "export_sha256": "c11e3d6161e9c8991d4ab49ba86d8d35411597b7665ac4750e20b0c8b15587a3",
+      "changes": []
+    },
+    {
+      "path": "experiments/pilot/limit-search.patch",
+      "source_sha256": "7077f4ef4569b92811741b4cd3dc0613ab0b51d552cbc2fca3bd837903b94662",
+      "export_sha256": "7077f4ef4569b92811741b4cd3dc0613ab0b51d552cbc2fca3bd837903b94662",
+      "changes": []
+    },
+    {
+      "path": "experiments/pilot/report.json",
+      "source_sha256": "e0b05ae0997aae34f5426eafb76192353ee16425f3343293aea34521060b5c96",
+      "export_sha256": "e0b05ae0997aae34f5426eafb76192353ee16425f3343293aea34521060b5c96",
+      "changes": []
+    },
+    {
+      "path": "experiments/stale-rejection.json",
+      "source_sha256": "7eca4baa504e72f51160c1c1fff471c88c1682a5c2a42776c1af248859ff0fe5",
+      "export_sha256": "7eca4baa504e72f51160c1c1fff471c88c1682a5c2a42776c1af248859ff0fe5",
+      "changes": []
+    },
+    {
+      "path": "package-lock.json",
+      "source_sha256": "053345ec06942b18d859c708db33206c67cc7db9580f4436f0afadb013b2786e",
+      "export_sha256": "053345ec06942b18d859c708db33206c67cc7db9580f4436f0afadb013b2786e",
+      "changes": []
+    },
+    {
+      "path": "package.json",
+      "source_sha256": "581f4ce4aa9f6c448fedfbc53dbc09c65fbdf4456fd19f1b2dcee571940500c9",
+      "export_sha256": "581f4ce4aa9f6c448fedfbc53dbc09c65fbdf4456fd19f1b2dcee571940500c9",
+      "changes": []
+    },
+    {
+      "path": "public/app.js",
+      "source_sha256": "bb5d52fefaf35ecd694cb76c3ed02cf22a5721c329a7f2413f389ff47a06234c",
+      "export_sha256": "bb5d52fefaf35ecd694cb76c3ed02cf22a5721c329a7f2413f389ff47a06234c",
+      "changes": []
+    },
+    {
+      "path": "public/data.js",
+      "source_sha256": "792780d503fc5fb6f35bb763534cd471067ff2ececca57a7e304257af38209ef",
+      "export_sha256": "792780d503fc5fb6f35bb763534cd471067ff2ececca57a7e304257af38209ef",
+      "changes": []
+    },
+    {
+      "path": "public/generated/indexed-graph.json",
+      "source_sha256": "516272af89533f22954ad51971fbe0a15489e9c141904eb69b4d590b885caa76",
+      "export_sha256": "516272af89533f22954ad51971fbe0a15489e9c141904eb69b4d590b885caa76",
+      "changes": []
+    },
+    {
+      "path": "public/generated/pilot-report.json",
+      "source_sha256": "e0b05ae0997aae34f5426eafb76192353ee16425f3343293aea34521060b5c96",
+      "export_sha256": "e0b05ae0997aae34f5426eafb76192353ee16425f3343293aea34521060b5c96",
+      "changes": []
+    },
+    {
+      "path": "public/generated/task-report.json",
+      "source_sha256": "54196074df433c5b14347c33ccf1a045f52ee6bc513b082692613919a9c2e993",
+      "export_sha256": "54196074df433c5b14347c33ccf1a045f52ee6bc513b082692613919a9c2e993",
+      "changes": []
+    },
+    {
+      "path": "public/illustrated.js",
+      "source_sha256": "1fdb4ff856b93d016edf98054138f853924b5980888651de055c5b9510408467",
+      "export_sha256": "1fdb4ff856b93d016edf98054138f853924b5980888651de055c5b9510408467",
+      "changes": []
+    },
+    {
+      "path": "public/index.html",
+      "source_sha256": "86b18e807e063447f91b2ca5ddecec4d913d3409f89c1d143643e1dc043923be",
+      "export_sha256": "ab56e426e4dee271e70edc10b41d36ad9c5fac1e779d1e67ef0ccf2630451382",
+      "changes": [
+        "Personal avatar initials replaced with Atlas initials."
+      ]
+    },
+    {
+      "path": "public/local-trace.css",
+      "source_sha256": "6a1a245a3aa81984c21453158414dc8d4837e951795f61363eb987b4e3d4c30d",
+      "export_sha256": "6a1a245a3aa81984c21453158414dc8d4837e951795f61363eb987b4e3d4c30d",
+      "changes": []
+    },
+    {
+      "path": "public/local-trace.html",
+      "source_sha256": "6732d68af1ab6ef8ac62cea81a065054bdbf88e29ee5cc66b395bc87b9e4ea38",
+      "export_sha256": "6732d68af1ab6ef8ac62cea81a065054bdbf88e29ee5cc66b395bc87b9e4ea38",
+      "changes": []
+    },
+    {
+      "path": "public/local-trace.js",
+      "source_sha256": "7f4645a46bcddf177f25608cec70a208bc2bc43f2dad32ea9f3e6830e219e30b",
+      "export_sha256": "7f4645a46bcddf177f25608cec70a208bc2bc43f2dad32ea9f3e6830e219e30b",
+      "changes": []
+    },
+    {
+      "path": "public/pilot.js",
+      "source_sha256": "f3ae58567b624753ee6ae688a4b68d97aa0917d06e7a3cdd4ff41d63dd2474d7",
+      "export_sha256": "f3ae58567b624753ee6ae688a4b68d97aa0917d06e7a3cdd4ff41d63dd2474d7",
+      "changes": []
+    },
+    {
+      "path": "public/retrieval.js",
+      "source_sha256": "628e930b29bda32a71c8076f9fe37418f853db3122375484e0a61f21ecb075d2",
+      "export_sha256": "628e930b29bda32a71c8076f9fe37418f853db3122375484e0a61f21ecb075d2",
+      "changes": []
+    },
+    {
+      "path": "public/style.css",
+      "source_sha256": "ca034d256af079103b0481f73b28fab81d45d73514311bb29f3cb1c8c99c2d19",
+      "export_sha256": "ca034d256af079103b0481f73b28fab81d45d73514311bb29f3cb1c8c99c2d19",
+      "changes": []
+    },
+    {
+      "path": "requirements-indexer-linux-x86_64.lock",
+      "source_sha256": "37c60103983d8a88fb834c205d2d87ab9527d90cd3a94582c253d4328e17ed16",
+      "export_sha256": "37c60103983d8a88fb834c205d2d87ab9527d90cd3a94582c253d4328e17ed16",
+      "changes": []
+    },
+    {
+      "path": "requirements-indexer.txt",
+      "source_sha256": "049e800e6733fd2005f919074a9cb5258abc8e38ac811a426292531a9843c708",
+      "export_sha256": "049e800e6733fd2005f919074a9cb5258abc8e38ac811a426292531a9843c708",
+      "changes": []
+    },
+    {
+      "path": "samples/aurora/compile_commands.json",
+      "source_sha256": "2d335e4019c31ee6ab64e94aac10ef9e6ad68baae2d8900ae51d348ff65deec4",
+      "export_sha256": "2d335e4019c31ee6ab64e94aac10ef9e6ad68baae2d8900ae51d348ff65deec4",
+      "changes": []
+    },
+    {
+      "path": "samples/aurora/include/AssetCache.hpp",
+      "source_sha256": "72218d60db1056487313013389f5d3ca654b3eac96554039ef7a448c0d2875ad",
+      "export_sha256": "72218d60db1056487313013389f5d3ca654b3eac96554039ef7a448c0d2875ad",
+      "changes": []
+    },
+    {
+      "path": "samples/aurora/include/EventBus.hpp",
+      "source_sha256": "f66a87438e82aced5c897a44940614576aa123ef015c1a558921ff32636a5510",
+      "export_sha256": "f66a87438e82aced5c897a44940614576aa123ef015c1a558921ff32636a5510",
+      "changes": []
+    },
+    {
+      "path": "samples/aurora/include/Geometry.hpp",
+      "source_sha256": "8d21895b08942f63020ee8a49a15ffe5ee752891ae09b17b077a1b1dc1bb1303",
+      "export_sha256": "8d21895b08942f63020ee8a49a15ffe5ee752891ae09b17b077a1b1dc1bb1303",
+      "changes": []
+    },
+    {
+      "path": "samples/aurora/include/RenderEngine.hpp",
+      "source_sha256": "2d29f8fe27071638b849f569a99b25ac2c6567b86489c08bb20ba699025dd3ec",
+      "export_sha256": "2d29f8fe27071638b849f569a99b25ac2c6567b86489c08bb20ba699025dd3ec",
+      "changes": []
+    },
+    {
+      "path": "samples/aurora/include/UILayer.hpp",
+      "source_sha256": "bc8216b42bf9c4fc7bd45ed349d8b11ccbd9acac0a111921177e3816b47e2d50",
+      "export_sha256": "bc8216b42bf9c4fc7bd45ed349d8b11ccbd9acac0a111921177e3816b47e2d50",
+      "changes": []
+    },
+    {
+      "path": "samples/aurora/requirements.json",
+      "source_sha256": "0ec89d7971b82c0199fc021d8d290593841b751c21461b672bc552e0e1f1a034",
+      "export_sha256": "0ec89d7971b82c0199fc021d8d290593841b751c21461b672bc552e0e1f1a034",
+      "changes": []
+    },
+    {
+      "path": "samples/aurora/src/AssetCache.cpp",
+      "source_sha256": "125a452084652524466ad03c83cee10298664c81462302ee8e0df61429fd361f",
+      "export_sha256": "125a452084652524466ad03c83cee10298664c81462302ee8e0df61429fd361f",
+      "changes": []
+    },
+    {
+      "path": "samples/aurora/src/EventBus.cpp",
+      "source_sha256": "c9ea9da093de8d7976a20eaa018e0cbb3ea2705a6985654221468fb9a47e162d",
+      "export_sha256": "c9ea9da093de8d7976a20eaa018e0cbb3ea2705a6985654221468fb9a47e162d",
+      "changes": []
+    },
+    {
+      "path": "samples/aurora/src/Geometry.cpp",
+      "source_sha256": "d0236438792736762596566651e2837d914220066625a61499fabc4a69bb92c7",
+      "export_sha256": "d0236438792736762596566651e2837d914220066625a61499fabc4a69bb92c7",
+      "changes": []
+    },
+    {
+      "path": "samples/aurora/src/RenderEngine.cpp",
+      "source_sha256": "7cecda03acc3f5737f92c6b1094c289c3e6039d9fbb5a07b3e8e0016a1b901ff",
+      "export_sha256": "7cecda03acc3f5737f92c6b1094c289c3e6039d9fbb5a07b3e8e0016a1b901ff",
+      "changes": []
+    },
+    {
+      "path": "samples/aurora/src/UILayer.cpp",
+      "source_sha256": "5cc9b8dcf96f756cd28acbb82cf0318dbe27ae95f101cffa85b07706e35481fb",
+      "export_sha256": "5cc9b8dcf96f756cd28acbb82cf0318dbe27ae95f101cffa85b07706e35481fb",
+      "changes": []
+    },
+    {
+      "path": "samples/aurora/test_manifest.json",
+      "source_sha256": "31ec1a97de8c08f018509e5a127f8154ada5085674416e39bde9abfa258e7556",
+      "export_sha256": "31ec1a97de8c08f018509e5a127f8154ada5085674416e39bde9abfa258e7556",
+      "changes": []
+    },
+    {
+      "path": "samples/aurora/tests/ResizeTests.cpp",
+      "source_sha256": "68e855a157dee04728d9248fc9c7082a349c28bd70b01a2de40bbfa31da900aa",
+      "export_sha256": "68e855a157dee04728d9248fc9c7082a349c28bd70b01a2de40bbfa31da900aa",
+      "changes": []
+    },
+    {
+      "path": "scripts/agent.mjs",
+      "source_sha256": "51d4e8cbfeabe875a85946054759b5064b0a7b6cecb0e9143ffe0265168d73de",
+      "export_sha256": "51d4e8cbfeabe875a85946054759b5064b0a7b6cecb0e9143ffe0265168d73de",
+      "changes": []
+    },
+    {
+      "path": "scripts/assemble-offline.py",
+      "source_sha256": "6fd4457bd24398a95e8ea39dfc70497ab11bddb57cc371f5e672b24d7a9e0217",
+      "export_sha256": "6fd4457bd24398a95e8ea39dfc70497ab11bddb57cc371f5e672b24d7a9e0217",
+      "changes": []
+    },
+    {
+      "path": "scripts/build.mjs",
+      "source_sha256": "fa8bca1bdd658354ed383e19ac868209d2b3f55753acef3c0941c8ca1d79149d",
+      "export_sha256": "fa8bca1bdd658354ed383e19ac868209d2b3f55753acef3c0941c8ca1d79149d",
+      "changes": []
+    },
+    {
+      "path": "scripts/check-storage-schema.py",
+      "source_sha256": "68410ab55d25eceeef9bf83e26892b0eb464ceb934a6074deede50744bbb1fc3",
+      "export_sha256": "68410ab55d25eceeef9bf83e26892b0eb464ceb934a6074deede50744bbb1fc3",
+      "changes": []
+    },
+    {
+      "path": "scripts/check-trace-packet.py",
+      "source_sha256": "dbebc131c22a29b8ec8085a61a098fc56fde62575194b74c4dfbf2ceafdf5fff",
+      "export_sha256": "dbebc131c22a29b8ec8085a61a098fc56fde62575194b74c4dfbf2ceafdf5fff",
+      "changes": []
+    },
+    {
+      "path": "scripts/evaluate.mjs",
+      "source_sha256": "5ccf402cdbd3ff10f3e70a903626f6153c9ade7938f05e956261855551826780",
+      "export_sha256": "5ccf402cdbd3ff10f3e70a903626f6153c9ade7938f05e956261855551826780",
+      "changes": []
+    },
+    {
+      "path": "scripts/fprime-audit.py",
+      "source_sha256": "303755b64bbbbca039a52dc2fade4e7ffe8dfbd0e749fb5b5ba46e143e199127",
+      "export_sha256": "303755b64bbbbca039a52dc2fade4e7ffe8dfbd0e749fb5b5ba46e143e199127",
+      "changes": []
+    },
+    {
+      "path": "scripts/fprime-probe.py",
+      "source_sha256": "cd07220d72fcdafc38a365583198dbc42a109c2c15de5221efd487ebd0944422",
+      "export_sha256": "cd07220d72fcdafc38a365583198dbc42a109c2c15de5221efd487ebd0944422",
+      "changes": []
+    },
+    {
+      "path": "scripts/install-offline.py",
+      "source_sha256": "70d6b6ded6d831f28f6d106dbc6e9fe15f240a777a8287f9445dc1fcdeb55d40",
+      "export_sha256": "70d6b6ded6d831f28f6d106dbc6e9fe15f240a777a8287f9445dc1fcdeb55d40",
+      "changes": []
+    },
+    {
+      "path": "scripts/offline-preflight.py",
+      "source_sha256": "3196490b8f905270e9ef49324eff776bfb9794021c450a52f2588fa3bc25c0ca",
+      "export_sha256": "3196490b8f905270e9ef49324eff776bfb9794021c450a52f2588fa3bc25c0ca",
+      "changes": []
+    },
+    {
+      "path": "scripts/pilot-tools.mjs",
+      "source_sha256": "80381ed8c4ec38616fbfd05b2998ac69dae10631bdb84be07194454cffc500c4",
+      "export_sha256": "80381ed8c4ec38616fbfd05b2998ac69dae10631bdb84be07194454cffc500c4",
+      "changes": []
+    },
+    {
+      "path": "scripts/pilot.py",
+      "source_sha256": "69ca0cd08f7da9faa17d689705e3ff5d08e630899ede5db19e3c7ec56e7e2361",
+      "export_sha256": "69ca0cd08f7da9faa17d689705e3ff5d08e630899ede5db19e3c7ec56e7e2361",
+      "changes": []
+    },
+    {
+      "path": "scripts/rebuild-fprime-store.py",
+      "source_sha256": "0af7c96e258920d6055aa122cdbb099f36c01cf4112f26962b7a3f0ba0bedde8",
+      "export_sha256": "0af7c96e258920d6055aa122cdbb099f36c01cf4112f26962b7a3f0ba0bedde8",
+      "changes": []
+    },
+    {
+      "path": "scripts/reproduce.py",
+      "source_sha256": "0febc987759b72f1dc8b845b260bfd2c5ba9a32cbafda7a6b13be932313be861",
+      "export_sha256": "0febc987759b72f1dc8b845b260bfd2c5ba9a32cbafda7a6b13be932313be861",
+      "changes": []
+    },
+    {
+      "path": "scripts/start-local.sh",
+      "source_sha256": "b918a6cbea653e462d8690810733c64b541a33b58bcc092c25c83250b831102d",
+      "export_sha256": "b918a6cbea653e462d8690810733c64b541a33b58bcc092c25c83250b831102d",
+      "changes": []
+    },
+    {
+      "path": "scripts/tools.mjs",
+      "source_sha256": "92066e4ab31940aac8aa86110ecbfe532e066dd92cce91d3cde43a41d80e6291",
+      "export_sha256": "92066e4ab31940aac8aa86110ecbfe532e066dd92cce91d3cde43a41d80e6291",
+      "changes": []
+    },
+    {
+      "path": "scripts/verify-indexer-environment.py",
+      "source_sha256": "814861bdc9f55427aa39e47d0b62182b23d984aeb20b95fc85576a336bb844ff",
+      "export_sha256": "814861bdc9f55427aa39e47d0b62182b23d984aeb20b95fc85576a336bb844ff",
+      "changes": []
+    },
+    {
+      "path": "tests/browser.test.mjs",
+      "source_sha256": "d6aa1c3fc40f7eef49cd7aa31fa2ade960e3cea13d02195557ab9bf0333655b9",
+      "export_sha256": "d6aa1c3fc40f7eef49cd7aa31fa2ade960e3cea13d02195557ab9bf0333655b9",
+      "changes": []
+    },
+    {
+      "path": "tests/engine/test_indexer.py",
+      "source_sha256": "ebf76884e5c944a9753d0dc8bd6b19d089d184321dc09510a43f8b377b42de0f",
+      "export_sha256": "ebf76884e5c944a9753d0dc8bd6b19d089d184321dc09510a43f8b377b42de0f",
+      "changes": []
+    },
+    {
+      "path": "tests/engine/test_offline_demo.py",
+      "source_sha256": "9e496496f018e06cb146df9918618c2303f682cb21485919c5a810f84f9a0ca2",
+      "export_sha256": "9e496496f018e06cb146df9918618c2303f682cb21485919c5a810f84f9a0ca2",
+      "changes": []
+    },
+    {
+      "path": "tests/engine/test_offline_install.py",
+      "source_sha256": "3af95635bd79428b6e8cdab82f38532a967eab4e488b1647d8a070e74e9fcd72",
+      "export_sha256": "3af95635bd79428b6e8cdab82f38532a967eab4e488b1647d8a070e74e9fcd72",
+      "changes": []
+    },
+    {
+      "path": "tests/engine/test_offline_launcher.py",
+      "source_sha256": "0e7dcea2ff026bb736eb9537a2fcfc1c4fb7ddf01818a2488beb701ff501e344",
+      "export_sha256": "0e7dcea2ff026bb736eb9537a2fcfc1c4fb7ddf01818a2488beb701ff501e344",
+      "changes": []
+    },
+    {
+      "path": "tests/engine/test_offline_preflight.py",
+      "source_sha256": "93f7f4ba3a098f8c6b5afe58ebaa2a8e6e7df28fab92c236b73024ef8ed86527",
+      "export_sha256": "93f7f4ba3a098f8c6b5afe58ebaa2a8e6e7df28fab92c236b73024ef8ed86527",
+      "changes": []
+    },
+    {
+      "path": "tests/engine/test_storage.py",
+      "source_sha256": "bac91c72bcc1bc70931ba3b08c5fa41019aa36772e7220ba45a0836259a2e203",
+      "export_sha256": "bac91c72bcc1bc70931ba3b08c5fa41019aa36772e7220ba45a0836259a2e203",
+      "changes": []
+    },
+    {
+      "path": "tests/engine/test_storage_annotation_links.py",
+      "source_sha256": "52c166bcb584c8bebc177cadcbd54d1330980155b699e22add9659838831898a",
+      "export_sha256": "52c166bcb584c8bebc177cadcbd54d1330980155b699e22add9659838831898a",
+      "changes": []
+    },
+    {
+      "path": "tests/engine/test_storage_compiler.py",
+      "source_sha256": "5c5bad5b76b8408dce313853d91100533eeb236ecfd349635bb6b311eef0c023",
+      "export_sha256": "5c5bad5b76b8408dce313853d91100533eeb236ecfd349635bb6b311eef0c023",
+      "changes": []
+    },
+    {
+      "path": "tests/engine/test_storage_details.py",
+      "source_sha256": "919429c93473c31d18ece1cd2f394dbc125b00da79c7c541257c1fbef21b201b",
+      "export_sha256": "919429c93473c31d18ece1cd2f394dbc125b00da79c7c541257c1fbef21b201b",
+      "changes": []
+    },
+    {
+      "path": "tests/engine/test_storage_engineering.py",
+      "source_sha256": "47240260e4ff83421584f022e10a1594535f70903e42bff00d3b7d49718429a4",
+      "export_sha256": "47240260e4ff83421584f022e10a1594535f70903e42bff00d3b7d49718429a4",
+      "changes": []
+    },
+    {
+      "path": "tests/engine/test_storage_external_roots.py",
+      "source_sha256": "c04930f9b71b29ea4276d6a5decaf5b4064392a33e43797c1c089a5c11f65386",
+      "export_sha256": "c04930f9b71b29ea4276d6a5decaf5b4064392a33e43797c1c089a5c11f65386",
+      "changes": []
+    },
+    {
+      "path": "tests/engine/test_storage_freshness.py",
+      "source_sha256": "92a015cd44db43322cff017be5f71a2c81c61f5259ce42118ec691900a1c1a6c",
+      "export_sha256": "92a015cd44db43322cff017be5f71a2c81c61f5259ce42118ec691900a1c1a6c",
+      "changes": []
+    },
+    {
+      "path": "tests/engine/test_storage_http.py",
+      "source_sha256": "9a5b44fbd428ddf2cecbbc6e357ef643eaf25fbdd1044c3c19e197244e25a0a2",
+      "export_sha256": "9a5b44fbd428ddf2cecbbc6e357ef643eaf25fbdd1044c3c19e197244e25a0a2",
+      "changes": []
+    },
+    {
+      "path": "tests/engine/test_storage_inspect.py",
+      "source_sha256": "babb23487c2e701517a237b08e70972558de45b9c0c0a21ff902c59cc50db732",
+      "export_sha256": "babb23487c2e701517a237b08e70972558de45b9c0c0a21ff902c59cc50db732",
+      "changes": []
+    },
+    {
+      "path": "tests/engine/test_storage_local_view.py",
+      "source_sha256": "90454e0ab8806223c6aabab3316185e098a8784cf7eb0d11f9d15707820d88c5",
+      "export_sha256": "90454e0ab8806223c6aabab3316185e098a8784cf7eb0d11f9d15707820d88c5",
+      "changes": []
+    },
+    {
+      "path": "tests/engine/test_storage_membership.py",
+      "source_sha256": "b1896c6d5cd839d3d104e8abb862b3c014bc24440dee26523fd3fdb9dfc97ae4",
+      "export_sha256": "b1896c6d5cd839d3d104e8abb862b3c014bc24440dee26523fd3fdb9dfc97ae4",
+      "changes": []
+    },
+    {
+      "path": "tests/engine/test_storage_readiness.py",
+      "source_sha256": "cc28bd8a16add9e350aa3b95bf129808b0fc449017e458ee26cffcb64e5d3e24",
+      "export_sha256": "cc28bd8a16add9e350aa3b95bf129808b0fc449017e458ee26cffcb64e5d3e24",
+      "changes": []
+    },
+    {
+      "path": "tests/engine/test_storage_test_cases.py",
+      "source_sha256": "ea1c9e5bc480f9972cca242677aaa8dab78d12c7b73c407c0eba010a7491ab4c",
+      "export_sha256": "ea1c9e5bc480f9972cca242677aaa8dab78d12c7b73c407c0eba010a7491ab4c",
+      "changes": []
+    },
+    {
+      "path": "tests/engine/test_storage_trace_acceptance.py",
+      "source_sha256": "a28397edd1013935069c4918c4ccf37fd696f45b49d15ffea49605863c7745e9",
+      "export_sha256": "a28397edd1013935069c4918c4ccf37fd696f45b49d15ffea49605863c7745e9",
+      "changes": []
+    },
+    {
+      "path": "tests/engine/test_storage_trace_details.py",
+      "source_sha256": "cd956b0cca5e6f925a64f297d173c198dce73ec0d9c30f54fad2081e8ae78131",
+      "export_sha256": "cd956b0cca5e6f925a64f297d173c198dce73ec0d9c30f54fad2081e8ae78131",
+      "changes": []
+    },
+    {
+      "path": "tests/engine/test_storage_trace_packet.py",
+      "source_sha256": "769dd1284dcdf648ca5de4e494864f25ed29b198295231287c53cf516c71670f",
+      "export_sha256": "769dd1284dcdf648ca5de4e494864f25ed29b198295231287c53cf516c71670f",
+      "changes": []
+    },
+    {
+      "path": "tests/model.test.mjs",
+      "source_sha256": "4fa4ebf2c2e2471c59a35f440f3352365b63261c440bd711bfb8d52a3ce2be85",
+      "export_sha256": "4fa4ebf2c2e2471c59a35f440f3352365b63261c440bd711bfb8d52a3ce2be85",
+      "changes": []
+    },
+    {
+      "path": "tests/pilot-report.test.mjs",
+      "source_sha256": "f384a0be9f5268498e1d6a187c7ee5dc27dcd5cf0201fc2df84a44156b79b4db",
+      "export_sha256": "f384a0be9f5268498e1d6a187c7ee5dc27dcd5cf0201fc2df84a44156b79b4db",
+      "changes": []
+    },
+    {
+      "path": "tests/retrieval.test.mjs",
+      "source_sha256": "f94dd86b5e512c0531a5b32b879c9d6753254de8313c3fb24dd42cc03a07f7a8",
+      "export_sha256": "f94dd86b5e512c0531a5b32b879c9d6753254de8313c3fb24dd42cc03a07f7a8",
+      "changes": []
+    },
+    {
+      "path": "tests/tools.test.mjs",
+      "source_sha256": "bf64eaaa83a84870e06af6306408b42914c492ccf76b385680d8bcc41814cd5c",
+      "export_sha256": "bf64eaaa83a84870e06af6306408b42914c492ccf76b385680d8bcc41814cd5c",
+      "changes": []
+    },
+    {
+      "path": "vite.config.mjs",
+      "source_sha256": "11a2859179a38c8ae781705252e2fdb8683f129bd34ab808b3b8d2faf9178336",
+      "export_sha256": "11a2859179a38c8ae781705252e2fdb8683f129bd34ab808b3b8d2faf9178336",
+      "changes": []
+    }
+  ],
+  "integrity": "CHECKSUMS.sha256 covers every delivered file except itself.",
+  "validation": {
+    "date": "2026-11-06",
+    "python": "3.12.14",
+    "node": "v24.22.1",
+    "checks": [
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests/engine",
+          "-p",
+          "test_storage_trace*.py",
+          "-v"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "tests_run": 20
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests/engine",
+          "-p",
+          "test_storage_details.py",
+          "-v"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "tests_run": 5
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests/engine",
+          "-p",
+          "test_storage_inspect.py",
+          "-v"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "tests_run": 4
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests/engine",
+          "-p",
+          "test_storage_readiness.py",
+          "-v"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "tests_run": 6
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests/engine",
+          "-p",
+          "test_storage_http.py",
+          "-v"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "tests_run": 4
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests/engine",
+          "-p",
+          "test_storage_local_view.py",
+          "-v"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "tests_run": 2
+      },
+      {
+        "command": [
+          "python",
+          "scripts/check-storage-schema.py"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "tests_run": 4
+      },
+      {
+        "command": [
+          "node",
+          "tests/model.test.mjs"
+        ],
+        "status": "passed",
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/retrieval.test.mjs"
+        ],
+        "status": "passed",
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/pilot-report.test.mjs"
+        ],
+        "status": "passed",
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "node",
+          "scripts/build.mjs"
+        ],
+        "status": "passed",
+        "exit_code": 0
+      }
+    ],
+    "not_run": [
+      "Full native indexing/compiler test suite",
+      "Fresh real F Prime ingestion/build/tests",
+      "Browser UI automation",
+      "RHEL/Firefox qualification",
+      "Disconnected installation"
+    ],
+    "source_integrity": "All included tracked files match their recorded export hashes; original source checkout remained clean.",
+    "archive_checks": [
+      "ZIP CRC check",
+      "Safe relative member paths",
+      "179 unique files",
+      "Extracted file SHA-256 agreement",
+      "All delivered files visible to a fresh Git import"
+    ]
+  },
+  "added_files": [
+    "GIT_IMPORT.md",
+    "docs/DOCUMENTATION_INDEX.md",
+    "docs/reference/ORIGINAL_GRAPH_ARCHITECTURE_BRIEF.md",
+    "EXPORT_MANIFEST.json",
+    "CHECKSUMS.sha256"
+  ],
+  "delivered_file_count": 179
+}

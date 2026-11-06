@@ -1,0 +1,16 @@
+--- a/src/AssetCache.cpp
++++ b/src/AssetCache.cpp
+@@ -2,11 +2,12 @@
+ namespace aurora {
+ AssetCache::AssetCache() : ids_{-1, -1, -1, -1}, next_(0) {}
+ void AssetCache::insert(int id) {
+-    if (contains(id)) return;
++    if (id < 0 || contains(id)) return;
+     ids_[next_] = id;
+     next_ = (next_ + 1) % capacity();
+ }
+ bool AssetCache::contains(int id) const {
++    if (id < 0) return false;
+     for (int i = 0; i < capacity(); ++i) {
+         if (ids_[i] == id) return true;
+     }

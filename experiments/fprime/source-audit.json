@@ -1,0 +1,1456 @@
+{
+  "repository": "https://github.com/nasa/fprime.git",
+  "revision": "7d8f579f159d2f7c2d4984d92828575e37f87fa6",
+  "submodules": [
+    "58d77fa8070e8cec2dc1ed015d66b454c8d78850 googletest (58d77fa)"
+  ],
+  "tracked_files": 3313,
+  "counts": {
+    "other_cpp": {
+      "files": 903,
+      "physical_lines": 112003
+    },
+    "test_cpp": {
+      "files": 697,
+      "physical_lines": 106105
+    },
+    "fpp_models": {
+      "files": 327,
+      "physical_lines": 14034
+    }
+  },
+  "counting_notes": "Physical lines include comments and blanks. Path-based test classification. Excludes untracked generated build products and submodule contents. other_cpp is not a certified production SLOC count.",
+  "executable_declarations": [
+    {
+      "path": "FppTestProject/FppTest/CMakeLists.txt",
+      "line": 57,
+      "text": "register_fprime_deployment()"
+    },
+    {
+      "path": "TestDeploymentsProject/Ref/CMakeLists.txt",
+      "line": 19,
+      "text": "register_fprime_deployment("
+    },
+    {
+      "path": "cmake/test/data/TestDeployment/CMakeLists.txt",
+      "line": 33,
+      "text": "register_fprime_deployment("
+    },
+    {
+      "path": "cmake/test/data/TestFindPackageProject/CMakeLists.txt",
+      "line": 22,
+      "text": "register_fprime_deployment("
+    },
+    {
+      "path": "cmake/test/data/test-implementations/Deployment/CMakeLists.txt",
+      "line": 18,
+      "text": "register_fprime_executable("
+    }
+  ],
+  "declaration_note": "Textual CMake declarations, not resolved applications or configured targets.",
+  "requirements": [
+    {
+      "id": "PQ-001",
+      "text": "The PriorityQueue shall implement the Os::QueueInterface for compatibility with F\u00b4 components",
+      "verification_method": "Inspection, Unit Test",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 29,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PQ-002",
+      "text": "The PriorityQueue shall support message prioritization with higher priority messages dequeued before lower priority messages",
+      "verification_method": "Unit Test",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 30,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PQ-003",
+      "text": "The PriorityQueue shall allocate memory during create and deallocate it during destruction using the registered `Fw::MemAllocator`",
+      "verification_method": "Inspection",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 31,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PQ-004",
+      "text": "The PriorityQueue shall use a single shared memory pool for all message priorities",
+      "verification_method": "Inspection",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 32,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PQ-005",
+      "text": "The PriorityQueue shall support blocking and non-blocking send operations",
+      "verification_method": "Unit Test",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 33,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PQ-006",
+      "text": "The PriorityQueue shall support blocking and non-blocking receive operations",
+      "verification_method": "Unit Test",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 34,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PQ-007",
+      "text": "The PriorityQueue shall use Os::Mutex for thread-safe access to queue data structures",
+      "verification_method": "Inspection",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 35,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PQ-008",
+      "text": "The PriorityQueue shall use Os::ConditionVariable to implement blocking send/receive",
+      "verification_method": "Inspection, Unit Test",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 36,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PQ-009",
+      "text": "The PriorityQueue shall track high water marks for message queue depth",
+      "verification_method": "Unit Test",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 37,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PQ-010",
+      "text": "The PriorityQueue shall validate message sizes against the configured maximum",
+      "verification_method": "Unit Test",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 38,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PQ-011",
+      "text": "The PriorityQueue shall use the F\u00b4 memory allocator registry for all dynamic allocations",
+      "verification_method": "Inspection",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 39,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PQ-012",
+      "text": "The PriorityQueue shall return appropriate error codes for queue full, empty, and size mismatch conditions",
+      "verification_method": "Unit Test",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 40,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PQ-013",
+      "text": "The PriorityQueue shall use a max-heap data structure for O(log n) priority ordering",
+      "verification_method": "Inspection",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 41,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PQ-014",
+      "text": "The PriorityQueue shall NOT be ISR-safe due to mutex usage",
+      "verification_method": "Inspection",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 42,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PMQ-001",
+      "text": "The PriorityMemQueue shall implement the Os::QueueInterface for compatibility with F\u00b4 components",
+      "verification_method": "Inspection, Unit Test",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 104,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PMQ-002",
+      "text": "The PriorityMemQueue shall support up to 32 priority levels",
+      "verification_method": "Inspection, Unit Test",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 105,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PMQ-003",
+      "text": "The PriorityMemQueue shall allocate memory pools only for configured priority levels (sparse allocation)",
+      "verification_method": "Inspection, Unit Test",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 106,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PMQ-004",
+      "text": "The PriorityMemQueue shall support per-priority configuration of message size and depth",
+      "verification_method": "Inspection, Unit Test",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 107,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PMQ-005",
+      "text": "The PriorityMemQueue shall support blocking and non-blocking send operations",
+      "verification_method": "Unit Test",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 108,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PMQ-006",
+      "text": "The PriorityMemQueue shall support blocking and non-blocking receive operations",
+      "verification_method": "Unit Test",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 109,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PMQ-007",
+      "text": "The PriorityMemQueue shall dequeue messages in priority order, with the highest enabled priority serviced first",
+      "verification_method": "Unit Test",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 110,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PMQ-008",
+      "text": "The PriorityMemQueue shall support dynamic enable/disable of individual priority levels",
+      "verification_method": "Unit Test",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 111,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PMQ-009",
+      "text": "The PriorityMemQueue shall be configurable to be ISR-safe for message enqueue and dequeue operations",
+      "verification_method": "Platform dependent",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 112,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PMQ-010",
+      "text": "The PriorityMemQueue shall track high water marks for message queue depth",
+      "verification_method": "Unit Test",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 113,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PMQ-011",
+      "text": "The PriorityMemQueue shall validate message sizes against priority-specific limits",
+      "verification_method": "Unit Test",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 114,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PMQ-012",
+      "text": "The PriorityMemQueue shall use the F\u00b4 memory allocator registry for all dynamic allocations",
+      "verification_method": "Inspection",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 115,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PMQ-013",
+      "text": "The PriorityMemQueue shall return appropriate error codes for queue full, empty, and invalid priority conditions",
+      "verification_method": "Unit Test",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 116,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PMQ-014",
+      "text": "The PriorityMemQueue shall provide per-priority O(1) enqueue and dequeue operations",
+      "verification_method": "Inspection",
+      "path": "Os/Generic/docs/sdd.md",
+      "line": 117,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "AP-001",
+      "text": "The `Svc::ActivePhaser` component shall be active and will be woken up by an input asynchronous port call",
+      "verification_method": "Inspection, Unit test",
+      "path": "Svc/ActivePhaser/docs/sdd.md",
+      "line": 24,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "AP-002",
+      "text": "The `Svc::ActivePhaser` component shall invoke its output ports in the order of port call registrations",
+      "verification_method": "Unit Test",
+      "path": "Svc/ActivePhaser/docs/sdd.md",
+      "line": 25,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "AP-003",
+      "text": "The `Svc::ActivePhaser` component shall report a `MissedDeadline` warning event when a port call overruns its specified length",
+      "verification_method": "Unit Test",
+      "path": "Svc/ActivePhaser/docs/sdd.md",
+      "line": 26,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ARG-001",
+      "text": "The `Svc::ActiveRateGroup` component shall be active and will be woken up by an input asynchronous port call",
+      "verification_method": "Inspection, Unit test",
+      "path": "Svc/ActiveRateGroup/docs/sdd.md",
+      "line": 15,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ARG-002",
+      "text": "The `Svc::ActiveRateGroup` component shall invoke its output ports in order, passing the value contained in a table based on port number",
+      "verification_method": "Unit Test",
+      "path": "Svc/ActiveRateGroup/docs/sdd.md",
+      "line": 16,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ARG-003",
+      "text": "The `Svc::ActiveRateGroup` component shall track the time required to execute the rate group and report it as telemetry",
+      "verification_method": "Unit Test",
+      "path": "Svc/ActiveRateGroup/docs/sdd.md",
+      "line": 17,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ARG-004",
+      "text": "The `Svc::ActiveRateGroup` component shall report a warning event when a rate group cycle is started before previous is completed",
+      "verification_method": "Unit Test",
+      "path": "Svc/ActiveRateGroup/docs/sdd.md",
+      "line": 18,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-ATL-001",
+      "text": "The `Svc::ActiveTextLogger` component shall print received log texts to standard output.",
+      "verification_method": "Unit Test; Inspection",
+      "path": "Svc/ActiveTextLogger/docs/sdd.md",
+      "line": 13,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-ATL-002",
+      "text": "The `Svc::ActiveTextLogger` component shall write received log texts to an optionally supplied file.",
+      "verification_method": "Unit Test",
+      "path": "Svc/ActiveTextLogger/docs/sdd.md",
+      "line": 14,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-ATL-003",
+      "text": "The `Svc::ActiveTextLogger` component shall format the passed log text on the calling thread context, and perform all other processing on the component's thread.",
+      "verification_method": "Inspection",
+      "path": "Svc/ActiveTextLogger/docs/sdd.md",
+      "line": 15,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-ATL-004",
+      "text": "The `Svc::ActiveTextLogger` component shall stop writing to the optional file if it would exceed its max size.",
+      "verification_method": "Unit Test",
+      "path": "Svc/ActiveTextLogger/docs/sdd.md",
+      "line": 16,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-ATL-005",
+      "text": "The `Svc::ActiveTextLogger` component shall provide a public method to supply the filename to write to and max size.",
+      "verification_method": "Unit Test",
+      "path": "Svc/ActiveTextLogger/docs/sdd.md",
+      "line": 17,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-ATL-006",
+      "text": "The `Svc::ActiveTextLogger` component shall attempt to create a new file to write to if the supplied one already exists.  It will try up to ten times, by adding an integer suffix to the filename, ie \"file\",\"file0\",\"file1\"...\"file9\". After the last possible attempt is failed, the initial file shall be overwritten; ie if \"file9\" already exists, the \"file\" shall be truncated and used as a log file.",
+      "verification_method": "Unit Test",
+      "path": "Svc/ActiveTextLogger/docs/sdd.md",
+      "line": 18,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-ATL-007",
+      "text": "The `Svc::ActiveTextLogger` component shall support per-severity event filtering via a public `setSeverityFilter()` method.",
+      "verification_method": "Unit Test",
+      "path": "Svc/ActiveTextLogger/docs/sdd.md",
+      "line": 19,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-ATL-008",
+      "text": "The `Svc::ActiveTextLogger` component shall never filter FATAL events regardless of filter configuration.",
+      "verification_method": "Unit Test",
+      "path": "Svc/ActiveTextLogger/docs/sdd.md",
+      "line": 20,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "AF-001",
+      "text": "The `Svc::AssertFatalAdapter` component shall convert all calls to FW_ASSERT to FATAL events",
+      "verification_method": "Unit test",
+      "path": "Svc/AssertFatalAdapter/docs/sdd.md",
+      "line": 13,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "FPRIME-BM-001",
+      "text": "`BufferManager` shall allow the specification of multiple bins of buffers based on the size of the buffer",
+      "verification_method": "Allows for some optimization of memory usage if buffers of varying sizes are needed|Test|",
+      "path": "Svc/BufferManager/docs/sdd.md",
+      "line": 14,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "FPRIME-BM-002",
+      "text": "`BufferManager` shall allocate the first buffer with capacity at least the requested size from the set of unallocated buffers, starting with the smallest set of buffers.",
+      "verification_method": "If a buffer from a smaller pool is not available, allow using larger buffers to avoid starving the user| Test|",
+      "path": "Svc/BufferManager/docs/sdd.md",
+      "line": 15,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "FPRIME-BM-003",
+      "text": "`BufferManager` shall return an empty buffer (size = 0) if no buffers are available",
+      "verification_method": "Allow the user to decide how to react to no memory|Test|",
+      "path": "Svc/BufferManager/docs/sdd.md",
+      "line": 16,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "FPRIME-BM-004",
+      "text": "`BufferManager` shall accept empty returned buffers without an assert",
+      "verification_method": "Just send a warning to cover the case where an empty buffer is returned by a component|Test",
+      "path": "Svc/BufferManager/docs/sdd.md",
+      "line": 17,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "FPRIME-BM-005",
+      "text": "`BufferManager` shall use a provided Fw::MemAllocator instance to request overall buffer memory",
+      "verification_method": "Let the user decide where the memory comes from|Test",
+      "path": "Svc/BufferManager/docs/sdd.md",
+      "line": 18,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "FPRIME-BM-006",
+      "text": "`BufferManager` shall allow buffers to be returned in any order",
+      "verification_method": "Do not restrict the lifetime or usage of buffers|Test",
+      "path": "Svc/BufferManager/docs/sdd.md",
+      "line": 19,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "FPRIME-BM-007",
+      "text": "`BufferManager` shall return a buffer whose size is set exactly to the requested size",
+      "verification_method": "Allow callers to use the requested size without checking the underlying allocation size|Test|",
+      "path": "Svc/BufferManager/docs/sdd.md",
+      "line": 20,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "CD-001",
+      "text": "The `Svc::CmdDispatcher` component shall accept command buffers and decode them into commands",
+      "verification_method": "Inspection, Unit Test",
+      "path": "Svc/CmdDispatcher/docs/sdd.md",
+      "line": 13,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "CD-002",
+      "text": "The `Svc::CmdDispatcher` component shall dispatch commands to components",
+      "verification_method": "Unit Test",
+      "path": "Svc/CmdDispatcher/docs/sdd.md",
+      "line": 14,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "CD-003",
+      "text": "The `Svc::CmdDispatcher` component shall provide an interface to register commands",
+      "verification_method": "Inspection",
+      "path": "Svc/CmdDispatcher/docs/sdd.md",
+      "line": 15,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "CD-004",
+      "text": "The `Svc::CmdDispatcher` component shall process command status from components and report the results to the command buffer sender.",
+      "verification_method": "Unit Test",
+      "path": "Svc/CmdDispatcher/docs/sdd.md",
+      "line": 16,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "CD-005",
+      "text": "The `Svc::CmdDispatcher` component shall drop incoming commands to avert a queue overflow (DOS attack).",
+      "verification_method": "Unit Test",
+      "path": "Svc/CmdDispatcher/docs/sdd.md",
+      "line": 17,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-CMDS-001",
+      "text": "The `Svc::CmdSequencer` component shall read sequence files.",
+      "verification_method": "Unit Test | CmdSequencer gets commands from the sequence file.",
+      "path": "Svc/CmdSequencer/docs/sdd.md",
+      "line": 13,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-CMDS-002",
+      "text": "The `Svc::CmdSequencer` component shall validate the sequence files with a CRC.",
+      "verification_method": "Unit Test | CmdSequencer need to know it has a valid file.",
+      "path": "Svc/CmdSequencer/docs/sdd.md",
+      "line": 14,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-CMDS-003",
+      "text": "The `Svc::CmdSequencer` component shall provide a command to validate the sequence file.",
+      "verification_method": "Unit Test | Waiting to validate the file only when running it can cause operational issues",
+      "path": "Svc/CmdSequencer/docs/sdd.md",
+      "line": 15,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-CMDS-004",
+      "text": "The `Svc::CmdSequencer` component shall cancel the sequence upon receiving a failed command status.",
+      "verification_method": "Unit Test | A sequence should not continue if a command fails since subsequent commands may depend on the outcome",
+      "path": "Svc/CmdSequencer/docs/sdd.md",
+      "line": 16,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-CMDS-005",
+      "text": "The `Svc::CmdSequencer` component shall provide a command to cancel the existing sequence",
+      "verification_method": "Unit Test | Operator should be able to cancel the sequence if it is hung or needs to be stopped.",
+      "path": "Svc/CmdSequencer/docs/sdd.md",
+      "line": 17,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-CMDS-006",
+      "text": "The `Svc::CmdSequencer` component shall provide an overall sequence timeout.",
+      "verification_method": "Unit Test | Sequencer should quit if a component fails to send a command response",
+      "path": "Svc/CmdSequencer/docs/sdd.md",
+      "line": 18,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPCAT-001",
+      "text": "`DpCatalog` shall read a set of directories and build a catalog of data products.",
+      "verification_method": "`DpCatalog` needs to know at least one directory where data products reside | Test",
+      "path": "Svc/DpCatalog/docs/sdd.md",
+      "line": 26,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPCAT-002",
+      "text": "`DpCatalog` shall sort data products first based on the internally recorded priority where the highest priority is represented by the lowest number.",
+      "verification_method": "`DpCatalog` needs to downlink highest priority items first | Test",
+      "path": "Svc/DpCatalog/docs/sdd.md",
+      "line": 27,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPCAT-003",
+      "text": "`DpCatalog` shall sort data products second based on the internally recorded time with oldest products as higher priority.",
+      "verification_method": "`DpCatalog` needs to downlink oldest items first | Test",
+      "path": "Svc/DpCatalog/docs/sdd.md",
+      "line": 28,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPCAT-004",
+      "text": "`DpCatalog` shall sort data products third based on the internally recorded product ID with the lowest as higher priority.",
+      "verification_method": "`DpCatalog` needs to resolve case where priority and time match | Test",
+      "path": "Svc/DpCatalog/docs/sdd.md",
+      "line": 29,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPCAT-005",
+      "text": "`DpCatalog` shall update the data product metadata once download is complete",
+      "verification_method": "`DpCatalog` needs to track completion status to avoid duplicate downloads | Test",
+      "path": "Svc/DpCatalog/docs/sdd.md",
+      "line": 30,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPCAT-006",
+      "text": "`DpCatalog` shall implement a command and port to build the catalog.",
+      "verification_method": "`DpCatalog` should consume the resources to build the catalog only when needed | Test",
+      "path": "Svc/DpCatalog/docs/sdd.md",
+      "line": 31,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPCAT-007",
+      "text": "`DpCatalog` shall implement a command and port to start downloading the catalog.",
+      "verification_method": "`DpCatalog` downloads should be timed for when communications are ready, and not consume comm window time building | Test",
+      "path": "Svc/DpCatalog/docs/sdd.md",
+      "line": 32,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPCAT-008",
+      "text": "`DpCatalog` shall have filters for the download based on container ID, priority, and data size limit.",
+      "verification_method": "`DpCatalog` downloads should be tunable for available bandwidth and container metadata | Test",
+      "path": "Svc/DpCatalog/docs/sdd.md",
+      "line": 33,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPCAT-009",
+      "text": "`DpCatalog` shall implement a way to insert newly-generated data products into the catalog after the catalog is built",
+      "verification_method": "`DpCatalog` should notice new products and not require a rebuild of the catalog | Test",
+      "path": "Svc/DpCatalog/docs/sdd.md",
+      "line": 34,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPCAT-010",
+      "text": "`DpCatalog` shall implement commands to modify the priority of existing data products",
+      "verification_method": "Operators made change the priority to lower or raise priorities due to troubleshooting, etc | Test",
+      "path": "Svc/DpCatalog/docs/sdd.md",
+      "line": 35,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPCAT-011",
+      "text": "`DpCatalog` shall implement commands to delete data products",
+      "verification_method": "Ground tools can use DpManager commands to automatically delete DPs | Test",
+      "path": "Svc/DpCatalog/docs/sdd.md",
+      "line": 36,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPCAT-012",
+      "text": "`DpCatalog` shall implement a catalog data product that is a listing of existing data products and their metadata",
+      "verification_method": "Allow operators to know what products exist | Test",
+      "path": "Svc/DpCatalog/docs/sdd.md",
+      "line": 37,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPCAT-013",
+      "text": "`DpCatalog` shall have filters for the catalog data product for priority, container ID, and time range",
+      "verification_method": "Allow operators to know what products exist | Test",
+      "path": "Svc/DpCatalog/docs/sdd.md",
+      "line": 38,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPMANAGER-001",
+      "text": "`Svc::DpManager` shall provide an array of ports for synchronously requesting and receiving data product buffers.",
+      "verification_method": "This capability supports the `product` `get` port in the auto-generated code for components that define data products. | Unit test",
+      "path": "Svc/DpManager/docs/sdd.md",
+      "line": 33,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPMANAGER-002",
+      "text": "`Svc::DpManager` shall provide arrays of ports for receiving and asynchronously responding to requests for data product buffers.",
+      "verification_method": "This capability supports the `product` `request` and `product` `recv` ports in the auto-generated code for components that define data products. | Unit test",
+      "path": "Svc/DpManager/docs/sdd.md",
+      "line": 34,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPMANAGER-003",
+      "text": "`Svc::DpManager` shall receive data product buffers and forward them for further processing.",
+      "verification_method": "This requirement provides a pass-through capability for sending data product buffers to downstream components. `Svc::DpManager` receives data product input on a port of type  `Fw::DpSend`. This input consists of a container ID and an `Fw::Buffer` _B_. `Svc::DpManager` sends _B_ on a port of type `Fw::BufferSend`. This port type is used by the standard F Prime components for managing and logging data, e.g., `Svc::BufferAccumulator`, `Svc::DpWriter`. | Unit test",
+      "path": "Svc/DpManager/docs/sdd.md",
+      "line": 35,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPMANAGER-004",
+      "text": "`Svc::DpManager` shall provide telemetry that reports the number of successful allocations, the number of failed allocations, and the volume of data handled.",
+      "verification_method": "This requirement establishes the telemetry interface for the component. | Unit test",
+      "path": "Svc/DpManager/docs/sdd.md",
+      "line": 36,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPWRITER-001",
+      "text": "`Svc::DpWriter` shall provide a port for receiving `Fw::Buffer` objects pointing to filled data product containers.",
+      "verification_method": "The purpose of `DpWriter` is to write the data products to disk. | Unit Test",
+      "path": "Svc/DpWriter/docs/sdd.md",
+      "line": 32,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPWRITER-002",
+      "text": "`Svc::DpWriter` shall provide an array of ports for sending `Fw::Buffer` objects for processing.",
+      "verification_method": "This requirement supports downstream processing of the data in the buffer. | Unit Test",
+      "path": "Svc/DpWriter/docs/sdd.md",
+      "line": 33,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPWRITER-003",
+      "text": "On receiving a data product container _C_, `Svc::DpWriter` shall use the processing type field of the header of _C_ to select zero or more processing ports to invoke, in port order.",
+      "verification_method": "The processing type field is a bit mask. A one in bit `2^n` in the bit mask selects port index `n`. | Unit Test",
+      "path": "Svc/DpWriter/docs/sdd.md",
+      "line": 34,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPWRITER-004",
+      "text": "On receiving an `Fw::Buffer` _B_, and after performing any requested processing on _B_, `Svc::DpWriter` shall write _B_ to disk.",
+      "verification_method": "The purpose of `DpWriter` is to write data products to the disk. | Unit Test",
+      "path": "Svc/DpWriter/docs/sdd.md",
+      "line": 35,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPWRITER-005",
+      "text": "`Svc::DpWriter` shall provide a port for notifying other components that data products have been written.",
+      "verification_method": "This requirement allows `Svc::DpCatalog` or a similar component to update its catalog in real time. | Unit Test",
+      "path": "Svc/DpWriter/docs/sdd.md",
+      "line": 36,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPWRITER-006",
+      "text": "`Svc::DpManager` shall provide telemetry that reports the number of buffers received, the number of data products written, the number of bytes written, the number of failed writes, and the number of errors.",
+      "verification_method": "This requirement establishes the telemetry interface for the component. | Unit test",
+      "path": "Svc/DpWriter/docs/sdd.md",
+      "line": 37,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DPWRITER-007",
+      "text": "On receiving an `Fw::Buffer` _B_, and after performing any requested processing on _B_, `Svc::DpWriter` shall re-parse the container header and shrink the size of the product.",
+      "verification_method": "Allows processing interfaces to compress data products and communicate that compressed state back to `Svc::DpWriter`. | Unit Test",
+      "path": "Svc/DpWriter/docs/sdd.md",
+      "line": 38,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "AL-001",
+      "text": "The `Svc::EventManager` component shall receive events and compose them into downlink packets.",
+      "verification_method": "Inspection; Unit Test",
+      "path": "Svc/EventManager/docs/sdd.md",
+      "line": 15,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "AL-002",
+      "text": "The `Svc::EventManager` component shall have commands to filter events based on event severity.",
+      "verification_method": "Unit Test",
+      "path": "Svc/EventManager/docs/sdd.md",
+      "line": 16,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "AL-003",
+      "text": "The `Svc::EventManager` component shall have commands to filter events based on the event ID.",
+      "verification_method": "Unit Test",
+      "path": "Svc/EventManager/docs/sdd.md",
+      "line": 17,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "AL-004",
+      "text": "The `Svc::EventManager` component shall call fatalOut port when FATAL is received",
+      "verification_method": "Inspection; Unit Test",
+      "path": "Svc/EventManager/docs/sdd.md",
+      "line": 18,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "FH-001",
+      "text": "The `Svc::FatalHandler` component shall handle FATAL notifications",
+      "verification_method": "Unit Test",
+      "path": "Svc/FatalHandler/docs/sdd.md",
+      "line": 13,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "FH-002",
+      "text": "The `Svc::FatalHandler` component shall shut down the Unix process",
+      "verification_method": "Unit Test",
+      "path": "Svc/FatalHandler/docs/sdd.md",
+      "line": 14,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "FH-002",
+      "text": "The `Svc::FatalHandler` component shall suspend the thread calling FATAL",
+      "verification_method": "Unit Test",
+      "path": "Svc/FatalHandler/docs/sdd.md",
+      "line": 15,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "FD-001",
+      "text": "`FileDownlink` shall queue up a list of files to downlink",
+      "verification_method": "The requirement provides the ability to simultaneously queue up multiple files for downlink from different sources | Test",
+      "path": "Svc/FileDownlink/docs/sdd.md",
+      "line": 21,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "FD-002",
+      "text": "`FileDownlink` shall read a file from non-volatile storage, partition the file into packets, and send out the packets.",
+      "verification_method": "This requirement provides the capability to downlink files from the spacecraft. | Test",
+      "path": "Svc/FileDownlink/docs/sdd.md",
+      "line": 22,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "FD-003",
+      "text": "`FileDownlink` shall wait for a cooldown after completing a file downlink before starting another file downlink",
+      "verification_method": "Allows a saturated link to process a backlog that may have built up during a file downlink | Test",
+      "path": "Svc/FileDownlink/docs/sdd.md",
+      "line": 23,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "FD-004",
+      "text": "`FileDownlink` shall issue a warning if a file with zero size is encountered",
+      "verification_method": "Ensures that operators are aware of invalid file sizes | Test",
+      "path": "Svc/FileDownlink/docs/sdd.md",
+      "line": 24,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "FPRIME-FU-001",
+      "text": "`FileUplink` shall receive file packets, assemble them into files, and store the files in the on-board non-volatile storage.",
+      "verification_method": "This requirement provides the capability to uplink files to the spacecraft. | Unit Test, System Test",
+      "path": "Svc/FileUplink/docs/sdd.md",
+      "line": 12,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "FPRIME-FU-002",
+      "text": "`FileUplink` shall announce the completion of uplinked files.",
+      "verification_method": "This requirement provides the capability to inform other components of newly uplinked files | Unit Test, System Test",
+      "path": "Svc/FileUplink/docs/sdd.md",
+      "line": 13,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DEFRAMER-001",
+      "text": "`Svc::FprimeDeframer` shall extract the payload field from input buffers that represent a valid F Prime frame as specified by the [F Prime Protocol](../../FprimeProtocol/docs/sdd.md)",
+      "verification_method": "Deframe valid frames and extract payload | Unit test |",
+      "path": "Svc/FprimeDeframer/docs/sdd.md",
+      "line": 40,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-DEFRAMER-002",
+      "text": "`Svc::FprimeDeframer` shall return ownership of input buffers that are not a valid F Prime frame as specified by the [F Prime Protocol](../../FprimeProtocol/docs/sdd.md)",
+      "verification_method": "Drop invalid frames | Unit test |",
+      "path": "Svc/FprimeDeframer/docs/sdd.md",
+      "line": 41,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-ROUTER-001",
+      "text": "`Svc::FprimeRouter` shall route packets based on their packet type as indicated by the packet header",
+      "verification_method": "Routing mechanism of the F\u00b4 comms protocol | Unit test |",
+      "path": "Svc/FprimeRouter/docs/sdd.md",
+      "line": 52,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-ROUTER-002",
+      "text": "`Svc::FprimeRouter` shall route packets of type `Fw::ComPacketType::FW_PACKET_COMMAND` to the `commandOut` output port.",
+      "verification_method": "Routing command packets | Unit test |",
+      "path": "Svc/FprimeRouter/docs/sdd.md",
+      "line": 53,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-ROUTER-003",
+      "text": "`Svc::FprimeRouter` shall route packets of type `Fw::ComPacketType::FW_PACKET_FILE` to the `fileOut` output port.",
+      "verification_method": "Routing file packets | Unit test |",
+      "path": "Svc/FprimeRouter/docs/sdd.md",
+      "line": 54,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-ROUTER-004",
+      "text": "`Svc::FprimeRouter` shall route data that is neither `Fw::ComPacketType::FW_PACKET_COMMAND` nor `Fw::ComPacketType::FW_PACKET_FILE` to the `unknownDataOut` output port.",
+      "verification_method": "Allows for projects to provide custom routing for additional (project-specific) uplink data types | Unit test |",
+      "path": "Svc/FprimeRouter/docs/sdd.md",
+      "line": 55,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-ROUTER-005",
+      "text": "`Svc::FprimeRouter` shall emit warning events if serialization errors occur during processing of incoming packets",
+      "verification_method": "Aid in diagnosing uplink issues | Unit test |",
+      "path": "Svc/FprimeRouter/docs/sdd.md",
+      "line": 56,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-ROUTER-006",
+      "text": "`Svc::FprimeRouter` shall pass through buffers for `FW_PACKET_FILE` and unknown packet types without copying, and defer returning them to the deframer until they are returned via `fileBufferReturnIn`",
+      "verification_method": "Efficient memory management | Unit test |",
+      "path": "Svc/FprimeRouter/docs/sdd.md",
+      "line": 57,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-ROUTER-007",
+      "text": "`Svc::FprimeRouter` shall return ownership of all buffers received on `dataIn` through `dataReturnOut`",
+      "verification_method": "Memory management | Unit test |",
+      "path": "Svc/FprimeRouter/docs/sdd.md",
+      "line": 58,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-ROUTER-008",
+      "text": "`Svc::FprimeRouter` shall preserve the `ComCfg::FrameContext` received on `dataIn` and restore it on the corresponding `dataReturnOut`, including across the `fileOut`/`unknownDataOut` \u2192 `fileBufferReturnIn` round-trip",
+      "verification_method": "Allows a shared router to return buffers to the correct originating uplink path (e.g. by `vcId`) | Unit test |",
+      "path": "Svc/FprimeRouter/docs/sdd.md",
+      "line": 59,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-ROUTER-009",
+      "text": "`Svc::FprimeRouter` shall emit a warning event and return the buffer with an empty context when the buffer-to-context table is full on hand-off, or when a returned buffer is not found in the table",
+      "verification_method": "Graceful degradation without loss of buffer ownership | Unit test |",
+      "path": "Svc/FprimeRouter/docs/sdd.md",
+      "line": 60,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-FRAME-ACCUMULATOR-001",
+      "text": "`Svc::FrameAccumulator` shall accumulate a sequence of byte buffers until a full frame is received",
+      "verification_method": "FrameAccumulator is designed to re-assemble frames from sequence of bytes | Unit test |",
+      "path": "Svc/FrameAccumulator/docs/sdd.md",
+      "line": 82,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-FRAME-ACCUMULATOR-002",
+      "text": "`Svc::FrameAccumulator` shall detect once the accumulated buffers form a full frame and emit said frame",
+      "verification_method": "Pass frames to other parts of the system | Unit test |",
+      "path": "Svc/FrameAccumulator/docs/sdd.md",
+      "line": 83,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-FRAME-ACCUMULATOR-003",
+      "text": "`Svc::FrameAccumulator` shall accept byte buffers containing frames that are not aligned on a buffer boundary.",
+      "verification_method": "For flexibility, we do not require that the frames be aligned on a buffer boundary. | Unit test |",
+      "path": "Svc/FrameAccumulator/docs/sdd.md",
+      "line": 84,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "SVC-FRAME-ACCUMULATOR-004",
+      "text": "`Svc::FrameAccumulator` shall accept byte buffers containing frames that span one or more buffers.",
+      "verification_method": "For flexibility, we do not require each frame to fit in a single buffer. | Unit test |",
+      "path": "Svc/FrameAccumulator/docs/sdd.md",
+      "line": 85,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "HTH-001",
+      "text": "The `Svc::Health` component shall ping each output port specified in the provided table.",
+      "verification_method": "Unit Test",
+      "path": "Svc/Health/docs/sdd.md",
+      "line": 13,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "HTH-002",
+      "text": "The `Svc::Health` component shall track the timeout cycles for each component.",
+      "verification_method": "Unit Test",
+      "path": "Svc/Health/docs/sdd.md",
+      "line": 14,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "HTH-003",
+      "text": "The `Svc::Health` component shall issue a FATAL event if a component fails to return a ping by the specified timeout",
+      "verification_method": "Unit Test",
+      "path": "Svc/Health/docs/sdd.md",
+      "line": 15,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "HTH-004",
+      "text": "The `Svc::Health` component shall have a command to enable or disable all monitoring",
+      "verification_method": "Unit Test",
+      "path": "Svc/Health/docs/sdd.md",
+      "line": 16,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "HTH-005",
+      "text": "The `Svc::Health` component shall have a command to enable or disable monitoring for a particular port.",
+      "verification_method": "Unit Test",
+      "path": "Svc/Health/docs/sdd.md",
+      "line": 17,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "HTH-006",
+      "text": "The `Svc::Health` component shall have a command to update ping timeout values for a port",
+      "verification_method": "Unit Test",
+      "path": "Svc/Health/docs/sdd.md",
+      "line": 18,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "HTH-007",
+      "text": "The `Svc::Health` component shall stroke a watchdog port while all ping replies are within their limit and health checks pass",
+      "verification_method": "Unit Test",
+      "path": "Svc/Health/docs/sdd.md",
+      "line": 19,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-PTL-001",
+      "text": "The `Svc::PassiveConsoleTextLogger` component shall print received log texts to standard output.",
+      "verification_method": "Inspection",
+      "path": "Svc/PassiveConsoleTextLogger/docs/sdd.md",
+      "line": 11,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-PTL-002",
+      "text": "The `Svc::PassiveConsoleTextLogger` component shall support per-severity event filtering via a public `setSeverityFilter()` method.",
+      "verification_method": "Unit Test",
+      "path": "Svc/PassiveConsoleTextLogger/docs/sdd.md",
+      "line": 12,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-PTL-003",
+      "text": "The `Svc::PassiveConsoleTextLogger` component shall never filter FATAL events regardless of filter configuration.",
+      "verification_method": "Unit Test",
+      "path": "Svc/PassiveConsoleTextLogger/docs/sdd.md",
+      "line": 13,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "FPRIME-PRG-001",
+      "text": "The `Svc::PassiveRateGroup` component shall be passive and will be driven by an input synchronous port call",
+      "verification_method": "Inspection, Unit test",
+      "path": "Svc/PassiveRateGroup/docs/sdd.md",
+      "line": 13,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "FPRIME-PRG-002",
+      "text": "The `Svc::PassiveRateGroup` component shall invoke its output ports in order, passing the value contained in a table based on port number",
+      "verification_method": "Unit Test",
+      "path": "Svc/PassiveRateGroup/docs/sdd.md",
+      "line": 14,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "FPRIME-PRG-003",
+      "text": "The `Svc::PassiveRateGroup` component shall track the time required to execute the rate group and report it as telemetry",
+      "verification_method": "Unit Test",
+      "path": "Svc/PassiveRateGroup/docs/sdd.md",
+      "line": 15,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "FPRIME-PRG-004",
+      "text": "The `Svc::PassiveRateGroup` component shall track per-port execution times and high water marks when configured",
+      "verification_method": "Unit Test",
+      "path": "Svc/PassiveRateGroup/docs/sdd.md",
+      "line": 16,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "FPRIME-PRG-005",
+      "text": "The `Svc::PassiveRateGroup` component shall provide a command to clear statistics and high water marks",
+      "verification_method": "Unit Test",
+      "path": "Svc/PassiveRateGroup/docs/sdd.md",
+      "line": 17,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PDB-001",
+      "text": "The `Svc::PolyDb` component shall store `Fw::PolyType` values.",
+      "verification_method": "Inspection, Unit Test",
+      "path": "Svc/PolyDb/docs/sdd.md",
+      "line": 13,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PDB-002",
+      "text": "The `Svc::PolyDb` component shall allow the `Fw::PolyType` values to be read and written.",
+      "verification_method": "Unit Test",
+      "path": "Svc/PolyDb/docs/sdd.md",
+      "line": 14,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PDB-003",
+      "text": "The `Svc::PolyDb` component shall time tag the data",
+      "verification_method": "Unit Test",
+      "path": "Svc/PolyDb/docs/sdd.md",
+      "line": 15,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PDB-004",
+      "text": "The `Svc::PolyDb` component shall report the measurement state of the data (good, stale, failure)",
+      "verification_method": "Unit Test",
+      "path": "Svc/PolyDb/docs/sdd.md",
+      "line": 16,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PRMDB-001",
+      "text": "The `Svc::PrmDb` component shall load parameter values from a file",
+      "verification_method": "Unit Test",
+      "path": "Svc/PrmDb/docs/sdd.md",
+      "line": 13,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PRMDB-002",
+      "text": "The `Svc::PrmDb` component shall provide an interface to read parameter values",
+      "verification_method": "Inspection, Unit Test",
+      "path": "Svc/PrmDb/docs/sdd.md",
+      "line": 14,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PRMDB-003",
+      "text": "The `Svc::PrmDb` component shall provide an interface to update parameter values",
+      "verification_method": "Inspection, Unit Test",
+      "path": "Svc/PrmDb/docs/sdd.md",
+      "line": 15,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "PRMDB-004",
+      "text": "The `Svc::PrmDb` component shall provide a command to save the current parameter values",
+      "verification_method": "Inspection, Unit Test",
+      "path": "Svc/PrmDb/docs/sdd.md",
+      "line": 16,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "RGD-001",
+      "text": "The 'Svc::RateGroupDriver' component shall divide a primary system tick into the needed rate groups",
+      "verification_method": "Unit Test",
+      "path": "Svc/RateGroupDriver/docs/sdd.md",
+      "line": 15,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "RCD-002",
+      "text": "The 'Svc::RateGroupDriver' component shall be able to run in ISR context",
+      "verification_method": "Inspection",
+      "path": "Svc/RateGroupDriver/docs/sdd.md",
+      "line": 16,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "TLC-001",
+      "text": "The `Svc::TlmChan` component shall provide an interface to submit telemetry",
+      "verification_method": "Unit Test",
+      "path": "Svc/TlmChan/docs/sdd.md",
+      "line": 16,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "TLC-002",
+      "text": "The `Svc::TlmChan` component shall provide an interface to read telemetry",
+      "verification_method": "Unit Test",
+      "path": "Svc/TlmChan/docs/sdd.md",
+      "line": 17,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "TLC-003",
+      "text": "The `Svc::TlmChan` component shall provide an interface to run periodically to write telemetry",
+      "verification_method": "Unit Test",
+      "path": "Svc/TlmChan/docs/sdd.md",
+      "line": 18,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "TLC-004",
+      "text": "The `Svc::TlmChan` component shall write changed telemetry channels when invoked by the run port",
+      "verification_method": "Unit Test",
+      "path": "Svc/TlmChan/docs/sdd.md",
+      "line": 19,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "TLC-005",
+      "text": "The `Svc::TlmChan` component shall limit the number of telemetry entries processed per `Run` invocation to `TLMCHAN_MAX_ENTRIES_PER_RUN`",
+      "verification_method": "Unit Test",
+      "path": "Svc/TlmChan/docs/sdd.md",
+      "line": 20,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "TLC-006",
+      "text": "The `Svc::TlmChan` component shall emit a `WARNING_HI` event when the per-run processing cap is reached",
+      "verification_method": "Unit Test",
+      "path": "Svc/TlmChan/docs/sdd.md",
+      "line": 21,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-BDV-001",
+      "text": "The `Ref::BlockDriver` component shall loop back packets from its input port to its output port",
+      "verification_method": "System test, unit test",
+      "path": "TestDeploymentsProject/Ref/BlockDriver/docs/sdd.md",
+      "line": 13,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-BDV-002",
+      "text": "The `Ref::BlockDriver` component shall loop back the key value from  `PingIn` port to `PingOut` port",
+      "verification_method": "System test, unit test",
+      "path": "TestDeploymentsProject/Ref/BlockDriver/docs/sdd.md",
+      "line": 14,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-PNG-001",
+      "text": "The `Ref::PingReceiver` component shall reply to ping requests",
+      "verification_method": "System test",
+      "path": "TestDeploymentsProject/Ref/PingReceiver/docs/sdd.md",
+      "line": 13,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-PNG-002",
+      "text": "The `Ref::PingReceiver` component shall provide commands to disable ping responses",
+      "verification_method": "System test",
+      "path": "TestDeploymentsProject/Ref/PingReceiver/docs/sdd.md",
+      "line": 14,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-SBF-001",
+      "text": "The `Ref::RecvBuffApp` component shall receive buffers",
+      "verification_method": "System test",
+      "path": "TestDeploymentsProject/Ref/RecvBuffApp/docs/sdd.md",
+      "line": 13,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-SBF-002",
+      "text": "The `Ref::RecvBuffApp` component shall detect errors in received buffers",
+      "verification_method": "System test",
+      "path": "TestDeploymentsProject/Ref/RecvBuffApp/docs/sdd.md",
+      "line": 14,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-RBF-001",
+      "text": "The `Ref::SendBuffApp` component shall send buffers",
+      "verification_method": "System test",
+      "path": "TestDeploymentsProject/Ref/SendBuffApp/docs/sdd.md",
+      "line": 13,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "ISF-RBF-002",
+      "text": "The `Ref::SendBuffApp` component shall provide the ability to inject errors",
+      "verification_method": "System test",
+      "path": "TestDeploymentsProject/Ref/SendBuffApp/docs/sdd.md",
+      "line": 14,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "REF-SGN-001",
+      "text": "The `Ref::SignalGen` component shall generate telemetry with tunable waveforms",
+      "verification_method": "System test",
+      "path": "TestDeploymentsProject/Ref/SignalGen/docs/sdd.md",
+      "line": 13,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "REF-SGN-002",
+      "text": "The `Ref::SignalGen` component shall store waveform data using data products",
+      "verification_method": "System test",
+      "path": "TestDeploymentsProject/Ref/SignalGen/docs/sdd.md",
+      "line": 14,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "BUILD-01",
+      "text": "The build system shall support native F\u00b4 builds on Linux, and Mac OS.",
+      "verification_method": "F\u00b4 development at JPL takes place on Linux and Mac OS machines | Unit-Test |",
+      "path": "cmake/docs/sdd.md",
+      "line": 31,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "BUILD-02",
+      "text": "The build system shall provide templates for supporting various targets.",
+      "verification_method": "Templates make adding new targets easier. | Inspection |",
+      "path": "cmake/docs/sdd.md",
+      "line": 32,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "BUILD-03",
+      "text": "The build system shall provide a cross-compiled target example.",
+      "verification_method": "Cross-compilation is common at JPL and must be provided as an example. | Inspection |",
+      "path": "cmake/docs/sdd.md",
+      "line": 33,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "BUILD-04",
+      "text": "The build system shall support custom build commands.",
+      "verification_method": "Custom build commands allow for extension of the build system. | Unit-Test |",
+      "path": "cmake/docs/sdd.md",
+      "line": 34,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "BUILD-05",
+      "text": "The build system shall support individual component, port, and topology builds.",
+      "verification_method": "Compiling a specific component can speed-up development. | Unit Test |",
+      "path": "cmake/docs/sdd.md",
+      "line": 35,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "BUILD-06",
+      "text": "The build system shall support unit test building and running system checks.",
+      "verification_method": "Unit testing is critical for proper development. | Unit Test |",
+      "path": "cmake/docs/sdd.md",
+      "line": 36,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "BUILD-07",
+      "text": "The build system shall support building deployments.",
+      "verification_method": "Deployments must build properly | Unit Test |",
+      "path": "cmake/docs/sdd.md",
+      "line": 37,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "BUILD-08",
+      "text": "The build system shall not require specific ordering of all modules to build properly.",
+      "verification_method": "Ordering of all F\u00b4 is difficult when it must be explicit. Note: deployments are exempt. | Unit-Test |",
+      "path": "cmake/docs/sdd.md",
+      "line": 38,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "BUILD-09",
+      "text": "The build system shall support separate out-of-source building of F\u00b4",
+      "verification_method": "Build artifacts are commonly kept separate from source code. | Inspection |",
+      "path": "cmake/docs/sdd.md",
+      "line": 39,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "BUILD-10",
+      "text": "The build system shall support executable and tool building",
+      "verification_method": "Not all of F\u00b4 is a deployment | Inspection |",
+      "path": "cmake/docs/sdd.md",
+      "line": 40,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "BUILD-11",
+      "text": "The build system shall support installation and distribution of outputs, headers, and libraries",
+      "verification_method": "Shipping of binary outputs is important for projects. | Inspection |",
+      "path": "cmake/docs/sdd.md",
+      "line": 41,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "BUILD-12",
+      "text": "The build system shall support user-configurable builds i.e. debug, release, etc.",
+      "verification_method": "F\u00b4 may need access to different build variants for debugging purposes | Inspection |",
+      "path": "cmake/docs/sdd.md",
+      "line": 42,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "BUILD-13",
+      "text": "The build system shall be easy to use including adding new components",
+      "verification_method": "F\u00b4's current build system has a steep learning curve | Inspection |",
+      "path": "cmake/docs/sdd.md",
+      "line": 43,
+      "provenance": "upstream-authored requirement"
+    },
+    {
+      "id": "BUILD-14",
+      "text": "The build system shall not be explicitly slow.",
+      "verification_method": "Compilation times are non-trivial | Inspection |",
+      "path": "cmake/docs/sdd.md",
+      "line": 44,
+      "provenance": "upstream-authored requirement"
+    }
+  ],
+  "documentation_verification_claims": [
+    {
+      "path": "Svc/Health/docs/sdd.md",
+      "line": 96,
+      "section": "6.1.1 Nominal Telemetry Test",
+      "text": "Requirement verified: `HTH-001`",
+      "status": "upstream documentation claim; not execution evidence"
+    },
+    {
+      "path": "Svc/Health/docs/sdd.md",
+      "line": 101,
+      "section": "6.1.2 Warning Telemetry Test",
+      "text": "Requirement verified: `HTH-002`",
+      "status": "upstream documentation claim; not execution evidence"
+    },
+    {
+      "path": "Svc/Health/docs/sdd.md",
+      "line": 106,
+      "section": "6.1.3 Fault Telemetry Test",
+      "text": "Requirement verified: `HTH-003`",
+      "status": "upstream documentation claim; not execution evidence"
+    },
+    {
+      "path": "Svc/Health/docs/sdd.md",
+      "line": 111,
+      "section": "6.1.4 Enable/Disable All Monitoring Test",
+      "text": "Requirement verified: `HTH-004`",
+      "status": "upstream documentation claim; not execution evidence"
+    },
+    {
+      "path": "Svc/Health/docs/sdd.md",
+      "line": 116,
+      "section": "6.1.5 Enable/Disable Single Monitor Test",
+      "text": "Requirement verified: `HTH-005`",
+      "status": "upstream documentation claim; not execution evidence"
+    },
+    {
+      "path": "Svc/Health/docs/sdd.md",
+      "line": 121,
+      "section": "6.1.6 Updating Ping Timeout Test",
+      "text": "Requirement verified: `HTH-006`",
+      "status": "upstream documentation claim; not execution evidence"
+    },
+    {
+      "path": "Svc/Health/docs/sdd.md",
+      "line": 126,
+      "section": "6.1.7 Watchdog Test",
+      "text": "Requirement verified: `HTH-007`",
+      "status": "upstream documentation claim; not execution evidence"
+    }
+  ]
+}

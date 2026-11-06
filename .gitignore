@@ -1,0 +1,15 @@
+node_modules/
+artifacts/
+*.tar.gz
+dist/
+.atlas/
+__pycache__/
+*.pyc
+.venv/
+.venv-validation/
+
+# Local hosting identity and credentials are not part of this Git handoff.
+.openai/
+.env
+.env.*
+!.env.example

@@ -1,0 +1,86 @@
+{
+  "validation_type": "user_reported_manual_browser_test",
+  "reported_on": "2026-09-30",
+  "reported_timezone": "America/Denver",
+  "tester": "Project maintainer",
+  "tested_package": "atlas-local-test-01a52fc.zip",
+  "tested_code_commit": "01a52fc",
+  "environment": {
+    "operating_system": "Windows 10",
+    "browser": "Google Chrome",
+    "browser_version": "not supplied",
+    "python_version": "3.14.5",
+    "source": "user report"
+  },
+  "trace": "Test.NominalTlm",
+  "pagination_query": "testing::internal::ParameterizedTestSuiteInfo::RegisterTests",
+  "checks": [
+    {
+      "id": "connect",
+      "description": "Selected Health target and staging/partial-scope notice appear.",
+      "status": "passed"
+    },
+    {
+      "id": "search",
+      "description": "Test.NominalTlm yields a match; exact, case-sensitive search.",
+      "status": "passed"
+    },
+    {
+      "id": "navigation",
+      "description": "Select match, follow linked entities and use Back.",
+      "status": "passed"
+    },
+    {
+      "id": "direction",
+      "description": "Switch between Outgoing and Incoming.",
+      "status": "passed"
+    },
+    {
+      "id": "evidence",
+      "description": "Open hash-verified source excerpt; selecting another item clears old details.",
+      "status": "passed"
+    },
+    {
+      "id": "paging",
+      "description": "RegisterTests: load more outgoing relationships; earlier and new rows remain navigable, including Back.",
+      "status": "passed"
+    },
+    {
+      "id": "layout",
+      "description": "Narrow window; text, controls, scrolling and excerpts remain usable.",
+      "status": "passed"
+    },
+    {
+      "id": "keyboard",
+      "description": "Tab navigation, visible focus and usable buttons.",
+      "status": "passed"
+    },
+    {
+      "id": "session",
+      "description": "Disconnect and page reload require token entry again.",
+      "status": "passed"
+    }
+  ],
+  "overall_status": "passed",
+  "errors_reported": false,
+  "user_statement": "I did not encounter any errors.",
+  "applicability": {
+    "compared_through_commit": "c9e9d89",
+    "viewer_and_serving_modules_unchanged": true,
+    "compared_files": [
+      "public/local-trace.html",
+      "public/local-trace.js",
+      "public/local-trace.css",
+      "atlas_engine/storage/http.py",
+      "atlas_engine/storage/details.py",
+      "atlas_engine/storage/inspect.py",
+      "atlas_engine/storage/store.py"
+    ]
+  },
+  "limits": [
+    "Manual results reported by the user; not an assistant-operated or automated browser run.",
+    "Checks cover the supplied local sample and listed interactions, not all browser/platform combinations or formal accessibility conformance.",
+    "Does not establish requirements satisfaction, large-repository performance, or native indexer compatibility with Python 3.14.5.",
+    "No hosted deployment or privacy change."
+  ]
+}

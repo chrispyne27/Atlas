@@ -1,0 +1,176 @@
+{
+  "snapshots": [
+    {
+      "snapshot_id": "bd6c4ddd353f4437a03812c834743c5c",
+      "state": "staging",
+      "compilations": 14,
+      "duplicate_entries": 0,
+      "artifacts": 13,
+      "targets": [
+        "Svc_CmdDispatcher",
+        "Svc_CmdDispatcher_ut_exe",
+        "Svc_Health",
+        "Svc_Health_ut_exe"
+      ],
+      "input_manifest_hash": "85dbfe8fe03f063744519a2b940b139cb04624199931fbe931d32979008200be"
+    },
+    {
+      "snapshot_id": "6aa2172dce644de3a7b6ffd450ade4d1",
+      "state": "staging",
+      "compilations": 4,
+      "duplicate_entries": 0,
+      "artifacts": 5,
+      "targets": [
+        "Svc_CmdDispatcher",
+        "Svc_Health"
+      ],
+      "input_manifest_hash": "442791cdfc7dad0e63e95d4d149e1c1ec0af5551e9a9b306611057b989105575"
+    }
+  ],
+  "parses": [
+    {
+      "occurrences": 2419,
+      "calls": 996,
+      "unresolved": 721,
+      "dependencies": 444,
+      "snapshot_id": "bd6c4ddd353f4437a03812c834743c5c",
+      "compilation_id": "26e838b58caa9f61dcb38b398a240eb6d353560a0c46ced2055102d9b2bf461b",
+      "state": "parsed",
+      "snapshot_state": "staging",
+      "source": "repo/Svc/CmdDispatcher/test/ut/CommandDispatcherTestMain.cpp"
+    },
+    {
+      "occurrences": 2398,
+      "calls": 2200,
+      "unresolved": 1278,
+      "dependencies": 451,
+      "snapshot_id": "bd6c4ddd353f4437a03812c834743c5c",
+      "compilation_id": "d730d52fc1f4baecdc06adf39a8a31d98943d63a13011a07f072b3278ffbf88e",
+      "state": "parsed",
+      "snapshot_state": "staging",
+      "source": "repo/Svc/CmdDispatcher/test/ut/CommandDispatcherTester.cpp"
+    },
+    {
+      "occurrences": 883,
+      "calls": 147,
+      "unresolved": 28,
+      "dependencies": 285,
+      "snapshot_id": "bd6c4ddd353f4437a03812c834743c5c",
+      "compilation_id": "b6d1ad586ad645dfea6b626c531d5eecdde88a64b0bca5437d5b3cf9e025c11c",
+      "state": "parsed",
+      "snapshot_state": "staging",
+      "source": "repo/Svc/Health/HealthComponentImpl.cpp"
+    },
+    {
+      "occurrences": 2090,
+      "calls": 808,
+      "unresolved": 469,
+      "dependencies": 423,
+      "snapshot_id": "bd6c4ddd353f4437a03812c834743c5c",
+      "compilation_id": "e24f5ab3bdd8a175d9cf47a1b32385bb406d85e941dcc35a93b6263a7216309f",
+      "state": "parsed",
+      "snapshot_state": "staging",
+      "source": "repo/Svc/Health/test/ut/HealthTestMain.cpp"
+    },
+    {
+      "occurrences": 2020,
+      "calls": 1297,
+      "unresolved": 526,
+      "dependencies": 424,
+      "snapshot_id": "bd6c4ddd353f4437a03812c834743c5c",
+      "compilation_id": "e23193ba64b2181687c113f67805e27a528ce04bcce8d8fc09eae207988430ac",
+      "state": "parsed",
+      "snapshot_state": "staging",
+      "source": "repo/Svc/Health/test/ut/HealthTester.cpp"
+    },
+    {
+      "occurrences": 709,
+      "calls": 147,
+      "unresolved": 28,
+      "dependencies": 127,
+      "snapshot_id": "6aa2172dce644de3a7b6ffd450ade4d1",
+      "compilation_id": "8c861c5e3d87a02856c01cac7b037a51d288de7d3d87f9113dadea70e85ebd2b",
+      "state": "parsed",
+      "snapshot_state": "staging",
+      "source": "repo/Svc/Health/HealthComponentImpl.cpp"
+    }
+  ],
+  "engineering": [
+    {
+      "definitions": 12,
+      "annotations": 11,
+      "test_source_files": 2,
+      "reference_only_requirements": 7,
+      "candidate_aliases": 7,
+      "snapshot_id": "bd6c4ddd353f4437a03812c834743c5c",
+      "state": "staging",
+      "components": [
+        "Svc/CmdDispatcher",
+        "Svc/Health"
+      ]
+    }
+  ],
+  "helper_associations": [
+    {
+      "matched": 4,
+      "ambiguous": 0,
+      "unmatched": 0,
+      "annotations": 4,
+      "snapshot_id": "bd6c4ddd353f4437a03812c834743c5c",
+      "compilation_id": "d730d52fc1f4baecdc06adf39a8a31d98943d63a13011a07f072b3278ffbf88e",
+      "state": "staging"
+    },
+    {
+      "matched": 7,
+      "ambiguous": 0,
+      "unmatched": 0,
+      "annotations": 7,
+      "snapshot_id": "bd6c4ddd353f4437a03812c834743c5c",
+      "compilation_id": "e23193ba64b2181687c113f67805e27a528ce04bcce8d8fc09eae207988430ac",
+      "state": "staging"
+    }
+  ],
+  "cases": [
+    {
+      "declared": 10,
+      "mapped": 10,
+      "ambiguous": 0,
+      "unmatched": 0,
+      "helper_links": 1,
+      "snapshot_id": "bd6c4ddd353f4437a03812c834743c5c",
+      "compilation_id": "26e838b58caa9f61dcb38b398a240eb6d353560a0c46ced2055102d9b2bf461b",
+      "state": "staging"
+    },
+    {
+      "declared": 11,
+      "mapped": 11,
+      "ambiguous": 0,
+      "unmatched": 0,
+      "helper_links": 7,
+      "snapshot_id": "bd6c4ddd353f4437a03812c834743c5c",
+      "compilation_id": "e24f5ab3bdd8a175d9cf47a1b32385bb406d85e941dcc35a93b6263a7216309f",
+      "state": "staging"
+    }
+  ],
+  "integrity_check": [
+    [
+      "ok"
+    ]
+  ],
+  "foreign_key_check": [],
+  "reopened_integrity_check": [
+    [
+      "ok"
+    ]
+  ],
+  "validation": {
+    "storage_tests": 24,
+    "schema_checks": 4,
+    "status": "passed"
+  },
+  "limitations": [
+    "Source-declared TEST cases matched to compiled wrappers; binary registration not checked.",
+    "No new test execution or requirement satisfaction assertion.",
+    "Prior local working DB was malformed; this report comes from a full rebuild with reopened integrity check."
+  ]
+}

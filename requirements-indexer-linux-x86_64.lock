@@ -1,0 +1,5 @@
+# RHEL 9 x86_64 candidate; target-host validation remains required.
+# Artifact: libclang-18.1.1-py2.py3-none-manylinux2010_x86_64.whl
+# SHA-256 published by https://pypi.org/project/libclang/18.1.1/
+# Wheel bytes verified 2026-09-30; see experiments/offline/install-workspace.json.
+libclang==18.1.1 --hash=sha256:c533091d8a3bbf7460a00cb6c1a71da93bffe148f172c7d03b1c31fbf8aa2a0b

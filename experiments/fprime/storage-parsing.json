@@ -1,0 +1,41 @@
+{
+  "scope": "Health implementation in two configurations; not a full graph",
+  "results": [
+    {
+      "occurrences": 709,
+      "calls": 147,
+      "unresolved": 28,
+      "dependencies": 127,
+      "snapshot_id": "2bd2c5013bd94a0583495c5a074547b9",
+      "compilation_id": "8c861c5e3d87a02856c01cac7b037a51d288de7d3d87f9113dadea70e85ebd2b",
+      "state": "parsed",
+      "snapshot_state": "staging",
+      "configuration": "linux-debug-ref",
+      "diagnostics": []
+    },
+    {
+      "occurrences": 883,
+      "calls": 147,
+      "unresolved": 28,
+      "dependencies": 285,
+      "snapshot_id": "6ee423600da24395b72f9a5ad940ba77",
+      "compilation_id": "b6d1ad586ad645dfea6b626c531d5eecdde88a64b0bca5437d5b3cf9e025c11c",
+      "state": "parsed",
+      "snapshot_state": "staging",
+      "configuration": "linux-debug-ut",
+      "diagnostics": []
+    }
+  ],
+  "foreign_key_violations": [],
+  "validation": {
+    "storage_import_compiler_tests": 12,
+    "schema_checks": 4,
+    "status": "passed"
+  },
+  "limitations": [
+    "All snapshots remain staging; only two Health compilations parsed.",
+    "Counts include repository and generated header declarations/definitions.",
+    "No complete virtual dispatch, type-layout, FPP routing or application-membership analysis.",
+    "No requirements imported or requirement satisfaction asserted."
+  ]
+}

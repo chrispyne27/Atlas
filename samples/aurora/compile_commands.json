@@ -1,0 +1,68 @@
+[
+  {
+    "directory": ".",
+    "file": "src/AssetCache.cpp",
+    "arguments": [
+      "c++",
+      "-std=c++11",
+      "-Iinclude",
+      "-c",
+      "src/AssetCache.cpp"
+    ]
+  },
+  {
+    "directory": ".",
+    "file": "src/EventBus.cpp",
+    "arguments": [
+      "c++",
+      "-std=c++11",
+      "-Iinclude",
+      "-c",
+      "src/EventBus.cpp"
+    ]
+  },
+  {
+    "directory": ".",
+    "file": "src/Geometry.cpp",
+    "arguments": [
+      "c++",
+      "-std=c++11",
+      "-Iinclude",
+      "-c",
+      "src/Geometry.cpp"
+    ]
+  },
+  {
+    "directory": ".",
+    "file": "src/RenderEngine.cpp",
+    "arguments": [
+      "c++",
+      "-std=c++11",
+      "-Iinclude",
+      "-c",
+      "src/RenderEngine.cpp"
+    ]
+  },
+  {
+    "directory": ".",
+    "file": "src/UILayer.cpp",
+    "arguments": [
+      "c++",
+      "-std=c++11",
+      "-Iinclude",
+      "-c",
+      "src/UILayer.cpp"
+    ]
+  },
+  {
+    "directory": ".",
+    "file": "tests/ResizeTests.cpp",
+    "arguments": [
+      "c++",
+      "-std=c++11",
+      "-Iinclude",
+      "-c",
+      "tests/ResizeTests.cpp"
+    ]
+  }
+]

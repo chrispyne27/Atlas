@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Linux-c++"
+	tests="2"
+	failures="2"
+	disabled="0"
+	skipped="0"
+	hostname="4facbb6e2b8f"
+	time="0"
+	timestamp="2026-09-25T08:39:28"
+	>
+	<testcase name="Svc_CmdDispatcher_ut_exe" classname="Svc_CmdDispatcher_ut_exe" time="0.0459292" status="fail">
+		<failure message=""/>
+		<system-out>[==========] Running 10 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 4 tests from CmdDispTestNominal
+[ RUN      ] CmdDispTestNominal.NominalDispatch
+
+***************************************
+TESTCASE 102.1.1: Nominal Dispatch
+***************************************
+
+***************************************
+Dispatch a series of commands and verify they are dispatched correctly.
+***************************************
+
+***************************************
+(RQ)       CD-003
+***************************************
+
+***************************************
+(RQ)       CD-001
+***************************************
+
+***************************************
+(RQ)       CD-002
+***************************************
+
+***************************************
+(RQ)       CD-004
+***************************************
+[       OK ] CmdDispTestNominal.NominalDispatch (3 ms)
+[ RUN      ] CmdDispTestNominal.NopTest
+
+***************************************
+TESTCASE 102.1.2: NO_OP Command Test
+***************************************
+
+***************************************
+Verify the test NO_OP commands by dispatching them.
+***************************************
+[       OK ] CmdDispTestNominal.NopTest (1 ms)
+[ RUN      ] CmdDispTestNominal.ReregisterCommand
+
+***************************************
+TESTCASE 102.1.3: Reregister Command
+***************************************
+
+***************************************
+Verify user can call command registration port with the same opcode multiple times safely.
+***************************************
+[       OK ] CmdDispTestNominal.ReregisterCommand (1 ms)
+[ RUN      ] CmdDispTestNominal.NonZeroPortDispatch
+
+***************************************
+TESTCASE 102.1.4: Nonzero Port Index Dispatch
+***************************************
+
+***************************************
+Verify registration and dispatch through a nonzero port index.
+***************************************
+[       OK ] CmdDispTestNominal.NonZeroPortDispatch (1 ms)
+[----------] 4 tests from CmdDispTestNominal (7 ms total)
+
+[----------] 6 tests from CmdDispTestOffNominal
+[ RUN      ] CmdDispTestOffNominal.InvalidOpcodeDispatch
+
+***************************************
+TESTCASE 102.2.1: Off-nominal Dispatch
+***************************************
+
+***************************************
+Verify the correct handling of unregistered opcodes.
+***************************************
+[       OK ] CmdDispTestOffNominal.InvalidOpcodeDispatch (1 ms)
+[ RUN      ] CmdDispTestOffNominal.FailedCommand
+
+***************************************
+TESTCASE 102.2.2: Off-nominal Failed command
+***************************************
+
+***************************************
+Verify that failed commands operate correctly
+***************************************
+[       OK ] CmdDispTestOffNominal.FailedCommand (1 ms)
+[ RUN      ] CmdDispTestOffNominal.InvalidCommand
+
+***************************************
+TESTCASE 102.2.3: Off-nominal Invalid Command
+***************************************
+
+***************************************
+Verify that malformed commands are detected.
+***************************************
+[       OK ] CmdDispTestOffNominal.InvalidCommand (1 ms)
+[ RUN      ] CmdDispTestOffNominal.CommandOverflow
+
+***************************************
+TESTCASE 102.2.4: Off-nominal Command Overflow
+***************************************
+
+***************************************
+Verify error case where there are too many outstanding commands.
+***************************************
+[       OK ] CmdDispTestOffNominal.CommandOverflow (1 ms)
+[ RUN      ] CmdDispTestOffNominal.ClearSequenceTracker
+
+***************************************
+TESTCASE 102.1.3: Clear Command Tracker
+***************************************
+
+***************************************
+Verify command to clear command tracker.
+***************************************
+[       OK ] CmdDispTestOffNominal.ClearSequenceTracker (1 ms)
+[ RUN      ] CmdDispTestOffNominal.CommandQueueOverflow
+
+***************************************
+TESTCASE 102.2.5: Off-nominal Command QueueOverflow
+***************************************
+
+***************************************
+Verify error case where the seqCmdBuff port queue overflows and does not ASSERT.
+***************************************
+[       OK ] CmdDispTestOffNominal.CommandQueueOverflow (1 ms)
+[----------] 6 tests from CmdDispTestOffNominal (9 ms total)
+
+[----------] Global test environment tear-down
+[==========] 10 tests from 2 test suites ran. (16 ms total)
+[  PASSED  ] 10 tests.
+==8==LeakSanitizer has encountered a fatal error.
+==8==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==8==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+</system-out>
+	</testcase>
+	<testcase name="Svc_Health_ut_exe" classname="Svc_Health_ut_exe" time="0.673558" status="fail">
+		<failure message=""/>
+		<system-out>[==========] Running 11 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 11 tests from Test
+[ RUN      ] Test.NominalTlm
+
+***************************************
+TESTCASE 900.1.1: Nominal Telemetry
+***************************************
+
+***************************************
+(RQ)       ISF-HTH-001
+***************************************
+
+***************************************
+The Svc::Health component shall ping each output port specified in the provided table.
+***************************************
+[       OK ] Test.NominalTlm (60 ms)
+[ RUN      ] Test.WarningTlm
+
+***************************************
+TESTCASE 900.1.2: Warning Telemetry
+***************************************
+
+***************************************
+(RQ)       ISF-HTH-002
+***************************************
+
+***************************************
+The Svc::Health component shall track the timeout cycles for each component.
+***************************************
+[       OK ] Test.WarningTlm (56 ms)
+[ RUN      ] Test.FaultTlm
+
+***************************************
+TESTCASE 900.1.3: Fault Telemetry
+***************************************
+
+***************************************
+(RQ)       ISF-HTH-003
+***************************************
+
+***************************************
+The Svc::Health component shall issue a FATAL event if a component fails to return a ping by the specified timeout.
+***************************************
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task0 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task1 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task2 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task3 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task4 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task5 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task6 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task7 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task8 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task9 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task10 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task11 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task12 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task13 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task14 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task15 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task16 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task17 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task18 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task19 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task20 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task21 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task22 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task23 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task24 late warning
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task0 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task1 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task2 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task3 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task4 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task5 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task6 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task7 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task8 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task9 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task10 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task11 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task12 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task13 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task14 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task15 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task16 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task17 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task18 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task19 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task20 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task21 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task22 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task23 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task24 did not respond
+[       OK ] Test.FaultTlm (55 ms)
+[ RUN      ] Test.EqualWarnFatalCycles
+
+***************************************
+TESTCASE 900.1.11: FATAL takes precedence when warnCycles equals fatalCycles
+***************************************
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task0 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task1 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task2 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task3 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task4 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task5 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task6 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task7 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task8 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task9 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task10 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task11 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task12 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task13 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task14 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task15 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task16 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task17 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task18 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task19 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task20 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task21 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task22 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task23 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task24 did not respond
+[       OK ] Test.EqualWarnFatalCycles (57 ms)
+[ RUN      ] Test.DisableAllMonitoring
+
+***************************************
+TESTCASE 900.1.4: Enable/Disable all monitoring
+***************************************
+
+***************************************
+(RQ)       ISF-HTH-004
+***************************************
+
+***************************************
+The Svc::Health component shall have a command to enable or disable all monitoring.
+***************************************
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task0 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task1 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task2 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task3 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task4 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task5 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task6 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task7 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task8 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task9 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task10 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task11 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task12 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task13 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task14 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task15 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task16 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task17 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task18 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task19 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task20 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task21 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task22 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task23 late warning
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task24 late warning
+EVENT: (3) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_ENABLE : Health checking set to DISABLED (0)
+EVENT: (3) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_ENABLE : Health checking set to ENABLED (1)
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task0 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task1 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task2 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task3 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task4 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task5 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task6 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task7 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task8 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task9 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task10 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task11 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task12 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task13 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task14 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task15 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task16 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task17 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task18 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task19 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task20 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task21 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task22 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task23 did not respond
+EVENT: (1) (0:0,0) FATAL: (Health) HLTH_PING_LATE : Ping entry task24 did not respond
+[       OK ] Test.DisableAllMonitoring (55 ms)
+[ RUN      ] Test.DisableOneMonitoring
+
+***************************************
+TESTCASE 900.1.5: Enable/Disable individual monitors
+***************************************
+
+***************************************
+(RQ)       ISF-HTH-005
+***************************************
+
+***************************************
+The Svc::Health component shall have a command to enable or disable monitoring for a particular port.
+***************************************
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task0
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task0
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task1
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task1
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task2
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task2
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task3
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task3
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task4
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task4
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task5
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task5
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task6
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task6
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task7
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task7
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task8
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task8
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task9
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task9
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task10
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task10
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task11
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task11
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task12
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task12
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task13
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task13
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task14
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task14
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task15
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task15
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task16
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task16
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task17
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task17
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task18
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task18
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task19
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task19
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task20
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task20
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task21
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task21
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task22
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task22
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task23
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task23
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task24
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to ENABLED (1) for task24
+[       OK ] Test.DisableOneMonitoring (65 ms)
+[ RUN      ] Test.UpdatePingTimeout
+
+***************************************
+TESTCASE 900.1.6: Update ping timeouts
+***************************************
+
+***************************************
+(RQ)       ISF-HTH-006
+***************************************
+
+***************************************
+The Svc::Health component shall have a command to update ping timeout values for a port
+***************************************
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task0 changed to WARN 100 FATAL 125
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task1 changed to WARN 101 FATAL 126
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task2 changed to WARN 102 FATAL 127
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task3 changed to WARN 103 FATAL 128
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task4 changed to WARN 104 FATAL 129
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task5 changed to WARN 105 FATAL 130
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task6 changed to WARN 106 FATAL 131
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task7 changed to WARN 107 FATAL 132
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task8 changed to WARN 108 FATAL 133
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task9 changed to WARN 109 FATAL 134
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task10 changed to WARN 110 FATAL 135
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task11 changed to WARN 111 FATAL 136
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task12 changed to WARN 112 FATAL 137
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task13 changed to WARN 113 FATAL 138
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task14 changed to WARN 114 FATAL 139
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task15 changed to WARN 115 FATAL 140
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task16 changed to WARN 116 FATAL 141
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task17 changed to WARN 117 FATAL 142
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task18 changed to WARN 118 FATAL 143
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task19 changed to WARN 119 FATAL 144
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task20 changed to WARN 120 FATAL 145
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task21 changed to WARN 121 FATAL 146
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task22 changed to WARN 122 FATAL 147
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task23 changed to WARN 123 FATAL 148
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task24 changed to WARN 124 FATAL 149
+[       OK ] Test.UpdatePingTimeout (55 ms)
+[ RUN      ] Test.WatchdogCheck
+
+***************************************
+TESTCASE 900.1.7: Watchdog check
+***************************************
+
+***************************************
+(RQ)       ISF-HTH-007
+***************************************
+
+***************************************
+The Svc::Health component shall stroke a watchdog port while all ping replies are within their limit and health checks pass
+***************************************
+[       OK ] Test.WatchdogCheck (51 ms)
+[ RUN      ] Test.NominalCmd
+
+***************************************
+TESTCASE 900.1.8: Nominal Command
+***************************************
+
+***************************************
+Process command during quiescent (no telemetry readout) period.
+***************************************
+EVENT: (3) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_ENABLE : Health checking set to DISABLED (0)
+EVENT: (3) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_ENABLE : Health checking set to ENABLED (1)
+EVENT: (4) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_PING : Health checking set to DISABLED (0) for task0
+EVENT: (6) (0:0,0) ACTIVITY_HI: (Health) HLTH_PING_UPDATED : Health ping for task0 changed to WARN 9 FATAL 99
+[       OK ] Test.NominalCmd (58 ms)
+[ RUN      ] Test.Nominal2CmdsDuringTlm
+
+***************************************
+TESTCASE 900.1.9: Nominal 2 commands called during telemetry readouts.
+***************************************
+
+***************************************
+Process commands during busy (telemetry readout) period.
+***************************************
+EVENT: (3) (0:0,0) ACTIVITY_HI: (Health) HLTH_CHECK_ENABLE : Health checking set to DISABLED (0)
+[       OK ] Test.Nominal2CmdsDuringTlm (54 ms)
+[ RUN      ] Test.Miscellaneous
+
+***************************************
+TESTCASE 900.1.10: Miscellaneous remaining tests.
+***************************************
+
+***************************************
+Case 1: Ping port anomalies.
+***************************************
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task0 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task1 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task2 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task3 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task4 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task5 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task6 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task7 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task8 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task9 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task10 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task11 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task12 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task13 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task14 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task15 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task16 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task17 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task18 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task19 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task20 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task21 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task22 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task23 responded with wrong key 0xcafecafe
+EVENT: (2) (0:0,0) FATAL: (Health) HLTH_PING_WRONG_KEY : Ping entry task24 responded with wrong key 0xcafecafe
+
+***************************************
+Case 2: Command input anomalies.
+***************************************
+EVENT: (5) (0:0,0) WARNING_LO: (Health) HLTH_CHECK_LOOKUP_ERROR : Couldn't find entry notask
+EVENT: (7) (0:0,0) WARNING_HI: (Health) HLTH_PING_INVALID_VALUES : Health ping for task0 invalid values: WARN 10 FATAL 9
+EVENT: (5) (0:0,0) WARNING_LO: (Health) HLTH_CHECK_LOOKUP_ERROR : Couldn't find entry sometask
+
+***************************************
+Case 3: All ping ports except one respond to ping requests.
+***************************************
+EVENT: (0) (0:0,0) WARNING_HI: (Health) HLTH_PING_WARN : Ping entry task24 late warning
+[       OK ] Test.Miscellaneous (62 ms)
+[----------] 11 tests from Test (635 ms total)
+
+[----------] Global test environment tear-down
+[==========] 11 tests from 1 test suite ran. (635 ms total)
+[  PASSED  ] 11 tests.
+==10==LeakSanitizer has encountered a fatal error.
+==10==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==10==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+</system-out>
+	</testcase>
+</testsuite>

@@ -1,0 +1,62 @@
+--- a/include/Geometry.hpp
++++ b/include/Geometry.hpp
+@@ -5,7 +5,7 @@
+ struct Rect { int x; int y; int width; int height; };
+ class Geometry {
+ public:
+-    // Shared policy: valid drawable dimensions are inclusive 1..8192.
++    // Shared policy: valid drawable dimensions are inclusive 1..4096.
+     static int clampDimension(int value);
+     static float clampDimension(float value);
+     static bool contains(const Rect& bounds, int x, int y);
+--- a/src/Geometry.cpp
++++ b/src/Geometry.cpp
+@@ -1,14 +1,20 @@
+ #include "Geometry.hpp"
+ namespace aurora {
+-int Geometry::clampDimension(int value) {
+-    if (value < 1) return 1;
+-    if (value > 8192) return 8192;
++namespace {
++template <typename T>
++T clampDrawableDimension(T value) {
++    const T minimum = static_cast<T>(1);
++    const T maximum = static_cast<T>(4096);
++    if (value < minimum) return minimum;
++    if (value > maximum) return maximum;
+     return value;
+ }
++}
++int Geometry::clampDimension(int value) {
++    return clampDrawableDimension(value);
++}
+ float Geometry::clampDimension(float value) {
+-    if (value < 1.0f) return 1.0f;
+-    if (value > 8192.0f) return 8192.0f;
+-    return value;
++    return clampDrawableDimension(value);
+ }
+ bool Geometry::contains(const Rect& bounds, int x, int y) {
+     return x >= bounds.x && y >= bounds.y &&
+--- a/tests/ResizeTests.cpp
++++ b/tests/ResizeTests.cpp
+@@ -12,7 +12,7 @@
+ bool layoutClamps() {
+     LayoutEngine layout;
+     Rect bounds = layout.resolve(Size{-9, 9000});
+-    return bounds.width == 1 && bounds.height == 8192;
++    return bounds.width == 1 && bounds.height == 4096;
+ }
+ bool cacheEvicts() {
+     AssetCache cache;
+@@ -34,8 +34,8 @@
+ bool oversizeResize() {
+     EventBus events; UILayer ui; RenderEngine engine(events, ui);
+     engine.resize(Size{9000, 12000});
+-    return engine.viewport().width == 8192 && engine.viewport().height == 8192 &&
+-           ui.bounds().width == 8192 && events.lastSize().height == 8192;
++    return engine.viewport().width == 4096 && engine.viewport().height == 4096 &&
++           ui.bounds().width == 4096 && events.lastSize().height == 4096;
+ }
+ bool eventMatchesLayout() {
+     EventBus events; UILayer ui; RenderEngine engine(events, ui);

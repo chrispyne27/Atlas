@@ -1,0 +1,24 @@
+{
+  "scope": "loopback read-only adapter; no viewer deployment",
+  "statuses": {
+    "config": 200,
+    "lookup": 200,
+    "neighbors": 200,
+    "evidence": 200,
+    "source": 200
+  },
+  "snapshot": "bd6c4ddd353f4437a03812c834743c5c",
+  "target": "build/F-Prime/Svc/Health/CMakeFiles/Svc_Health_ut_exe.dir",
+  "case": "Test.NominalTlm",
+  "pagination_exercised": true,
+  "source_status": "available",
+  "source_hash_verified": true,
+  "inspection_only": true,
+  "freshness": "not validated for current task context",
+  "server_stopped_after_validation": true,
+  "validation": {
+    "storage_tests": 37,
+    "schema_checks": 4,
+    "status": "passed"
+  }
+}

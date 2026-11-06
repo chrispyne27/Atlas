@@ -1,0 +1,114 @@
+{
+  "parses": [
+    {
+      "occurrences": 2398,
+      "calls": 2200,
+      "unresolved": 1278,
+      "dependencies": 451,
+      "snapshot_id": "6ee423600da24395b72f9a5ad940ba77",
+      "compilation_id": "d730d52fc1f4baecdc06adf39a8a31d98943d63a13011a07f072b3278ffbf88e",
+      "state": "parsed",
+      "snapshot_state": "staging",
+      "source": "repo/Svc/CmdDispatcher/test/ut/CommandDispatcherTester.cpp"
+    },
+    {
+      "occurrences": 2020,
+      "calls": 1297,
+      "unresolved": 526,
+      "dependencies": 424,
+      "snapshot_id": "6ee423600da24395b72f9a5ad940ba77",
+      "compilation_id": "e23193ba64b2181687c113f67805e27a528ce04bcce8d8fc09eae207988430ac",
+      "state": "parsed",
+      "snapshot_state": "staging",
+      "source": "repo/Svc/Health/test/ut/HealthTester.cpp"
+    }
+  ],
+  "associations": [
+    {
+      "matched": 4,
+      "ambiguous": 0,
+      "unmatched": 0,
+      "annotations": 4,
+      "snapshot_id": "6ee423600da24395b72f9a5ad940ba77",
+      "compilation_id": "d730d52fc1f4baecdc06adf39a8a31d98943d63a13011a07f072b3278ffbf88e",
+      "state": "staging"
+    },
+    {
+      "matched": 7,
+      "ambiguous": 0,
+      "unmatched": 0,
+      "annotations": 7,
+      "snapshot_id": "6ee423600da24395b72f9a5ad940ba77",
+      "compilation_id": "e23193ba64b2181687c113f67805e27a528ce04bcce8d8fc09eae207988430ac",
+      "state": "staging"
+    }
+  ],
+  "mapped_helpers": [
+    {
+      "method": "Svc::CommandDispatcherTester::runNominalDispatch",
+      "requirement": "CD-001",
+      "compilation": "d730d52fc1f4baecdc06adf39a8a31d98943d63a13011a07f072b3278ffbf88e"
+    },
+    {
+      "method": "Svc::CommandDispatcherTester::runNominalDispatch",
+      "requirement": "CD-002",
+      "compilation": "d730d52fc1f4baecdc06adf39a8a31d98943d63a13011a07f072b3278ffbf88e"
+    },
+    {
+      "method": "Svc::CommandDispatcherTester::runNominalDispatch",
+      "requirement": "CD-003",
+      "compilation": "d730d52fc1f4baecdc06adf39a8a31d98943d63a13011a07f072b3278ffbf88e"
+    },
+    {
+      "method": "Svc::CommandDispatcherTester::runNominalDispatch",
+      "requirement": "CD-004",
+      "compilation": "d730d52fc1f4baecdc06adf39a8a31d98943d63a13011a07f072b3278ffbf88e"
+    },
+    {
+      "method": "Svc::HealthTester::disableAllMonitoring",
+      "requirement": "ISF-HTH-004",
+      "compilation": "e23193ba64b2181687c113f67805e27a528ce04bcce8d8fc09eae207988430ac"
+    },
+    {
+      "method": "Svc::HealthTester::disableOneMonitoring",
+      "requirement": "ISF-HTH-005",
+      "compilation": "e23193ba64b2181687c113f67805e27a528ce04bcce8d8fc09eae207988430ac"
+    },
+    {
+      "method": "Svc::HealthTester::faultTlm",
+      "requirement": "ISF-HTH-003",
+      "compilation": "e23193ba64b2181687c113f67805e27a528ce04bcce8d8fc09eae207988430ac"
+    },
+    {
+      "method": "Svc::HealthTester::nominalTlm",
+      "requirement": "ISF-HTH-001",
+      "compilation": "e23193ba64b2181687c113f67805e27a528ce04bcce8d8fc09eae207988430ac"
+    },
+    {
+      "method": "Svc::HealthTester::updatePingTimeout",
+      "requirement": "ISF-HTH-006",
+      "compilation": "e23193ba64b2181687c113f67805e27a528ce04bcce8d8fc09eae207988430ac"
+    },
+    {
+      "method": "Svc::HealthTester::warningTlm",
+      "requirement": "ISF-HTH-002",
+      "compilation": "e23193ba64b2181687c113f67805e27a528ce04bcce8d8fc09eae207988430ac"
+    },
+    {
+      "method": "Svc::HealthTester::watchdogCheck",
+      "requirement": "ISF-HTH-007",
+      "compilation": "e23193ba64b2181687c113f67805e27a528ce04bcce8d8fc09eae207988430ac"
+    }
+  ],
+  "foreign_key_violations": [],
+  "validation": {
+    "storage_tests": 21,
+    "schema_checks": 4,
+    "status": "passed"
+  },
+  "limits": [
+    "Association is line containment, not proof the annotation is active in compiled code.",
+    "No runnable GoogleTest case identity, requirement satisfaction or approved alias is inferred.",
+    "All snapshots remain staging."
+  ]
+}

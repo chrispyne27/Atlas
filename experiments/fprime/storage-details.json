@@ -1,0 +1,74 @@
+{
+  "evidence": {
+    "inspection_only": true,
+    "snapshot": {
+      "id": "bd6c4ddd353f4437a03812c834743c5c",
+      "revision": "7d8f579f159d2f7c2d4984d92828575e37f87fa6",
+      "configuration_key": "linux-debug-ut",
+      "state": "staging"
+    },
+    "target": "build/F-Prime/Svc/Health/CMakeFiles/Svc_Health_ut_exe.dir",
+    "freshness": "not checked against source",
+    "applicability": "selected target or snapshot-shared; not verification",
+    "evidence": {
+      "id": "annotation-links:e23193ba64b2181687c113f67805e27a528ce04bcce8d8fc09eae207988430ac:4d0ecaf07b9c768732709a4c7de189ef464b7a02ed5af11ec9568f343c8d0238",
+      "kind": "inferred",
+      "artifact_path": "repo/Svc/Health/test/ut/HealthTester.cpp",
+      "line": 142,
+      "producer": "annotation-containment-1",
+      "detail_bytes": 911,
+      "fields_truncated": 0,
+      "details": {
+        "annotation_activation": "not established",
+        "annotation_evidence": "engineering:Svc/Health:annotation:1bc0f76b8e0421528074b436029ab0a6a30f878e82f1b58874f9333ac88f5c3b",
+        "annotation_relation": "engineering:Svc/Health:annotation:1bc0f76b8e0421528074b436029ab0a6a30f878e82f1b58874f9333ac88f5c3b",
+        "basis": "inclusive line containment in compiler definition spans",
+        "candidates": [
+          {
+            "compiler_evidence": "parse:e23193ba64b2181687c113f67805e27a528ce04bcce8d8fc09eae207988430ac",
+            "end_line": 171,
+            "entity": "4736ff2fe1a6127ef700b5f33018e2350b91962f30a6d5f85596493d63afc782",
+            "occurrence": "e23193ba64b2181687c113f67805e27a528ce04bcce8d8fc09eae207988430ac:occ:3309",
+            "start_line": 140
+          }
+        ],
+        "compilation_id": "e23193ba64b2181687c113f67805e27a528ce04bcce8d8fc09eae207988430ac",
+        "precision": "line-level; overlapping definitions stay ambiguous",
+        "requirement_satisfaction": "not assessed",
+        "runnable_test_case": "not established",
+        "status": "matched"
+      },
+      "details_status": "available"
+    }
+  },
+  "source": {
+    "inspection_only": true,
+    "snapshot": {
+      "id": "bd6c4ddd353f4437a03812c834743c5c",
+      "revision": "7d8f579f159d2f7c2d4984d92828575e37f87fa6",
+      "configuration_key": "linux-debug-ut",
+      "state": "staging"
+    },
+    "target": "build/F-Prime/Svc/Health/CMakeFiles/Svc_Health_ut_exe.dir",
+    "evidence_id": "annotation-links:e23193ba64b2181687c113f67805e27a528ce04bcce8d8fc09eae207988430ac:4d0ecaf07b9c768732709a4c7de189ef464b7a02ed5af11ec9568f343c8d0238",
+    "status": "available",
+    "text": "// ----------------------------------------------------------------------\n\nvoid HealthTester ::nominalTlm() {\n    TEST_CASE(900.1.1, \"Nominal Telemetry\");\n    REQUIREMENT(\"ISF-HTH-001\");\n    COMMENT(\"The Svc::Health component shall ping each output port specified in the provided table.\");\n\n    // Check initial state is as expected\n    ASSERT_EVENTS_SIZE(0);\n",
+    "freshness_scope": "this artifact only; graph freshness not established",
+    "artifact_path": "repo/Svc/Health/test/ut/HealthTester.cpp",
+    "start_line": 138,
+    "end_line": 146,
+    "expected_hash": "f7e0c93cfe91867ca817c69e27e848ca7c1c313383fc9587145767b28d6ff432",
+    "hash_verified": true,
+    "returned_lines": 9
+  },
+  "native_library_repair": {
+    "expected_bytes": 63703544,
+    "actual_bytes": 63703544,
+    "checksum_matches": true
+  },
+  "validation": {
+    "storage_tests": 33,
+    "schema_checks": 4,
+    "status": "passed"
+  }
+}

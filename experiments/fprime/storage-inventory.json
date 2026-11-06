@@ -1,0 +1,53 @@
+{
+  "kind": "scoped compilation inventory; not a graph or scale benchmark",
+  "upstream_revision": "7d8f579f159d2f7c2d4984d92828575e37f87fa6",
+  "schema_version": 1,
+  "foreign_key_violations": [],
+  "snapshots": [
+    {
+      "id": "2bd2c5013bd94a0583495c5a074547b9",
+      "configuration_key": "linux-debug-ref",
+      "state": "staging",
+      "input_manifest_hash": "442791cdfc7dad0e63e95d4d149e1c1ec0af5551e9a9b306611057b989105575",
+      "artifact_count": 5,
+      "build_target_count": 2,
+      "compilation_count": 4,
+      "entity_count": 0,
+      "relation_count": 0,
+      "repeated_sources": []
+    },
+    {
+      "id": "6ee423600da24395b72f9a5ad940ba77",
+      "configuration_key": "linux-debug-ut",
+      "state": "staging",
+      "input_manifest_hash": "85dbfe8fe03f063744519a2b940b139cb04624199931fbe931d32979008200be",
+      "artifact_count": 13,
+      "build_target_count": 4,
+      "compilation_count": 14,
+      "entity_count": 0,
+      "relation_count": 0,
+      "repeated_sources": [
+        {
+          "source_path": "build/F-Prime/Svc/CmdDispatcher/CommandDispatcherComponentAc.cpp",
+          "compilations": 2
+        },
+        {
+          "source_path": "build/F-Prime/Svc/Health/HealthComponentAc.cpp",
+          "compilations": 2
+        }
+      ]
+    }
+  ],
+  "database_bytes": 249856,
+  "validation": {
+    "schema_integrity_checks": 4,
+    "importer_tests": 7,
+    "result": "passed"
+  },
+  "limitations": [
+    "Staging snapshots only; no parsed entities or query API.",
+    "Toolchain/revision labels supplied by operator; full dependency and compiler fingerprints pending.",
+    "Raw compile databases capped at 32 MiB and loaded in memory; source contents hashed in bounded blocks.",
+    "Build-target identity inferred from CMake object output paths; application membership not established."
+  ]
+}

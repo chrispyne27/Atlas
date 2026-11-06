@@ -1,0 +1,138 @@
+{
+  "purpose": "Fresh inventory/engineering discovery probe; not replacement for active parsed graph",
+  "new_snapshot": {
+    "inspection_only": true,
+    "context_eligible": false,
+    "snapshot": {
+      "id": "6738a82124c04eada8932e647fcee9cf",
+      "revision": "7d8f579f159d2f7c2d4984d92828575e37f87fa6",
+      "configuration_key": "linux-debug-ut-membership-probe",
+      "state": "staging"
+    },
+    "checked_at": "2026-09-26T23:47:30.231732+00:00",
+    "status": "recorded_inputs_match",
+    "compilation_states": {
+      "pending": 14
+    },
+    "visited_artifacts": 15,
+    "more_artifacts": false,
+    "engineering_directory_membership": [
+      {
+        "component": "Svc/CmdDispatcher",
+        "status": "matched"
+      },
+      {
+        "component": "Svc/Health",
+        "status": "matched"
+      }
+    ],
+    "counts": {
+      "matched": 15
+    },
+    "bytes_hashed": 2512423,
+    "examples": [],
+    "examples_truncated": false,
+    "changed_after_check": [],
+    "changed_after_check_count": 0,
+    "limitations": [
+      "Recorded inputs and recorded engineering directories only; newly added files outside those scopes are not checked.",
+      "External paths are not read. Toolchain, generator inputs and binaries are not validated.",
+      "Not an atomic filesystem snapshot; change-and-restore races are not excluded.",
+      "No publication, requirement approval, test execution or graph completeness assertion."
+    ]
+  },
+  "engineering": {
+    "definitions": 12,
+    "annotations": 11,
+    "test_source_files": 2,
+    "reference_only_requirements": 7,
+    "candidate_aliases": 7,
+    "snapshot_id": "6738a82124c04eada8932e647fcee9cf",
+    "state": "staging",
+    "components": [
+      "Svc/CmdDispatcher",
+      "Svc/Health"
+    ]
+  },
+  "discovery": [
+    {
+      "version": "fprime-engineering-membership-1",
+      "component": "Svc/Health",
+      "directories": [
+        {
+          "path": "Svc/Health/docs",
+          "suffix": ".md",
+          "members": [
+            {
+              "path": "Svc/Health/docs/sdd.md",
+              "resolved_path": "Svc/Health/docs/sdd.md"
+            }
+          ]
+        },
+        {
+          "path": "Svc/Health/test/ut",
+          "suffix": ".cpp",
+          "members": [
+            {
+              "path": "Svc/Health/test/ut/HealthTestMain.cpp",
+              "resolved_path": "Svc/Health/test/ut/HealthTestMain.cpp"
+            },
+            {
+              "path": "Svc/Health/test/ut/HealthTester.cpp",
+              "resolved_path": "Svc/Health/test/ut/HealthTester.cpp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "fprime-engineering-membership-1",
+      "component": "Svc/CmdDispatcher",
+      "directories": [
+        {
+          "path": "Svc/CmdDispatcher/docs",
+          "suffix": ".md",
+          "members": [
+            {
+              "path": "Svc/CmdDispatcher/docs/sdd.md",
+              "resolved_path": "Svc/CmdDispatcher/docs/sdd.md"
+            }
+          ]
+        },
+        {
+          "path": "Svc/CmdDispatcher/test/ut",
+          "suffix": ".cpp",
+          "members": [
+            {
+              "path": "Svc/CmdDispatcher/test/ut/CommandDispatcherTestMain.cpp",
+              "resolved_path": "Svc/CmdDispatcher/test/ut/CommandDispatcherTestMain.cpp"
+            },
+            {
+              "path": "Svc/CmdDispatcher/test/ut/CommandDispatcherTester.cpp",
+              "resolved_path": "Svc/CmdDispatcher/test/ut/CommandDispatcherTester.cpp"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "existing_snapshot_membership": [
+    {
+      "component": "Svc/CmdDispatcher",
+      "status": "not_recorded"
+    },
+    {
+      "component": "Svc/Health",
+      "status": "not_recorded"
+    }
+  ],
+  "existing_snapshot_unchanged": true,
+  "native_parsing_performed": false,
+  "validation": {
+    "non_native_storage_tests": 41,
+    "schema_checks": 4,
+    "status": "passed",
+    "native_parsing": "not rerun",
+    "browser": "pending manual validation"
+  }
+}

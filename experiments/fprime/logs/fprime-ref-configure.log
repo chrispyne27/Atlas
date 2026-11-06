@@ -1,0 +1,273 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- [F Prime] F Prime CMake package found at: /workspace/scratch/220d6edb3c9c/fprime/cmake/FPrimeConfig.cmake
+-- [python3] python3 found at: /workspace/scratch/220d6edb3c9c/fprime/fprime-venv/bin/python3
+-- [fpp-tools] fpp-depend found at: /workspace/scratch/220d6edb3c9c/fprime/fprime-venv/bin/fpp-depend
+-- [fpp-tools] fpp-to-cpp found at: /workspace/scratch/220d6edb3c9c/fprime/fprime-venv/bin/fpp-to-cpp
+-- [fpp-tools] fpp-to-dict found at: /workspace/scratch/220d6edb3c9c/fprime/fprime-venv/bin/fpp-to-dict
+-- [fpp-tools] fpp-locate-defs found at: /workspace/scratch/220d6edb3c9c/fprime/fprime-venv/bin/fpp-locate-defs
+-- [FPRIME] Default installation directory: /workspace/scratch/220d6edb3c9c/fprime/TestDeploymentsProject/build-artifacts
+-- [sub-build] Performing sub-build: info-cache
+-- [sub-build] Generating: info-cache with target/sub-build/fpp_locstarget/sub-build/fpp_dependtarget/sub-build/module_info
+-- [sub-build] Executing: info-cache with fpp_locs
+-- [sub-build] Executing: info-cache with fpp_depend
+-- [sub-build] Executing: info-cache with module_info
+-- [sub-build] Performing sub-build: info-cache - DONE
+-- [FPRIME] Module locations: /workspace/scratch/220d6edb3c9c/fprime/TestDeploymentsProject/workspace/scratch/220d6edb3c9c/fprime/build-atlas-ref/sub-build-info-cache/workspace/scratch/220d6edb3c9c/fprime/workspace/scratch/220d6edb3c9c/fprime/build-atlas-ref/sub-build-info-cache/F-Prime
+-- [FPRIME] Installation directory: /usr/local
+-- [F Prime] F Prime CMake package found at: /workspace/scratch/220d6edb3c9c/fprime/cmake/FPrimeConfig.cmake
+-- [INFO] Failed to find 'syft' on PATH, please install to generate software bill-of-materials
+-- [LIBRARY] Adding modules from F´ framework
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Adding Library: UnixPlatformTypes
+-- Adding Library: PlatformLinux
+-- Adding Library: FppToCppSettings
+-- Adding Library: default_config
+-- Adding Library: Fw_Buffer
+-- Adding Library: Fw_Cmd
+-- Adding Library: Fw_Com
+-- Adding Library: Fw_DataStructures
+-- Adding Library: Fw_Dp
+-- Adding Library: Fw_Fpy
+-- Adding Library: Fw_Interfaces
+-- Adding Library: Fw_Log
+-- Adding Library: Fw_Logger
+-- Adding Library: Fw_Prm
+-- Adding Library: Fw_Time
+-- Adding Library: Fw_Tlm
+-- Adding Library: Fw_Comp
+-- Adding Library: Fw_CompQueued
+-- Adding Library: Fw_Sm
+-- Adding Library: Fw_FilePacket
+-- Adding Library: Fw_Obj
+-- Adding Library: Fw_Port
+-- Adding Library: Fw_Ports_CompletionStatus
+-- Adding Library: Fw_Ports_Ready
+-- Adding Library: Fw_Ports_Signal
+-- Adding Library: Fw_Ports_SuccessCondition
+-- Adding Library: Fw_SerializableFile
+-- Adding Library: Fw_Test
+-- Adding Library: Fw_Types
+-- Adding required implementations of Fw_StringFormatFw_StringScan
+-- Adding Library: Fw_StringFormat_snprintf
+-- Adding Library: Fw_StringScan_sscanf
+-- Adding Library: Svc_Types_TlmPacketizerTypes
+-- Adding Library: Svc_Types_EventSeverityFilter
+-- Adding Library: Svc_Cycle
+-- Adding Library: Svc_Fatal
+-- Adding Library: Svc_Interfaces
+-- Adding Library: Svc_Ping
+-- Adding Library: Svc_PolyIf
+-- Adding Library: Svc_Sched
+-- Adding Library: Svc_Seq
+-- Adding Library: Svc_WatchDog
+-- Adding Library: Svc_Ports_CommsPorts
+-- Adding Library: Svc_Ports_OsTimeEpoch
+-- Adding Library: Svc_Ports_VersionPorts
+-- Adding Library: Svc_Ports_FilePorts
+-- Adding Library: Svc_Ports_TlmPacketizerPorts
+-- Adding Library: Svc_ActivePhaser
+-- Adding Library: Svc_ActiveRateGroup
+-- Adding Library: Svc_AssertFatalAdapter
+-- Adding Library: Svc_BufferAccumulator
+-- Adding Library: Svc_BufferManager
+-- Adding Library: Svc_BufferLogger
+-- Adding Library: Svc_BufferRepeater
+-- Adding Library: Svc_ChronoTime
+-- Adding Library: Svc_ComLogger
+-- Adding Library: Svc_ComQueue
+-- Adding Library: Svc_ComSplitter
+-- Adding Library: Svc_ComStub
+-- Adding Library: Svc_CmdDispatcher
+-- Adding Library: Svc_CmdSequencer
+-- Adding Library: Svc_CmdSplitter
+-- Adding Library: Svc_DpCatalog
+-- Adding Library: Svc_DpManager
+-- Adding Library: Svc_DpPorts
+-- Adding Library: Svc_DpWriter
+-- Adding Library: Svc_EventManager
+-- Adding Library: Svc_FatalHandler
+-- Adding Library: Svc_FileDispatcher
+-- Adding Library: Svc_FileDownlinkPorts
+-- Adding Library: Svc_FileDownlink
+-- Adding Library: Svc_FileManager
+-- Adding Library: Svc_FileUplink
+-- Adding Library: Svc_FileWorker
+-- Adding Library: Svc_FprimeDeframer
+-- Adding Library: Svc_FprimeFramer
+-- Adding Library: Svc_FprimeProtocol
+-- Adding Library: Svc_FprimeRouter
+-- Adding Library: Svc_FrameAccumulator
+-- Adding Library: Svc_GenericHub
+-- Adding Library: Svc_Health
+-- Adding Library: Svc_OsTime_test_RawTimeTester
+-- Adding Library: Svc_OsTime
+-- Adding Library: Svc_PassiveRateGroup
+-- Adding Library: Svc_PolyDb
+-- Adding Library: Svc_PrmDb
+-- Adding Library: Svc_RateGroupDriver
+-- Adding Library: Svc_SeqDispatcher
+-- Adding Library: Svc_StaticMemory
+-- Adding Library: Svc_TlmChan
+-- Adding Library: Svc_TlmPacketizer_config_TlmPacketizerConfig
+-- Adding Library: Svc_TlmPacketizer
+-- Adding Library: Svc_SystemResources
+-- Adding Library: Svc_DpCompressProc_Types
+-- Adding Library: Svc_DpCompressProc_Ports
+-- Adding Library: Svc_DpCompressProc
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3.#define ZLIB_VERSION "1.3"")  
+-- Adding Library: Svc_DpZLibCompressor
+-- Adding Library: Svc_Subtopologies_CdhCore_CdhCoreConfig
+-- Adding Library: Svc_Subtopologies_CdhCore
+-- Adding Library: Svc_Subtopologies_ComCcsds_ComCcsdsConfig
+-- Adding Library: Svc_Subtopologies_ComCcsds
+-- Adding Library: Svc_Subtopologies_ComCcsdsSdls_ComCcsdsSdlsConfig
+-- Adding Library: Svc_Subtopologies_ComCcsdsSdls
+-- Adding Library: Svc_Subtopologies_ComFprime_ComFprimeConfig
+-- Adding Library: Svc_Subtopologies_ComFprime
+-- Adding Library: Svc_Subtopologies_FileHandling_FileHandlingConfig
+-- Adding Library: Svc_Subtopologies_FileHandling
+-- Adding Library: Svc_Subtopologies_FileHandlingCfdp_FileHandlingCfdpConfig
+-- Adding Library: Svc_Subtopologies_FileHandlingCfdp
+-- Adding Library: Svc_Subtopologies_DataProducts_DataProductsConfig
+-- Adding Library: Svc_Subtopologies_DataProducts
+-- Adding Library: Svc_Subtopologies_DpCompression_DpCompressionConfig
+-- Adding Library: Svc_Subtopologies_DpCompression
+-- Adding Library: Svc_Subtopologies_ComLoggerTee_ComLoggerTeeConfig
+-- Adding Library: Svc_Subtopologies_ComLoggerTee
+-- Adding Library: Svc_PassiveConsoleTextLogger
+-- Adding Library: Svc_ActiveTextLogger
+-- Adding Library: Svc_PosixTime
+-- Adding Library: Svc_LinuxTimer
+-- Adding Library: Svc_Version
+-- Adding Library: Svc_FpySequencer
+-- Adding Library: Svc_Ccsds_Types_config_SdlsKeyConfig
+-- Adding Library: Svc_Ccsds_Types
+-- Adding Library: Svc_Ccsds_Ports
+-- Adding Library: Svc_Ccsds_Interfaces
+-- Adding Library: Svc_Ccsds_SpacePacketDeframer
+-- Adding Library: Svc_Ccsds_SpacePacketFramer
+-- Adding Library: Svc_Ccsds_TcDeframer
+-- Adding Library: Svc_Ccsds_TmFramer
+-- Adding Library: Svc_Ccsds_AosFramer
+-- Adding Library: Svc_Ccsds_AosDeframer
+-- Adding Library: Svc_Ccsds_ApidManager
+-- Adding Library: Svc_Ccsds_ClearTextDecryptor
+-- Adding Library: Svc_Ccsds_ClearTextEncryptor
+-- Adding Library: Svc_Ccsds_SdlsSaRouter_config_SdlsSaRouterConfig
+-- Adding Library: Svc_Ccsds_SdlsSaRouter
+-- Adding Library: Svc_Ccsds_SdlsFileKeyManager
+-- Adding Library: Svc_Ccsds_CcsdsSdlsDeframer
+-- Adding Library: Svc_Ccsds_CcsdsSdlsFramer
+-- Adding Library: Svc_Ccsds_CfdpManager
+-- Adding Library: Svc_Ccsds_CfdpManager_Types
+-- Adding Library: Svc_ComAggregator
+-- Adding Library: Svc_ComRetry
+-- Adding Library: Svc_PassThroughRouter
+-- Adding Library: Os_Models
+-- Adding Library: Os_File_Stub_Implementation
+-- Adding Library: Os_File_Stub
+-- Adding Library: Os_Console_Stub_Implementation
+-- Adding Library: Os_Console_Stub
+-- Adding Library: Os_Task_Stub_Implementation
+-- Adding Library: Os_Task_Stub
+-- Adding Library: Os_Mutex_Stub_Implementation
+-- Adding Library: Os_Mutex_Stub
+-- Adding Library: Os_Cpu_Stub_Implementation
+-- Adding Library: Os_Cpu_Stub
+-- Adding Library: Os_Memory_Stub_Implementation
+-- Adding Library: Os_Memory_Stub
+-- Adding Library: Os_Queue_Stub_Implementation
+-- Adding Library: Os_Queue_Stub
+-- Adding Library: Os_RawTime_Stub_Implementation
+-- Adding Library: Os_RawTime_Stub
+-- Adding Library: Os_CountingSemaphore_Stub_Implementation
+-- Adding Library: Os_CountingSemaphore_Stub
+-- Adding Library: Os_File_None
+-- Adding Library: Os_Posix_Shared
+-- Adding Library: Os_File_Posix_Implementation
+-- Adding Library: Os_File_Posix
+-- Adding Library: Os_Console_Posix_Implementation
+-- Adding Library: Os_Console_Posix
+-- Adding Library: Os_Task_Posix_Implementation
+-- Adding Library: Os_Task_Posix
+-- Adding Library: Os_Mutex_Posix_Implementation
+-- Adding Library: Os_Mutex_Posix
+-- Adding Library: Os_CountingSemaphore_Posix_Implementation
+-- Adding Library: Os_CountingSemaphore_Posix
+-- Adding Library: Os_RawTime_Posix_Implementation
+-- Adding Library: Os_RawTime_Posix
+-- Adding Library: Os_Generic_Types
+-- Adding Library: Os_Generic_PriorityMemQueue_Implementation
+-- Adding Library: Os_Generic_PriorityMemQueue
+-- Adding Library: Os_Generic_PriorityQueue_Implementation
+-- Adding Library: Os_Generic_PriorityQueue
+-- Adding Library: Os_Generic_LocklessPriorityQueue_Implementation
+-- Adding Library: Os_Generic_LocklessPriorityQueue
+-- Adding Library: Os_Cpu_Linux_Implementation
+-- Adding Library: Os_Cpu_Linux
+-- Adding Library: Os_Memory_Linux_Implementation
+-- Adding Library: Os_Memory_Linux
+-- Neither toolchain native nor platform Linux supported for module Os_Darwin
+-- Adding Library: Os
+-- Adding Library: Os_Console
+-- Adding required implementations of Os_Console
+-- Adding Library: Os_File
+-- Adding required implementations of Os_File
+-- Adding Library: Os_Task
+-- Adding required implementations of Os_Task
+-- Adding Library: Os_Mutex
+-- Adding required implementations of Os_Mutex
+-- Adding Library: Os_CountingSemaphore
+-- Adding required implementations of Os_CountingSemaphore
+-- Adding Library: Os_Queue
+-- Adding required implementations of Os_Queue
+-- Adding Library: Os_Cpu
+-- Adding required implementations of Os_Cpu
+-- Adding Library: Os_Memory
+-- Adding required implementations of Os_Memory
+-- Adding Library: Os_RawTime
+-- Adding required implementations of Os_RawTime
+-- Adding Library: Drv_Interfaces
+-- Adding Library: Drv_Ports_DataTypes
+-- Adding Library: Drv_Ports
+-- Adding Library: Drv_AsyncByteStreamBufferAdapter
+-- Adding Library: Drv_ByteStreamBufferAdapter
+-- Adding Library: Drv_ByteStreamDriverModel
+-- Adding Library: Drv_LinuxGpioDriver
+-- Adding Library: Drv_LinuxI2cDriver
+-- Adding Library: Drv_LinuxSpiDriver
+-- Adding Library: Drv_LinuxUartDriver
+-- Adding Library: Drv_Ip
+-- Adding Library: Drv_TcpClient
+-- Adding Library: Drv_TcpServer
+-- Adding Library: Drv_Udp
+-- Adding Library: CFDP_Checksum
+-- Adding Library: Utils_Hash
+-- Adding Library: Utils_Types
+-- Adding Library: Utils
+-- [LIBRARY] Adding modules from F´ framework - DONE
+-- Adding Library: Ref_PingReceiver
+-- Adding Library: Ref_RecvBuffApp
+-- Adding Library: Ref_SendBuffApp
+-- Adding Library: Ref_SignalGen
+-- Adding Library: Ref_TypeDemo
+-- Adding Library: Ref_DpDemo
+-- Adding Library: Ref_BlockDriver
+-- Adding Library: Ref_Top
+-- Adding Deployment: Ref
+-- Configuring done (16.5s)
+-- Generating done (0.4s)
+-- Build files have been written to: /workspace/scratch/220d6edb3c9c/fprime/build-atlas-ref

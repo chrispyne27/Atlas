@@ -1,0 +1,19 @@
+{
+  "source_commit": "a7cfba90d0b57c59bc8db7ca09579851abab0431",
+  "archive": "atlas-offline-a7cfba9.zip",
+  "bytes": 24800682,
+  "sha256": "3f6033c49e9bb4cc5e779d4a3edf9dfaf26a60af2e0c8addf73ed6a79bdb498c",
+  "payload_files": 67,
+  "qualified": false,
+  "validation": {
+    "environment": "Ubuntu workspace; not RHEL qualification",
+    "checksums": "all 66 manifested files matched",
+    "install": "fresh extracted environment passed native integrity/C++98 smoke",
+    "launcher": "help invocation passed; no server/browser session started",
+    "engine_tests": 85,
+    "schema_checks": 4,
+    "network_disabled": "not tested",
+    "RHEL_Firefox": "not tested",
+    "determinism": "synthetic member ordering/byte identity checked; existing output rejected"
+  }
+}

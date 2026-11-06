@@ -1,0 +1,23 @@
+{
+  "name": "atlas-code-intelligence",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "python -m http.server 4173 --directory public",
+    "test": "node tests/model.test.mjs && node tests/retrieval.test.mjs && node tests/tools.test.mjs && node tests/pilot-report.test.mjs",
+    "build": "node scripts/build.mjs",
+    "test:browser": "node tests/browser.test.mjs",
+    "index:sample": "python -m atlas_engine index --repo samples/aurora",
+    "test:native": "python -m atlas_engine test --repo samples/aurora",
+    "test:indexer": "python -m unittest discover -s tests/engine -v",
+    "replay": "python scripts/reproduce.py",
+    "snapshot": "node scripts/evaluate.mjs",
+    "pilot:collect": "python scripts/pilot.py collect",
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1",
+    "vite": "8.3.0"
+  }
+}

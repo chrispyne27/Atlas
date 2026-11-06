@@ -1,0 +1,98 @@
+{
+  "source_fingerprint": "7d53d70363ab4c5276facad69a840bbc7fc583bb724a5b032a2841b93b02eb13",
+  "executed_at": "2026-09-17T00:23:49.250201+00:00",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "compile_flags": [
+    "-std=c++11",
+    "-Wall",
+    "-Wextra",
+    "-Werror"
+  ],
+  "tests": [
+    {
+      "id": "TEST-nominalResize",
+      "symbol": "aurora::tests::nominalResize()",
+      "role": "existing",
+      "status": "passed",
+      "exit_code": 0,
+      "requirements": [
+        "REQ-UI-002",
+        "REQ-EVT-001"
+      ]
+    },
+    {
+      "id": "TEST-layoutClamps",
+      "symbol": "aurora::tests::layoutClamps()",
+      "role": "existing",
+      "status": "passed",
+      "exit_code": 0,
+      "requirements": [
+        "REQ-UI-002"
+      ]
+    },
+    {
+      "id": "TEST-cacheEvicts",
+      "symbol": "aurora::tests::cacheEvicts()",
+      "role": "existing",
+      "status": "passed",
+      "exit_code": 0,
+      "requirements": [
+        "REQ-RES-003"
+      ]
+    },
+    {
+      "id": "TEST-zeroResize",
+      "symbol": "aurora::tests::zeroResize()",
+      "role": "acceptance",
+      "status": "failed",
+      "exit_code": 1,
+      "requirements": [
+        "REQ-UI-002"
+      ]
+    },
+    {
+      "id": "TEST-negativeResize",
+      "symbol": "aurora::tests::negativeResize()",
+      "role": "acceptance",
+      "status": "failed",
+      "exit_code": 1,
+      "requirements": [
+        "REQ-UI-002"
+      ]
+    },
+    {
+      "id": "TEST-oversizeResize",
+      "symbol": "aurora::tests::oversizeResize()",
+      "role": "acceptance",
+      "status": "failed",
+      "exit_code": 1,
+      "requirements": [
+        "REQ-UI-002"
+      ]
+    },
+    {
+      "id": "TEST-eventMatchesLayout",
+      "symbol": "aurora::tests::eventMatchesLayout()",
+      "role": "acceptance",
+      "status": "failed",
+      "exit_code": 1,
+      "requirements": [
+        "REQ-UI-002",
+        "REQ-EVT-001"
+      ]
+    },
+    {
+      "id": "TEST-repeatedResize",
+      "symbol": "aurora::tests::repeatedResize()",
+      "role": "existing",
+      "status": "passed",
+      "exit_code": 0,
+      "requirements": [
+        "REQ-UI-002",
+        "REQ-EVT-001"
+      ]
+    }
+  ],
+  "passed": 4,
+  "total": 8
+}

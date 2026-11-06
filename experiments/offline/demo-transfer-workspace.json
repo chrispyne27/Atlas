@@ -1,0 +1,61 @@
+{
+  "source_commit": "2c8ee75cbb92560727303eda909c150416241d37",
+  "archive": "atlas-offline-2c8ee75.zip",
+  "bytes": 24823377,
+  "sha256": "6fa7533c6d5516dfed7cf6ec73f193a1d50ec87c9bfc45f71fcec258855fcc65",
+  "payload_files": 70,
+  "qualified": false,
+  "date": "2026-10-01",
+  "validation": {
+    "environment": "Ubuntu workspace; not RHEL qualification",
+    "manifested_files_verified": 69,
+    "installation": {
+      "status": "installed_and_smoke_checked",
+      "qualified": false,
+      "wheel": {
+        "filename": "libclang-18.1.1-py2.py3-none-manylinux2010_x86_64.whl",
+        "sha256": "c533091d8a3bbf7460a00cb6c1a71da93bffe148f172c7d03b1c31fbf8aa2a0b",
+        "bytes": 24515943
+      },
+      "native_check": {
+        "status": "passed",
+        "python": "3.12.14",
+        "platform": "Linux",
+        "libclang": "18.1.1",
+        "record_verified_files": 11,
+        "native_libraries": [
+          {
+            "file": "clang/native/libclang.so",
+            "bytes": 63703544,
+            "record_hash": "sha256:qGErHJpxJXASd_Y-Vhbx0euckUEMS_GVh4BnhoySf5Q"
+          }
+        ],
+        "smoke": "C++98 parse and resolved direct call",
+        "scope": "Installed files match wheel metadata; not an authenticity or whole-environment guarantee."
+      },
+      "scope": "Local parser environment only; RHEL, Firefox, build compatibility and offline-network isolation require separate validation."
+    },
+    "engine_tests": 91,
+    "schema_checks": 4,
+    "live_demo": {
+      "status": "passed",
+      "synthetic": true,
+      "checks": [
+        "extracted package launcher outside cwd",
+        "anonymous static page",
+        "API authentication",
+        "staging scope",
+        "Demo.Nominal lookup",
+        "four-step illustrative trace",
+        "evidence",
+        "hash-verified excerpt",
+        "unchanged database bytes"
+      ],
+      "browser_executed": false,
+      "tokens_saved": false,
+      "server_stopped": true
+    },
+    "RHEL_Firefox": "not run",
+    "network_disabled": "blocked by host namespace permissions; not run"
+  }
+}

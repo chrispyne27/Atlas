@@ -1,0 +1,135 @@
+{
+  "baseline": "975e5d9",
+  "environment": "Ubuntu workspace; not RHEL qualification",
+  "reports": {
+    "viewer": {
+      "report_version": 1,
+      "mode": "viewer",
+      "status": "blocked",
+      "qualified": false,
+      "blockers": [
+        "Host is not identified as the selected RHEL 9 target"
+      ],
+      "pending_validation": [
+        "RHEL package provenance and exact RPM versions",
+        "Firefox version and nine manual UI checks",
+        "offline installation and recovery test",
+        "real application scope and build compatibility",
+        "Firefox not found on PATH; confirm an approved local browser installation"
+      ],
+      "observations": {
+        "system": "Linux",
+        "architecture": "x86_64",
+        "python": "3.12.14",
+        "python_minor": [
+          3,
+          12
+        ],
+        "interpreter": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "libc": [
+          "glibc",
+          "2.39"
+        ],
+        "venv_active": false,
+        "os": {
+          "PRETTY_NAME": "Ubuntu 24.04.3 LTS",
+          "VERSION_ID": "24.04",
+          "ID": "ubuntu"
+        },
+        "sqlite": {
+          "status": "observed",
+          "version": "3.53.1",
+          "checks": [
+            "schema creation",
+            "foreign keys enabled",
+            "json_valid",
+            "integrity"
+          ]
+        },
+        "venv": true,
+        "pip": true,
+        "firefox_path": null,
+        "firefox_version": "not inspected; browser was not executed",
+        "libclang": {
+          "version": null
+        },
+        "assets": {
+          "local-trace.html": true,
+          "local-trace.css": true,
+          "local-trace.js": true
+        },
+        "parser_pin": "18.1.1"
+      },
+      "scope": "Read-only local prerequisites; no installation, network, subprocess, browser launch, native libclang load or repository indexing."
+    },
+    "indexer": {
+      "report_version": 1,
+      "mode": "indexer",
+      "status": "blocked",
+      "qualified": false,
+      "blockers": [
+        "Host is not identified as the selected RHEL 9 target",
+        "Selected interpreter lacks the pinned libclang distribution"
+      ],
+      "pending_validation": [
+        "RHEL package provenance and exact RPM versions",
+        "Firefox version and nine manual UI checks",
+        "offline installation and recovery test",
+        "real application scope and build compatibility",
+        "Firefox not found on PATH; confirm an approved local browser installation",
+        "verify-indexer-environment.py native integrity/smoke check",
+        "compiler and generated-input provenance"
+      ],
+      "observations": {
+        "system": "Linux",
+        "architecture": "x86_64",
+        "python": "3.12.14",
+        "python_minor": [
+          3,
+          12
+        ],
+        "interpreter": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "libc": [
+          "glibc",
+          "2.39"
+        ],
+        "venv_active": false,
+        "os": {
+          "PRETTY_NAME": "Ubuntu 24.04.3 LTS",
+          "VERSION_ID": "24.04",
+          "ID": "ubuntu"
+        },
+        "sqlite": {
+          "status": "observed",
+          "version": "3.53.1",
+          "checks": [
+            "schema creation",
+            "foreign keys enabled",
+            "json_valid",
+            "integrity"
+          ]
+        },
+        "venv": true,
+        "pip": true,
+        "firefox_path": null,
+        "firefox_version": "not inspected; browser was not executed",
+        "libclang": {
+          "version": null
+        },
+        "assets": {
+          "local-trace.html": true,
+          "local-trace.css": true,
+          "local-trace.js": true
+        },
+        "parser_pin": "18.1.1"
+      },
+      "scope": "Read-only local prerequisites; no installation, network, subprocess, browser launch, native libclang load or repository indexing."
+    }
+  },
+  "validation": {
+    "preflight_tests": 8,
+    "schema_checks": 4,
+    "native_suite": "not run",
+    "RHEL_Firefox": "not run"
+  }
+}
